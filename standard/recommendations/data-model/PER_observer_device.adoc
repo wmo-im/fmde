@@ -1,0 +1,8 @@
+[[per_data-model-observer_device]]
+[width="90%",cols="2,6a"]
+|===
+^|*Permission {counter:per-id}* |*/per/data-model/observer_device*
+^|A |An ObserverDevice message MAY define a ``url`` element.
+^|B |An ObserverDevice message MAY define a ``serialNumber`` element.
+^|C |An ObserverDevice message MAY define a ``firmwareVersion`` element.
+|===

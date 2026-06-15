@@ -30,10 +30,20 @@ include::../requirements/data-model/REQ_metadata.adoc[]
 
 ==== Metadata.Node
 
-A Node message describes the devices defines the instrument of data logger
+A Node message describes the devices defines the data capture and transmits the data.
 
+include::../requirements/data-model/REQ_node.adoc[]
+include::../recommendations/data-model/REC_node.adoc[]
+include::../recommendations/data-model/PER_node.adoc[]
 
 ==== Metadata.ObserverDevice
+
+The ObserverDevice desceribes invidivual devices connected to Node.
+
+include::../requirements/data-model/REQ_observer_device.adoc[]
+include::../recommendations/data-model/REC_observer_device.adoc[]
+include::../recommendations/data-model/PER_observer_device.adoc[]
+
 
 ==== Metadata.ParameterDefinition
 

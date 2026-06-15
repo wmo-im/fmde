@@ -85,8 +85,9 @@ message Location {
 }
 
 message Node {
+  string id = 1;
   string name = 1;
-  optional Location location= 2;
+  optional Location location = 2;
   optional string url = 3;
   optional string serialNumber = 4;
   optional string firmwareVersion = 5;

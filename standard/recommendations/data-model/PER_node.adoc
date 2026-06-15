@@ -1,0 +1,8 @@
+[[per_data-model-node]]
+[width="90%",cols="2,6a"]
+|===
+^|*Permission {counter:per-id}* |*/per/data-model/node*
+^|A |A Node message MAY define a ``url`` element.
+^|B |A Node message MAY define a ``serialNumber`` element.
+^|C |A Node message MAY define a ``firmwareVersion`` element.
+|===
