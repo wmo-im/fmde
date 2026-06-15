@@ -2,5 +2,7 @@
 [width="90%",cols="2,6a"]
 |===
 ^|*Requirement {counter:req-id}* |*/req/data-model/device-ref*
-^|A |A DeviceRef message SHALL define an ``observerId`` element as a reference to an ObserverDevice message or a ``node`` if the ObserverDevice cannot be determined.  // TODO verify
+^|A |A DeviceRef message SHALL one and only one of an ``observerId`` element as a reference to an ObserverDevice message or a ``node`` if the parameter is measured by the Node.
+^|B |When the ``node`` element is present, the parameter SHALL be measured by the Node Device itself (such as internal voltage or temperature of a datalogger).
+^|C |When the observerId field is set, it SHALL match the id of an ObserverDevice defined in the Metadata message.
 |===

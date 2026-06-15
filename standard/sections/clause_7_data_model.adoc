@@ -96,7 +96,7 @@ include::../requirements/data-model/REQ_parameter.adoc[]
 
 ==== Metadata.ParameterDefinition.Parameter.DeviceRef
 
-A DeviceRef message describes a reference to an ObserverDevice message.
+The DeviceRef message associates a parameter with the device that measures it. This message uses a oneof field to reference either the node device or a specific observer device.
 
 include::../requirements/data-model/REQ_device_ref.adoc[]
 
