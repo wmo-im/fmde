@@ -1,6 +1,6 @@
 == Data Model
 
-The data model defines the structure and organization of information transmitted from the Node to the Host using Protocol Buffers (Protobuf) as the Data Format. The data model is formally specified in the protobuf schema firstmile.proto.
+The data model defines the structure and organization of information transmitted from the Node to the Hub using Protocol Buffers (Protobuf) as the Data Format. The data model is formally specified in the protobuf schema firstmile.proto.
 
 The data model supports two primary use cases:
 
@@ -102,11 +102,11 @@ include::../requirements/data-model/REQ_device_ref.adoc[]
 
 ==== Data
 
-The Data message is the primary container for transmitting observation data from the Node to the Host. This message may be transmitted as frequently as needed to deliver current or batched observations.
+The Data message is the primary container for transmitting observation data from the Node to the Hub. This message may be transmitted as frequently as needed to deliver current or batched observations.
 
 A Data message may contain multiple Observation messages, enabling efficient batch transmission of measurement data. Each observation is independent and contains its own timestamp and parameter reference.
 
-NOTE: The Node may transmit Data messages containing observations that reference parameter definitions not yet received by the Host. In this case, the Host shall buffer or queue such observations until the corresponding Metadata message is received.
+NOTE: The Node may transmit Data messages containing observations that reference parameter definitions not yet received by the Hub. In this case, the Hub shall buffer or queue such observations until the corresponding Metadata message is received.
 
 include::../requirements/data-model/REQ_data.adoc[]
 

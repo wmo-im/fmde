@@ -10,11 +10,11 @@ The following additional terms and definitions also apply.
 === Node
 The "thing" that collects and transmits data. Typically at the remote site, such as a weather station. This would be a device such as a datalogger or a sensor.
 
-=== Host
+=== Hub
 The software at the central server that receives data from the Node and prepares it for further processing. It must be able to receive the data using the agreed Data Format and Protocol.
 
 === Protocol
-The IP based set of rules that determine how data is transferred from the Node to the Host.
+The IP based set of rules that determine how data is transferred from the Node to the Hub.
 
 === Data Format
 A data format is the organisation of information according to specifications. It defines how the data is structured and encoded.
