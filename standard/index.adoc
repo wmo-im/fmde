@@ -11,6 +11,7 @@
 :sectnums:
 :sectnumlevels: 4
 :sectanchors:
+:xrefstyle: short
 
 
 = {title}
