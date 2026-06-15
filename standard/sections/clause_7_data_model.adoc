@@ -1,0 +1,11 @@
+== Data Model
+
+TODO one sentence
+
+=== Requirements Class "Data Model"
+
+==== Overview
+
+This Requirements Class provides requirements for the Data Model.
+
+include::../requirements/requirements_class_data-model.adoc[]

@@ -1,0 +1,27 @@
+== Conventions
+This section provides details and examples for any conventions used in the document. Examples of conventions are symbols, abbreviations, use of JSON Schema, or special notes regarding how to read the document.
+
+=== Identifiers
+The normative provisions in this Standard are denoted by the URI:
+
+http://wis.wmo.int/spec/fmdm/1
+
+All requirements and conformance tests that appear in this document are denoted by partial URIs which are relative to this base.
+
+=== Examples
+
+Protocol topic examples provided in this specification are encoded as `plain text strings`.
+
+Data and metadata message examples provided in this specification are encoded as JSON.
+
+Complete examples can be found at https://schemas.wmo.int/fmdm/1.0.0/examples
+
+=== Schemas
+
+Monitoring event message schemas can be found at https://schemas.wmo.int/fmdm/1.0.0
+
+=== Schema representation
+
+Protobuf[https://protobuf.dev] constructs are used throughout this standard to define the structure of data and metadata messages.
+
+Data and metadata message instances are always defined as JSON.

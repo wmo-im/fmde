@@ -1,0 +1,12 @@
+== Conformance
+
+Conformance with this standard shall be checked using the tests specified in Annex A (normative) of this document.
+
+WMO First Mile Data Management defines the encoding and transmission of observation data from remote monitoring stations (Nodes) to a central data collection system (Hub).
+
+This standard identifies numerous Requirements Classes which define the functional requirements.
+
+The mandatory Requirements Classes for this specification are:
+
+* "Data Model"
+* "Protocol"

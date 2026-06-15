@@ -1,0 +1,6 @@
+[appendix]
+:appendix-caption: Annex
+[[Bibliography]]
+= Bibliography
+
+* [[link-relations]] IANA: Link Relation Types, https://www.iana.org/assignments/link-relations/link-relations.xml

@@ -1,0 +1,3 @@
+== References
+
+* [[protobuf]] Google LLC: Protocol Buffers Documentation (2026) footnote:[https://protobuf.dev]

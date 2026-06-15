@@ -1,0 +1,8 @@
+[[examples]]
+[appendix]
+:appendix-caption: Annex
+== Examples (Informative)
+
+=== Transmission topics
+
+=== Data and metadata messages

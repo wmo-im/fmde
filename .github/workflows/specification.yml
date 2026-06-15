@@ -1,0 +1,47 @@
+name: build specification
+
+on:
+  push:
+    branches:
+    - main
+    paths:
+    - 'standard/**'
+
+env:
+  SPEC_FILE_BASENAME: fmdm-DRAFT
+
+jobs:
+  build-fmdm:
+    name: Build WMO First Mile Data Management documentation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install dependencies
+        run: |
+          sudo apt-get update -y \
+          && sudo apt-get install -y pandoc \
+          && sudo gem install asciidoctor asciidoctor-pdf
+      - name: checkout repository
+        uses: actions/checkout@master
+      - name: build specification
+        run: |
+          cd standard \
+          && asciidoctor --trace -a stylesheet=css/wmo-asciidoc.css -o /tmp/fmdm/standard/${SPEC_FILE_BASENAME}.html index.adoc \
+          && asciidoctor --trace --backend docbook --out-file - index.adoc | pandoc --from docbook --to docx --output /tmp/fmdm/standard/${SPEC_FILE_BASENAME}.docx \
+          && asciidoctor --trace -r asciidoctor-pdf --trace -b pdf -o /tmp/fmdm/standard/${SPEC_FILE_BASENAME}.pdf index.adoc \
+          && mkdir -p /tmp/fmdm/standard/images \
+          && cp images/*.png /tmp/fmdm/standard/images \
+          && cd ..
+      - name: checkout gh-pages branch
+        uses: actions/checkout@master
+        with:
+          ref: gh-pages
+      - name: update gh-pages branch and publish
+        run: | 
+          git checkout gh-pages
+          git config --global user.email "tomkralidis@gmail.com"
+          git config --global user.name "Tom Kralidis"
+          rm -rf standard
+          mv -f /tmp/fmdm/* .
+          git add .
+          git commit -am "update FMDM build"
+          git push
