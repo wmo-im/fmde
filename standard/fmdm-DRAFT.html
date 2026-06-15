@@ -131,7 +131,7 @@ body {
 <li><a href="#_terms_and_definitions">4. Terms and definitions</a>
 <ul class="sectlevel2">
 <li><a href="#_node">4.1. Node</a></li>
-<li><a href="#_host">4.2. Host</a></li>
+<li><a href="#_hub">4.2. Hub</a></li>
 <li><a href="#_protocol">4.3. Protocol</a></li>
 <li><a href="#_data_format">4.4. Data Format</a></li>
 <li><a href="#_data_serialization">4.5. Data Serialization</a></li>
@@ -323,7 +323,7 @@ body {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_host"><a class="anchor" href="#_host"></a>4.2. Host</h3>
+<h3 id="_hub"><a class="anchor" href="#_hub"></a>4.2. Hub</h3>
 <div class="paragraph">
 <p>The software at the central server that receives data from the Node and prepares it for further processing. It must be able to receive the data using the agreed Data Format and Protocol.</p>
 </div>
@@ -331,7 +331,7 @@ body {
 <div class="sect2">
 <h3 id="_protocol"><a class="anchor" href="#_protocol"></a>4.3. Protocol</h3>
 <div class="paragraph">
-<p>The IP based set of rules that determine how data is transferred from the Node to the Host.</p>
+<p>The IP based set of rules that determine how data is transferred from the Node to the Hub.</p>
 </div>
 </div>
 <div class="sect2">
@@ -544,7 +544,7 @@ body {
 <h2 id="_data_model"><a class="anchor" href="#_data_model"></a>7. Data Model</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The data model defines the structure and organization of information transmitted from the Node to the Host using Protocol Buffers (Protobuf) as the Data Format. The data model is formally specified in the protobuf schema firstmile.proto.</p>
+<p>The data model defines the structure and organization of information transmitted from the Node to the Hub using Protocol Buffers (Protobuf) as the Data Format. The data model is formally specified in the protobuf schema firstmile.proto.</p>
 </div>
 <div class="paragraph">
 <p>The data model supports two primary use cases:</p>
@@ -1139,7 +1139,7 @@ Observer device identifiers shall remain stable across Node restarts and metadat
 <div class="sect3">
 <h4 id="_data"><a class="anchor" href="#_data"></a>7.1.11. Data</h4>
 <div class="paragraph">
-<p>The Data message is the primary container for transmitting observation data from the Node to the Host. This message may be transmitted as frequently as needed to deliver current or batched observations.</p>
+<p>The Data message is the primary container for transmitting observation data from the Node to the Hub. This message may be transmitted as frequently as needed to deliver current or batched observations.</p>
 </div>
 <div class="paragraph">
 <p>A Data message may contain multiple Observation messages, enabling efficient batch transmission of measurement data. Each observation is independent and contains its own timestamp and parameter reference.</p>
@@ -1151,7 +1151,7 @@ Observer device identifiers shall remain stable across Node restarts and metadat
 <div class="title">Note</div>
 </td>
 <td class="content">
-The Node may transmit Data messages containing observations that reference parameter definitions not yet received by the Host. In this case, the Host shall buffer or queue such observations until the corresponding Metadata message is received.
+The Node may transmit Data messages containing observations that reference parameter definitions not yet received by the Hub. In this case, the Hub shall buffer or queue such observations until the corresponding Metadata message is received.
 </td>
 </tr>
 </table>
@@ -1914,7 +1914,7 @@ The choice of reference surface is determined by the user based on the measureme
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-06-15 19:58:49 UTC
+Last updated 2026-06-15 20:00:12 UTC
 </div>
 </div>
 </body>
