@@ -130,7 +130,15 @@ body {
 <li><a href="#_references">3. References</a></li>
 <li><a href="#_terms_and_definitions">4. Terms and definitions</a>
 <ul class="sectlevel2">
-<li><a href="#_abbreviated_terms">4.1. Abbreviated terms</a></li>
+<li><a href="#_node">4.1. Node</a></li>
+<li><a href="#_host">4.2. Host</a></li>
+<li><a href="#_protocol">4.3. Protocol</a></li>
+<li><a href="#_data_format">4.4. Data Format</a></li>
+<li><a href="#_data_serialization">4.5. Data Serialization</a></li>
+<li><a href="#_data_schema">4.6. Data Schema</a></li>
+<li><a href="#_observation">4.7. Observation</a></li>
+<li><a href="#_metadata">4.8. Metadata</a></li>
+<li><a href="#_abbreviated_terms">4.9. Abbreviated terms</a></li>
 </ul>
 </li>
 <li><a href="#_conventions">5. Conventions</a>
@@ -147,11 +155,18 @@ body {
 <li><a href="#_requirements_class_data_model">7.1. Requirements Class "Data Model"</a>
 <ul class="sectlevel3">
 <li><a href="#_overview">7.1.1. Overview</a></li>
+<li><a href="#_firstmilemessage">7.1.2. FirstMileMessage</a></li>
+<li><a href="#_location">7.1.3. Location</a></li>
+<li><a href="#_metadata_2">7.1.4. Metadata</a></li>
+<li><a href="#_metadata_node">7.1.5. Metadata.Node</a></li>
+<li><a href="#_metadata_observerdevice">7.1.6. Metadata.ObserverDevice</a></li>
+<li><a href="#_metadata_parameterdefinition">7.1.7. Metadata.ParameterDefinition</a></li>
+<li><a href="#_metadata_parameterdefinition_parameter">7.1.8. Metadata.ParameterDefinition.Parameter</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#_protocol">8. Protocol</a>
+<li><a href="#_protocol_2">8. Protocol</a>
 <ul class="sectlevel2">
 <li><a href="#_requirements_class_protocol">8.1. Requirements Class "Protocol"</a>
 <ul class="sectlevel3">
@@ -173,6 +188,12 @@ body {
 <li><a href="#_schemas_normative">Annex B: Schemas (Normative)</a>
 <ul class="sectlevel2">
 <li><a href="#_data_model_2">B.1. Data Model</a></li>
+<li><a href="#_enumerations">B.2. Enumerations</a>
+<ul class="sectlevel3">
+<li><a href="#_cellmethod">B.2.1. CellMethod</a></li>
+<li><a href="#_referencesurface">B.2.2. ReferenceSurface</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#examples">Annex C: Examples (Informative)</a>
@@ -281,7 +302,55 @@ body {
 <p>The following additional terms and definitions also apply.</p>
 </div>
 <div class="sect2">
-<h3 id="_abbreviated_terms"><a class="anchor" href="#_abbreviated_terms"></a>4.1. Abbreviated terms</h3>
+<h3 id="_node"><a class="anchor" href="#_node"></a>4.1. Node</h3>
+<div class="paragraph">
+<p>The "thing" that collects and sends data. Typically at the remote site, such as a weather station. This would be a device such as a datalogger or a sensor.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_host"><a class="anchor" href="#_host"></a>4.2. Host</h3>
+<div class="paragraph">
+<p>The software at the central server that receives data from the Node and prepares it for further processing. It must be able to receive the data usingthe agreed Data Format and Protocol.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_protocol"><a class="anchor" href="#_protocol"></a>4.3. Protocol</h3>
+<div class="paragraph">
+<p>The IP based set of rules that determine how data is transferred from the Node to the Host.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_data_format"><a class="anchor" href="#_data_format"></a>4.4. Data Format</h3>
+<div class="paragraph">
+<p>A data format is the organisation of information according to specifications. It defines how the data is structured and encoded.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_data_serialization"><a class="anchor" href="#_data_serialization"></a>4.5. Data Serialization</h3>
+<div class="paragraph">
+<p>The process of converting structured data into a Data Format that can be easily transmitted and reconstructed later.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_data_schema"><a class="anchor" href="#_data_schema"></a>4.6. Data Schema</h3>
+<div class="paragraph">
+<p>A formal description in the declarative language defining the structure and constraints for the Data Format.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_observation"><a class="anchor" href="#_observation"></a>4.7. Observation</h3>
+<div class="paragraph">
+<p>A single measurement data point collected by the Node, such as a temperature reading, humidity level, or wind speed.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_metadata"><a class="anchor" href="#_metadata"></a>4.8. Metadata</h3>
+<div class="paragraph">
+<p>Additional information, such as the monitoring site ID, location, types of sensors, measured variables, measurement units, and other relevant details. It provides context for the data being transmitted.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_abbreviated_terms"><a class="anchor" href="#_abbreviated_terms"></a>4.9. Abbreviated terms</h3>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 1. Symbols and abbreviated terms</caption>
 <colgroup>
@@ -435,11 +504,137 @@ body {
 </tbody>
 </table>
 </div>
+<div class="sect3">
+<h4 id="_firstmilemessage"><a class="anchor" href="#_firstmilemessage"></a>7.1.2. FirstMileMessage</h4>
+<div class="paragraph">
+<p>A FirstMileMessage message denotes whether the content describes data or metadata.</p>
+</div>
+<table id="req_data-model-first_mile_message" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 1</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/data-model/first_mile_message</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>A FirstMileMessage message SHALL be used as the root definition of a message.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>A FirstMileMessage message SHALL declare <code>data</code> or <code>metadata</code>.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_location"><a class="anchor" href="#_location"></a>7.1.3. Location</h4>
+<div class="paragraph">
+<p>A Location message defines the geospatial location of a given ObserverDevice or Node.</p>
+</div>
+<table id="req_data-model-location" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 2</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/data-model/location</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>A Location message SHALL define a <code>heightMetres</code> element in metres, relevant to the <code>referenceSurface</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>A Location message SHALL define a <code>referenceSurface</code> element using the ReferenceSurface enumeration defined in Annex B.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_metadata_2"><a class="anchor" href="#_metadata_2"></a>7.1.4. Metadata</h4>
+<div class="paragraph">
+<p>A Metadata message defines the observers and parameters defined at a given Node.  It also defines a namespace map for parameter definitions using existing controlled vocabularies.</p>
+</div>
+<table id="req_data-model-metadata" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 3</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/data-model/metadata</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>A Metadata message SHALL define a <code>node</code> element using a Node message.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>A Metadata message SHALL define one or more <code>observers</code> using the ObserverDevice message.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>A Metadata message SHALL define one or more <code>parameterDefinitions</code> using the ParameterDefinition message.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">D</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>A Metadata message SHALL define a <code>namespace</code> element using one of more maps of namespace prefixes and URIs.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_metadata_node"><a class="anchor" href="#_metadata_node"></a>7.1.5. Metadata.Node</h4>
+<div class="paragraph">
+<p>A Node message describes the devices defines the instrument of data logger</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_metadata_observerdevice"><a class="anchor" href="#_metadata_observerdevice"></a>7.1.6. Metadata.ObserverDevice</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_metadata_parameterdefinition"><a class="anchor" href="#_metadata_parameterdefinition"></a>7.1.7. Metadata.ParameterDefinition</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_metadata_parameterdefinition_parameter"><a class="anchor" href="#_metadata_parameterdefinition_parameter"></a>7.1.8. Metadata.ParameterDefinition.Parameter</h4>
+
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_protocol"><a class="anchor" href="#_protocol"></a>8. Protocol</h2>
+<h2 id="_protocol_2"><a class="anchor" href="#_protocol_2"></a>8. Protocol</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>TODO one sentence</p>
@@ -554,10 +749,7 @@ Schema documents will only be published on <code>schemas.wmo.int</code> once the
 <div class="content">
 <pre class="highlight"><code class="language-yaml" data-lang="yaml">syntax = "proto3";
 
-package wmo.firstmile.poc1;
-
-option java_package = "wmo.firstmile.poc1";
-option java_outer_classname = "Firstmile";
+package int.wmo.wis.spec.fmdm.1.conf.data_model;
 
 import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
@@ -637,7 +829,7 @@ enum ReferenceSurface {
 message Location {
   optional double latitude = 1;
   optional double longitude = 2;
-  double heightMeter = 3;
+  double heightMetres = 3;
   ReferenceSurface referenceSurface = 4; 
 }
 
@@ -652,7 +844,7 @@ message Node {
 message ObserverDevice {
   uint32 id = 1;
   string name = 2;
-  optional Location location= 3;
+  optional Location location = 3;
   optional string url = 4;
   optional string serialNumber = 5;
   optional string firmwareVersion = 6;
@@ -679,6 +871,167 @@ message FirstMileMessage {
   }
 }</code></pre>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_enumerations"><a class="anchor" href="#_enumerations"></a>B.2. Enumerations</h3>
+<div class="sect3">
+<h4 id="_cellmethod"><a class="anchor" href="#_cellmethod"></a>B.2.1. CellMethod</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Name</th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Value</th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>CELL_METHOD_UNSPECIFIED</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Required default</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>POINT</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Instantaneous value at a point</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>SUM</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Sum over the cell</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>MAXIMUM</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Maximum value</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>MAXIMUM_ABSOLUTE_VALUE</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Maximum of absolute values</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>MEDIAN</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Median value</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>MID_RANGE</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Average of maximum and minimum</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>MINIMUM</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Minimum value</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>MINIMUM_ABSOLUTE_VALUE</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Minimum of absolute values</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>MEAN</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">9</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Mean (average) value</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>MEAN_ABSOLUTE_VALUE</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">10</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Mean of absolute values</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>MEAN_OF_UPPER_DECILE</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">11</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Mean of the upper group of data values defined by the upper tenth of their distribution</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>MODE</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">12</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Mode (most common value)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>RANGE</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">13</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Absolute difference between maximum and minimum</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>ROOT_MEAN_SQUARE</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">14</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Root mean square (RMS)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>STANDARD_DEVIATION</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">15</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Standard deviation within the cell</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>SUM_OF_SQUARES</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">16</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Sum of squares</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>VARIANCE</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">17</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Variance within the cell</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_referencesurface"><a class="anchor" href="#_referencesurface"></a>B.2.2. ReferenceSurface</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Name</th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Value</th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>REFERENCE_SURFACE_UNSPECIFIED</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Default</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>MSL</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Mean Sea Level</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>GEOID</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Geoid</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>GL</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Ground Level</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>REFERENCE_ELLIPSOID</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Reference Ellipsoid</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>PRESSURE_1000_HPA</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1000 hPa Pressure Level</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -755,7 +1108,7 @@ message FirstMileMessage {
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-06-15 13:11:39 UTC
+Last updated 2026-06-15 16:26:54 UTC
 </div>
 </div>
 </body>
