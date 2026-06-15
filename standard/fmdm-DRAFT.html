@@ -162,6 +162,7 @@ body {
 <li><a href="#_metadata_observerdevice">7.1.6. Metadata.ObserverDevice</a></li>
 <li><a href="#_metadata_parameterdefinition">7.1.7. Metadata.ParameterDefinition</a></li>
 <li><a href="#_metadata_parameterdefinition_parameter">7.1.8. Metadata.ParameterDefinition.Parameter</a></li>
+<li><a href="#_metadata_parameterdefinition_parameter_deviceref">7.1.9. Metadata.ParameterDefinition.Parameter.DeviceRef</a></li>
 </ul>
 </li>
 </ul>
@@ -693,9 +694,9 @@ body {
 <div class="sect3">
 <h4 id="_metadata_observerdevice"><a class="anchor" href="#_metadata_observerdevice"></a>7.1.6. Metadata.ObserverDevice</h4>
 <div class="paragraph">
-<p>The ObserverDevice desceribes invidivual devices connected to Node.</p>
+<p>An ObserverDevice message describes individual devices connected to Node.</p>
 </div>
-<table id="req_data-model-observer-device" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_data-model-observer_device" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -704,7 +705,7 @@ body {
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 5</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/data-model/observer-device</strong></p>
+<p><strong>/req/data-model/observer_device</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -776,11 +777,123 @@ body {
 </div>
 <div class="sect3">
 <h4 id="_metadata_parameterdefinition"><a class="anchor" href="#_metadata_parameterdefinition"></a>7.1.7. Metadata.ParameterDefinition</h4>
-
+<div class="paragraph">
+<p>A ParameterDefinition message describes a set of variables or measurement types.</p>
+</div>
+<table id="req_data-model-parameter_definition" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 6</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/data-model/parameter_definition</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>A ParameterDefinition message SHALL define an <code>id</code> element.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>A ParameterDefinition message SHALL define a <code>description</code> element.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>A ParameterDefinition message SHALL define one or more <code>parameters</code> a <code>description</code> element.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect3">
 <h4 id="_metadata_parameterdefinition_parameter"><a class="anchor" href="#_metadata_parameterdefinition_parameter"></a>7.1.8. Metadata.ParameterDefinition.Parameter</h4>
-
+<div class="paragraph">
+<p>A Parameter message describes single variable or measurement type.</p>
+</div>
+<table id="req_data-model-parameter" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 7</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/data-model/parameter</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>A Parameter message SHALL define a <code>longName</code> element.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>A Parameter message SHALL define a <code>unit</code> element using the <a href="https://codes.wmo.int/common/unit">WMO Register: Code Table C-6: List of units for TDCFs</a>. // TODO verify</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>A Parameter message SHALL define a <code>standardNames</code> map which describes one to many namespace prefix and URI for the equivalent parameter name in an external vocabulary.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">D</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>A Parameter message SHALL define a <code>device</code> element using a DeviceRef message.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">E</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>A Parameter message SHALL define a <code>cellMethod</code> element using a CellMethod enumeration.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>A Parameter message SHALL define a <code>cellPeriodSeconds</code> element.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_metadata_parameterdefinition_parameter_deviceref"><a class="anchor" href="#_metadata_parameterdefinition_parameter_deviceref"></a>7.1.9. Metadata.ParameterDefinition.Parameter.DeviceRef</h4>
+<div class="paragraph">
+<p>A DeviceRef message describes a reference to an ObserverDevice message.</p>
+</div>
+<table id="req_data-model-device-ref" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 8</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/data-model/device-ref</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>A DeviceRef message SHALL define an <code>observerId</code> element as a reference to an ObserverDevice message or a <code>node</code> if the ObserverDevice cannot be determined.  // TODO verify</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -1261,7 +1374,7 @@ message FirstMileMessage {
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-06-15 17:14:10 UTC
+Last updated 2026-06-15 18:21:14 UTC
 </div>
 </div>
 </body>
