@@ -18,10 +18,10 @@ Complete examples can be found at https://schemas.wmo.int/fmdm/1.0.0/examples
 
 === Schemas
 
-Monitoring event message schemas can be found at https://schemas.wmo.int/fmdm/1.0.0
+Data and metadata message schemas can be found at https://schemas.wmo.int/fmdm/1.0.0
 
 === Schema representation
 
-Protobuf[https://protobuf.dev] constructs are used throughout this standard to define the structure of data and metadata messages.
+https://protobuf.dev[Protobuf] is used throughout this standard to define the structure of data and metadata messages.
 
 Data and metadata message instances are always defined as JSON.
