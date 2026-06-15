@@ -1,0 +1,11 @@
+[[req_data-model-parameter]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/data-model/parameter*
+^|A |A Parameter message SHALL define a ``longName`` element.
+^|B |A Parameter message SHALL define a ``unit`` element using the https://codes.wmo.int/common/unit[WMO Register: Code Table C-6: List of units for TDCFs]. // TODO verify
+^|C |A Parameter message SHALL define a ``standardNames`` map which describes one to many namespace prefix and URI for the equivalent parameter name in an external vocabulary.
+^|D |A Parameter message SHALL define a ``device`` element using a DeviceRef message.
+^|E |A Parameter message SHALL define a ``cellMethod`` element using a CellMethod enumeration.
+^|F |A Parameter message SHALL define a ``cellPeriodSeconds`` element.
+|===

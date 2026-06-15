@@ -38,15 +38,26 @@ include::../recommendations/data-model/PER_node.adoc[]
 
 ==== Metadata.ObserverDevice
 
-The ObserverDevice desceribes invidivual devices connected to Node.
+An ObserverDevice message describes individual devices connected to Node.
 
 include::../requirements/data-model/REQ_observer_device.adoc[]
 include::../recommendations/data-model/REC_observer_device.adoc[]
 include::../recommendations/data-model/PER_observer_device.adoc[]
 
-
 ==== Metadata.ParameterDefinition
+
+A ParameterDefinition message describes a set of variables or measurement types.
+
+include::../requirements/data-model/REQ_parameter_definition.adoc[]
 
 ==== Metadata.ParameterDefinition.Parameter
 
+A Parameter message describes single variable or measurement type.
 
+include::../requirements/data-model/REQ_parameter.adoc[]
+
+==== Metadata.ParameterDefinition.Parameter.DeviceRef
+
+A DeviceRef message describes a reference to an ObserverDevice message.
+
+include::../requirements/data-model/REQ_device_ref.adoc[]
