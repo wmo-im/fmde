@@ -11,3 +11,49 @@ NOTE: Schema documents will only be published on `schemas.wmo.int` once the stan
 ----
 include::../../schemas/first-mile-data-model.proto[]
 ----
+
+=== Enumerations
+
+==== CellMethod
+
+|===
+| Name | Value | Description
+
+| ``CELL_METHOD_UNSPECIFIED`` | 0 | Required default
+| ``POINT`` | 1 | Instantaneous value at a point
+| ``SUM`` | 2 | Sum over the cell
+| ``MAXIMUM`` | 3 | Maximum value
+| ``MAXIMUM_ABSOLUTE_VALUE`` | 4 | Maximum of absolute values
+| ``MEDIAN`` | 5 | Median value
+| ``MID_RANGE`` | 6 | Average of maximum and minimum
+| ``MINIMUM`` | 7 | Minimum value
+| ``MINIMUM_ABSOLUTE_VALUE`` | 8 | Minimum of absolute values
+| ``MEAN`` | 9 | Mean (average) value
+| ``MEAN_ABSOLUTE_VALUE`` | 10 | Mean of absolute values
+| ``MEAN_OF_UPPER_DECILE`` | 11 | Mean of the upper group of data values defined by the upper tenth of their distribution
+| ``MODE`` | 12 | Mode (most common value)
+| ``RANGE`` | 13 | Absolute difference between maximum and minimum
+| ``ROOT_MEAN_SQUARE`` | 14 | Root mean square (RMS)
+| ``STANDARD_DEVIATION`` | 15 |  Standard deviation within the cell
+| ``SUM_OF_SQUARES`` | 16 | Sum of squares
+| ``VARIANCE`` | 17 | Variance within the cell
+
+|===
+
+
+==== ReferenceSurface
+
+|===
+| Name | Value | Description
+
+| ``REFERENCE_SURFACE_UNSPECIFIED`` | 0 | Default
+| ``MSL`` | 1 | Mean Sea Level
+| ``GEOID`` |2 | Geoid
+| ``GL`` | 3 | Ground Level
+| ``REFERENCE_ELLIPSOID`` | 4 | Reference Ellipsoid
+| ``PRESSURE_1000_HPA`` | 5 | 1000 hPa Pressure Level
+
+|===
+
+
+

@@ -9,3 +9,34 @@ TODO one sentence
 This Requirements Class provides requirements for the Data Model.
 
 include::../requirements/requirements_class_data-model.adoc[]
+
+==== FirstMileMessage
+
+A FirstMileMessage message denotes whether the content describes data or metadata.
+
+include::../requirements/data-model/REQ_first_mile_message.adoc[]
+
+==== Location
+
+A Location message defines the geospatial location of a given ObserverDevice or Node.
+
+include::../requirements/data-model/REQ_location.adoc[]
+
+==== Metadata
+
+A Metadata message defines the observers and parameters defined at a given Node.  It also defines a namespace map for parameter definitions using existing controlled vocabularies.
+
+include::../requirements/data-model/REQ_metadata.adoc[]
+
+==== Metadata.Node
+
+A Node message describes the devices defines the instrument of data logger
+
+
+==== Metadata.ObserverDevice
+
+==== Metadata.ParameterDefinition
+
+==== Metadata.ParameterDefinition.Parameter
+
+

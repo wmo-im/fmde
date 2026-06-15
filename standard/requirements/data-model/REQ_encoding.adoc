@@ -2,6 +2,6 @@
 [width="90%",cols="2,6a"]
 |===
 ^|*Requirement {counter:req-id}* |*/req/data-model/encoding*
-^|A |The encoding of the data model SHALL be Protobuf.
-^|B |The version of Protobuf SHALL be 3.
+^|A |A data message SHALL be conformant and validate against the Protobuf schema definition defined in Annex B.
+^|A |A metadata message SHALL be conformant and validate against the Protobuf schema definition defined in Annex B.
 |===

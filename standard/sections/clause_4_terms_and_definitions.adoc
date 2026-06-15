@@ -6,6 +6,31 @@ This document also uses terms defined in the OGC Standard for Modular specificat
 
 The following additional terms and definitions also apply.
 
+
+=== Node
+The "thing" that collects and sends data. Typically at the remote site, such as a weather station. This would be a device such as a datalogger or a sensor.
+
+=== Host
+The software at the central server that receives data from the Node and prepares it for further processing. It must be able to receive the data usingthe agreed Data Format and Protocol.
+
+=== Protocol
+The IP based set of rules that determine how data is transferred from the Node to the Host.
+
+=== Data Format
+A data format is the organisation of information according to specifications. It defines how the data is structured and encoded.
+
+=== Data Serialization
+The process of converting structured data into a Data Format that can be easily transmitted and reconstructed later.
+
+=== Data Schema
+A formal description in the declarative language defining the structure and constraints for the Data Format.
+
+=== Observation
+A single measurement data point collected by the Node, such as a temperature reading, humidity level, or wind speed.
+
+=== Metadata
+Additional information, such as the monitoring site ID, location, types of sensors, measured variables, measurement units, and other relevant details. It provides context for the data being transmitted.
+
 === Abbreviated terms
 
 .Symbols and abbreviated terms

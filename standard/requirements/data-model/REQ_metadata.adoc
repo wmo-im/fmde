@@ -1,0 +1,9 @@
+[[req_data-model-metadata]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/data-model/metadata*
+^|A | A Metadata message SHALL define a ``node`` element using a Node message.
+^|B | A Metadata message SHALL define one or more ``observers`` using the ObserverDevice message.
+^|C | A Metadata message SHALL define one or more ``parameterDefinitions`` using the ParameterDefinition message.
+^|D | A Metadata message SHALL define a ``namespace`` element using one of more maps of namespace prefixes and URIs.
+|===

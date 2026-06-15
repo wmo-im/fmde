@@ -80,7 +80,7 @@ enum ReferenceSurface {
 message Location {
   optional double latitude = 1;
   optional double longitude = 2;
-  double heightMeter = 3;
+  double heightMetres = 3;
   ReferenceSurface referenceSurface = 4; 
 }
 
@@ -95,7 +95,7 @@ message Node {
 message ObserverDevice {
   uint32 id = 1;
   string name = 2;
-  optional Location location= 3;
+  optional Location location = 3;
   optional string url = 4;
   optional string serialNumber = 5;
   optional string firmwareVersion = 6;
