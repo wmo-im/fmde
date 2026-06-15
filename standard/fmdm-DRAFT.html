@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.26">
+<meta name="copyright" content="Copyright © 2026 World Meteorological Organization (WMO)">
+<title>WMO First Mile Data Management</title>
+<style>
+@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";
+@import "https://cdn.jsdelivr.net/gh/asciidoctor/asciidoctor@2.0/data/stylesheets/asciidoctor-default.css";
+
+h1, h2, h3, h4, h5, h6,
+.sidebarblock > .content > .title {
+  color: #005398;
+  font-weight: bold;
+}
+
+#toctitle {
+  color: #005398;
+  font-weight: bold;
+}
+
+#content #toc {
+    border: 1px solid #005398;
+    margin-bottom: 1.25em;
+    padding: 1.25em;
+    background: #ffffff;
+    border-radius: 4px;
+}
+
+#header {
+  border-bottom: 4px solid #005398;
+  margin-top: 10px;
+
+}
+
+#header>h1:first-child {
+    color: #005398;
+    margin-top: 15px;
+    margin-bottom: 0;
+}
+
+#header::before {
+  content: "";
+  display: block;
+  height: 72px;
+  background: url("images/wmo-logo-en.png") no-repeat left center;
+  background-size: contain;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+.subheader, .admonitionblock td.content>.title, .audioblock>.title, .exampleblock>.title, .imageblock>.title, .listingblock>.title, .literalblock>.title, .stemblock>.title, .openblock>.title, .paragraph>.title, .quoteblock>.title, table.tableblock>.title, .verseblock>.title, .videoblock>.title, .dlist>.title, .olist>.title, .ulist>.title, .qlist>.title, .hdlist>.title {
+    line-height: 1.45;
+    color: #005398;
+    font-weight: 400;
+    margin-top: 0;
+    margin-bottom: .25em;
+}
+
+#footer {
+    max-width: none;
+    background: #005398;
+    padding: 1.25em;
+}
+
+#footer-text {
+    color: #ffffff;
+    line-height: 1.44;
+    font-weight: bold;
+}
+
+</style>
+</head>
+<body class="book">
+<div id="header">
+<h1>WMO First Mile Data Management</h1>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div style="page-break-after: always;"></div>
+<table class="tableblock frame-none grid-none stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong class="big">World Meteorological Organization</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Date: 2026-06-15</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Version: 0.0.1-DRAFT-2026-06-15</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Document location: TBD</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Document status: DRAFT</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Revision history: see <a href="#_revision_history">Annex E</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Standing Committee on Information Management and Technology (SC-IMT)<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Commission for Observation, Infrastructure and Information Systems (INFCOM)<sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Copyright © 2026 World Meteorological Organization (WMO)</p></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-after: always;"></div>
+<div id="toc" class="toc">
+<div id="toctitle" class="title">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_scope">1. Scope</a></li>
+<li><a href="#_conformance">2. Conformance</a></li>
+<li><a href="#_references">3. References</a></li>
+<li><a href="#_terms_and_definitions">4. Terms and definitions</a>
+<ul class="sectlevel2">
+<li><a href="#_abbreviated_terms">4.1. Abbreviated terms</a></li>
+</ul>
+</li>
+<li><a href="#_conventions">5. Conventions</a>
+<ul class="sectlevel2">
+<li><a href="#_identifiers">5.1. Identifiers</a></li>
+<li><a href="#_examples">5.2. Examples</a></li>
+<li><a href="#_schemas">5.3. Schemas</a></li>
+<li><a href="#_schema_representation">5.4. Schema representation</a></li>
+</ul>
+</li>
+<li><a href="#_introduction">6. Introduction</a></li>
+<li><a href="#_data_model">7. Data Model</a>
+<ul class="sectlevel2">
+<li><a href="#_requirements_class_data_model">7.1. Requirements Class "Data Model"</a>
+<ul class="sectlevel3">
+<li><a href="#_overview">7.1.1. Overview</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_protocol">8. Protocol</a>
+<ul class="sectlevel2">
+<li><a href="#_requirements_class_protocol">8.1. Requirements Class "Protocol"</a>
+<ul class="sectlevel3">
+<li><a href="#_overview_2">8.1.1. Overview</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_conformance_class_abstract_test_suite_normative">Annex A: Conformance Class Abstract Test Suite (Normative)</a>
+<ul class="sectlevel2">
+<li><a href="#_conformance_class_data_model">A.1. Conformance Class: Data Model</a>
+<ul class="sectlevel3">
+<li><a href="#_encoding">A.1.1. Encoding</a></li>
+</ul>
+</li>
+<li><a href="#_conformance_class_protocol">A.2. Conformance Class: Protocol</a></li>
+</ul>
+</li>
+<li><a href="#_schemas_normative">Annex B: Schemas (Normative)</a>
+<ul class="sectlevel2">
+<li><a href="#_data_model_2">B.1. Data Model</a></li>
+</ul>
+</li>
+<li><a href="#examples">Annex C: Examples (Informative)</a>
+<ul class="sectlevel2">
+<li><a href="#_transmission_topics">C.1. Transmission topics</a></li>
+<li><a href="#_data_and_metadata_messages">C.2. Data and metadata messages</a></li>
+</ul>
+</li>
+<li><a href="#Bibliography">Annex D: Bibliography</a></li>
+<li><a href="#_revision_history">Annex E: Revision History</a></li>
+</ul>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="paragraph">
+<p><strong class="big">i.     Abstract</strong></p>
+</div>
+<div class="paragraph">
+<p>WMO regulates the real-time international exchange of observation data to ensure the availability of high-quality observational data for many applications in particular for meteorological and hydrological forecasts, and allowing Prediction Centers (for Numerical Weather Prediction – NWP as well as climate and hydrological prediction) to be able to produce reliable products. National Meteorological and Hydrological Services (NMHSs) use NWP products to monitor and predict the weather and hydrological conditions to issue forecasts and warnings for the protection of the lives and property of citizens against natural hazards, notably in the framework of the Early Warnings for All initiative.</p>
+</div>
+<div class="paragraph">
+<p>NMHSs operate networks comprising different observing systems to meet the observational data requirements for national, regional and international needs, and to exchange data internationally, in accordance with the WMO technical regulations. Data are collected from the observing platforms, processed and quality controlled before being used nationally and exchanged internationally. WMO does not regulate this initial data collection segment of transmission of data from the observing station to the data collection and processing system (first-mile data collection).</p>
+</div>
+<div class="paragraph">
+<p>This document defines the encoding and transmission of observation data from remote monitoring stations (Nodes) to a central data collection system (Hub).</p>
+</div>
+<div class="paragraph">
+<p><strong class="big">ii.    Keywords</strong></p>
+</div>
+<div class="paragraph">
+<p>The following are keywords to be used by search engines and document catalogues.</p>
+</div>
+<div class="paragraph">
+<p>wmo, observations, first mile, node, hub, protobuf, mqtt</p>
+</div>
+<div class="paragraph">
+<p><strong class="big">iii.    Security Considerations</strong></p>
+</div>
+<div class="paragraph">
+<p>TODO</p>
+</div>
+<div class="paragraph">
+<p>No security considerations have been made for this standard.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_scope"><a class="anchor" href="#_scope"></a>1. Scope</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This document defines the encoding and transmission of observation data from remote monitoring stations (Nodes) to a central data collection system (Hub).</p>
+</div>
+<div class="paragraph">
+<p>This specification defines the conformance requirements for WMO First Mile Data Management (data model, encoding, transmission).  Annex A defines the abstract test suite.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_conformance"><a class="anchor" href="#_conformance"></a>2. Conformance</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Conformance with this standard shall be checked using the tests specified in Annex A (normative) of this document.</p>
+</div>
+<div class="paragraph">
+<p>WMO First Mile Data Management defines the encoding and transmission of observation data from remote monitoring stations (Nodes) to a central data collection system (Hub).</p>
+</div>
+<div class="paragraph">
+<p>This standard identifies numerous Requirements Classes which define the functional requirements.</p>
+</div>
+<div class="paragraph">
+<p>The mandatory Requirements Classes for this specification are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>"Data Model"</p>
+</li>
+<li>
+<p>"Protocol"</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_references"><a class="anchor" href="#_references"></a>3. References</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a id="protobuf"></a> Google LLC: Protocol Buffers Documentation (2026) <sup class="footnote">[<a id="_footnoteref_3" class="footnote" href="#_footnotedef_3" title="View footnote.">3</a>]</sup></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_terms_and_definitions"><a class="anchor" href="#_terms_and_definitions"></a>4. Terms and definitions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This document uses the terms defined in <a href="https://portal.ogc.org/public_ogc/directives/directives.php">OGC Policy Directive 49</a>, which is based on the ISO/IEC Directives, Part 2, Rules for the structure and drafting of International Standards. In particular, the word “shall” (not “must”) is the verb form used to indicate a requirement to be strictly followed to conform to this Standard and OGC documents do not use the equivalent phrases in the ISO/IEC Directives, Part 2.</p>
+</div>
+<div class="paragraph">
+<p>This document also uses terms defined in the OGC Standard for Modular specifications (<a href="https://portal.opengeospatial.org/files/?artifact_id=34762">OGC 08-131r3</a>), also known as the 'ModSpec'. The definitions of terms such as standard, specification, requirement, and conformance test are provided in the ModSpec.</p>
+</div>
+<div class="paragraph">
+<p>The following additional terms and definitions also apply.</p>
+</div>
+<div class="sect2">
+<h3 id="_abbreviated_terms"><a class="anchor" href="#_abbreviated_terms"></a>4.1. Abbreviated terms</h3>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. Symbols and abbreviated terms</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Abbreviation</th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Term</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">CF</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Climate and Forecast (CF) Metadata Conventions</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">HMEI</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">HydroMeteorological and Environmental Industry</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">MQP</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Message Queuing Protocol</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">MQTT</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Message Queuing Telemetry Transport</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">PubSub</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publish / Subscribe</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">QoS</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Quality of Service</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">URI</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Uniform Resource Identifier</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">URL</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Uniform Resource Locator</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">WIS</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">WMO Information System</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">WMO</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">World Meteorological Organization</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_conventions"><a class="anchor" href="#_conventions"></a>5. Conventions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section provides details and examples for any conventions used in the document. Examples of conventions are symbols, abbreviations, use of JSON Schema, or special notes regarding how to read the document.</p>
+</div>
+<div class="sect2">
+<h3 id="_identifiers"><a class="anchor" href="#_identifiers"></a>5.1. Identifiers</h3>
+<div class="paragraph">
+<p>The normative provisions in this Standard are denoted by the URI:</p>
+</div>
+<div class="paragraph">
+<p><a href="http://wis.wmo.int/spec/fmdm/1" class="bare">http://wis.wmo.int/spec/fmdm/1</a></p>
+</div>
+<div class="paragraph">
+<p>All requirements and conformance tests that appear in this document are denoted by partial URIs which are relative to this base.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_examples"><a class="anchor" href="#_examples"></a>5.2. Examples</h3>
+<div class="paragraph">
+<p>Protocol topic examples provided in this specification are encoded as <code>plain text strings</code>.</p>
+</div>
+<div class="paragraph">
+<p>Data and metadata message examples provided in this specification are encoded as JSON.</p>
+</div>
+<div class="paragraph">
+<p>Complete examples can be found at <a href="https://schemas.wmo.int/fmdm/1.0.0/examples" class="bare">https://schemas.wmo.int/fmdm/1.0.0/examples</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_schemas"><a class="anchor" href="#_schemas"></a>5.3. Schemas</h3>
+<div class="paragraph">
+<p>Monitoring event message schemas can be found at <a href="https://schemas.wmo.int/fmdm/1.0.0" class="bare">https://schemas.wmo.int/fmdm/1.0.0</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_schema_representation"><a class="anchor" href="#_schema_representation"></a>5.4. Schema representation</h3>
+<div class="paragraph">
+<p>Protobuf[<a href="https://protobuf.dev" class="bare">https://protobuf.dev</a>] constructs are used throughout this standard to define the structure of data and metadata messages.</p>
+</div>
+<div class="paragraph">
+<p>Data and metadata message instances are always defined as JSON.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_introduction"><a class="anchor" href="#_introduction"></a>6. Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>TODO</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_data_model"><a class="anchor" href="#_data_model"></a>7. Data Model</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>TODO one sentence</p>
+</div>
+<div class="sect2">
+<h3 id="_requirements_class_data_model"><a class="anchor" href="#_requirements_class_data_model"></a>7.1. Requirements Class "Data Model"</h3>
+<div class="sect3">
+<h4 id="_overview"><a class="anchor" href="#_overview"></a>7.1.1. Overview</h4>
+<div class="paragraph">
+<p>This Requirements Class provides requirements for the Data Model.</p>
+</div>
+<table id="rc_data-model" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirements Class</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://wis.wmo.int/spec/fmdm/1/req/data-model" class="bare">http://wis.wmo.int/spec/fmdm/1/req/data-model</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Event metadata</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#protobuf">Protobuf</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Pre-conditions</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The event message conforms to the Protobuf specification.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_protocol"><a class="anchor" href="#_protocol"></a>8. Protocol</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>TODO one sentence</p>
+</div>
+<div class="sect2">
+<h3 id="_requirements_class_protocol"><a class="anchor" href="#_requirements_class_protocol"></a>8.1. Requirements Class "Protocol"</h3>
+<div class="sect3">
+<h4 id="_overview_2"><a class="anchor" href="#_overview_2"></a>8.1.1. Overview</h4>
+<div class="paragraph">
+<p>This Requirements Class provides requirements for the Protocol.</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in sections/clause_8_protocol.adoc - include::../requirements/requirements_class_protocol.adoc[]</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_conformance_class_abstract_test_suite_normative"><a class="anchor" href="#_conformance_class_abstract_test_suite_normative"></a>Annex A: Conformance Class Abstract Test Suite (Normative)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_conformance_class_data_model"><a class="anchor" href="#_conformance_class_data_model"></a>A.1. Conformance Class: Data Model</h3>
+<div id="ats_data-model" class="exampleblock">
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">label</dt>
+<dd>
+<p><a href="http://wis.wmo.int/spec/fmdm/1/req/data-model" class="bare">http://wis.wmo.int/spec/fmdm/1/req/data-model</a></p>
+</dd>
+<dt class="hdlist1">subject</dt>
+<dd>
+<p>Requirements Class "Data Model"</p>
+</dd>
+<dt class="hdlist1">classification</dt>
+<dd>
+<p>Target Type:Event Metadata</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_encoding"><a class="anchor" href="#_encoding"></a>A.1.1. Encoding</h4>
+<div id="ats_data-model-encoding" class="exampleblock">
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">label</dt>
+<dd>
+<p>/conf/data-model/encoding</p>
+</dd>
+<dt class="hdlist1">subject</dt>
+<dd>
+<p>/req/data-model/encoding</p>
+</dd>
+<dt class="hdlist1">test-purpose</dt>
+<dd>
+<p>Validate that a data model is encoding as Protobuf.</p>
+</dd>
+</dl>
+</div>
+<div class="exampleblock component">
+<div class="content">
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>TODO</p>
+</div>
+</div>
+</div>
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>TODO</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_conformance_class_protocol"><a class="anchor" href="#_conformance_class_protocol"></a>A.2. Conformance Class: Protocol</h3>
+<div class="paragraph">
+<p>Unresolved directive in sections/annex_a_ats.adoc - include::../abstract_tests/ATS_class_protocol.adoc[]</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_schemas_normative"><a class="anchor" href="#_schemas_normative"></a>Annex B: Schemas (Normative)</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+Schema documents will only be published on <code>schemas.wmo.int</code> once the standard has been approved.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_data_model_2"><a class="anchor" href="#_data_model_2"></a>B.1. Data Model</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-yaml" data-lang="yaml">syntax = "proto3";
+
+package wmo.firstmile.poc1;
+
+option java_package = "wmo.firstmile.poc1";
+option java_outer_classname = "Firstmile";
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+
+enum CellMethod {
+  CELL_METHOD_UNSPECIFIED = 0;  // Required default
+  POINT = 1;                    // Instantaneous value at a point
+  SUM = 2;                      // Sum over the cell
+  MAXIMUM = 3;                  // Maximum value
+  MAXIMUM_ABSOLUTE_VALUE = 4;   // Maximum of absolute values
+  MEDIAN = 5;                   // Median value
+  MID_RANGE = 6;                // Average of maximum and minimum
+  MINIMUM = 7;                  // Minimum value
+  MINIMUM_ABSOLUTE_VALUE = 8;   // Minimum of absolute values
+  MEAN = 9;                     // Mean (average) value
+  MEAN_ABSOLUTE_VALUE = 10;     // Mean of absolute values
+  MEAN_OF_UPPER_DECILE = 11;    // Mean of the upper group of data values defined by the upper tenth of their distribution
+  MODE = 12;                    // Mode (most common value)
+  RANGE = 13;                   // Absolute difference between maximum and minimum
+  ROOT_MEAN_SQUARE = 14;        // Root mean square (RMS)
+  STANDARD_DEVIATION = 15;      // Standard deviation within the cell
+  SUM_OF_SQUARES = 16;          // Sum of squares
+  VARIANCE = 17;                // Variance within the cell
+}
+
+message DeviceRef {
+  oneof target {
+    google.protobuf.Empty node = 1; // if field is present =&gt; refers to the single node
+    uint32 observerId = 2;
+  }
+}
+
+message Parameter {
+  string longName = 1;
+  string unit = 2;
+  map&lt;string, string&gt; standardNames = 3;
+  DeviceRef device = 4;
+  CellMethod cellMethod = 5;
+  uint32 cellPeriodSeconds = 6;
+}
+
+message ParameterDefinition {
+  uint32 id = 1;
+  string description = 2;
+  repeated Parameter parameters = 3;
+}
+
+message Value {
+  oneof kind {
+    float floatValue = 1;
+    double doubleValue = 2;
+    int32 intValue = 3;
+    uint32 unsignedIntValue = 4;
+    int64 int64Value = 5;
+    uint64 unsignedInt64Value = 6;
+    string stringValue = 7;
+    bool boolValue = 8;
+    google.protobuf.Empty emptyValue = 9;
+  }
+}
+
+message Observation {
+  uint32 parameterDefinitionId = 1;
+  google.protobuf.Timestamp time = 2;
+  repeated Value values = 3;
+}
+
+enum ReferenceSurface {
+  REFERENCE_SURFACE_UNSPECIFIED = 0; // Default
+  MSL = 1;                          // Mean Sea Level
+  GEOID = 2;                        // Geoid
+  GL = 3;                           // Ground Level
+  REFERENCE_ELLIPSOID = 4;          // Reference Ellipsoid
+  PRESSURE_1000_HPA = 5;            // 1000 hPa Pressure Level
+}
+
+message Location {
+  optional double latitude = 1;
+  optional double longitude = 2;
+  double heightMeter = 3;
+  ReferenceSurface referenceSurface = 4; 
+}
+
+message Node {
+  string name = 1;
+  optional Location location= 2;
+  optional string url = 3;
+  optional string serialNumber = 4;
+  optional string firmwareVersion = 5;
+}
+
+message ObserverDevice {
+  uint32 id = 1;
+  string name = 2;
+  optional Location location= 3;
+  optional string url = 4;
+  optional string serialNumber = 5;
+  optional string firmwareVersion = 6;
+}
+
+message Data {
+  repeated Observation observations = 1;
+}
+
+message Metadata {
+  Node node = 1;
+  repeated ObserverDevice observers = 2;
+  repeated ParameterDefinition parameterDefinitions = 3;
+  map&lt;string, string&gt; namespaces = 4;
+}
+
+message FirstMileMessage {
+  oneof content {
+    // MUST be published with retained flag
+    Metadata metadata = 1;
+
+    // MUST NOT be published with retained flag
+    Data data = 2;
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="examples"><a class="anchor" href="#examples"></a>Annex C: Examples (Informative)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_transmission_topics"><a class="anchor" href="#_transmission_topics"></a>C.1. Transmission topics</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_data_and_metadata_messages"><a class="anchor" href="#_data_and_metadata_messages"></a>C.2. Data and metadata messages</h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Bibliography"><a class="anchor" href="#Bibliography"></a>Annex D: Bibliography</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a id="link-relations"></a> IANA: Link Relation Types, <a href="https://www.iana.org/assignments/link-relations/link-relations.xml" class="bare">https://www.iana.org/assignments/link-relations/link-relations.xml</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_revision_history"><a class="anchor" href="#_revision_history"></a>Annex E: Revision History</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 12%;">
+<col style="width: 18%;">
+<col style="width: 12%;">
+<col style="width: 12%;">
+<col style="width: 46%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Date</th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Release</th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Editor</th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Primary clauses modified</th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2026-06-15</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Template</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Tom Kralidis</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">all</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">initial revision</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_1">
+<a href="#_footnoteref_1">1</a>. <a href="https://community.wmo.int/governance/commission-membership/commission-observation-infrastructures-and-information-systems-infcom/commission-infrastructure-officers/infcom-management-group/standing-committee-information-management-and-technology-sc-imt" class="bare">https://community.wmo.int/governance/commission-membership/commission-observation-infrastructures-and-information-systems-infcom/commission-infrastructure-officers/infcom-management-group/standing-committee-information-management-and-technology-sc-imt</a>
+</div>
+<div class="footnote" id="_footnotedef_2">
+<a href="#_footnoteref_2">2</a>. <a href="https://community.wmo.int/governance/commission-membership/infcom" class="bare">https://community.wmo.int/governance/commission-membership/infcom</a>
+</div>
+<div class="footnote" id="_footnotedef_3">
+<a href="#_footnoteref_3">3</a>. <a href="https://protobuf.dev" class="bare">https://protobuf.dev</a>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2026-06-15 13:07:49 UTC
+</div>
+</div>
+</body>
+</html>
