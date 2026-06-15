@@ -1030,7 +1030,7 @@ Observer device identifiers shall remain stable across Node restarts and metadat
 <div class="sect3">
 <h4 id="_metadata_parameterdefinition_parameter_deviceref"><a class="anchor" href="#_metadata_parameterdefinition_parameter_deviceref"></a>7.1.10. Metadata.ParameterDefinition.Parameter.DeviceRef</h4>
 <div class="paragraph">
-<p>A DeviceRef message describes a reference to an ObserverDevice message.</p>
+<p>The DeviceRef message associates a parameter with the device that measures it. This message uses a oneof field to reference either the node device or a specific observer device.</p>
 </div>
 <table id="req_data-model-device-ref" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -1047,7 +1047,19 @@ Observer device identifiers shall remain stable across Node restarts and metadat
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>A DeviceRef message SHALL define an <code>observerId</code> element as a reference to an ObserverDevice message or a <code>node</code> if the ObserverDevice cannot be determined.  // TODO verify</p>
+<p>A DeviceRef message SHALL one and only one of an <code>observerId</code> element as a reference to an ObserverDevice message or a <code>node</code> if the parameter is measured by the Node.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>When the <code>node</code> element is present, the parameter SHALL be measured by the Node Device itself (such as internal voltage or temperature of a datalogger).</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>When the observerId field is set, it SHALL match the id of an ObserverDevice defined in the Metadata message.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1831,7 +1843,7 @@ The choice of reference surface is determined by the user based on the measureme
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-06-15 19:49:09 UTC
+Last updated 2026-06-15 19:54:31 UTC
 </div>
 </div>
 </body>
