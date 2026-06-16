@@ -3,7 +3,7 @@
 [%metadata]
 label:: http://wis.wmo.int/spec/fmdm/1/req/transmission
 subject:: Requirements Class "Transmission"
-classification:: Target Type:Message Encoding
+classification:: Target Type:Transmission
 ====
 
 ==== Encoding

@@ -6,6 +6,10 @@
 
 include::../abstract_tests/ATS_class_message-encoding.adoc[]
 
-=== Conformance Class: Protocol
+=== Conformance Class: Parameter Standard Names
+
+include::../abstract_tests/ATS_class_parameter-standard-names.adoc[]
+
+=== Conformance Class: Transmission
 
 include::../abstract_tests/ATS_class_transmission.adoc[]
