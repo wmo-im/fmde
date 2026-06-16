@@ -30,7 +30,7 @@
                     },
                     {
                         "longName": "Rainfall Intensity",
-                        "unit": "mm/h",
+                        "unit": "mm_h-1",
                         "device": {
                             "observerId": 2
                         },
