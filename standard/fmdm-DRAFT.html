@@ -128,28 +128,7 @@ body {
 <li><a href="#_scope">1. Scope</a></li>
 <li><a href="#_conformance">2. Conformance</a></li>
 <li><a href="#_references">3. References</a></li>
-<li><a href="#_terms_and_definitions">4. Terms and definitions</a>
-<ul class="sectlevel2">
-<li><a href="#_node">4.1. Node</a></li>
-<li><a href="#_hub">4.2. Hub</a></li>
-<li><a href="#_protocol">4.3. Protocol</a></li>
-<li><a href="#_data_format">4.4. Data Format</a></li>
-<li><a href="#_data_serialization">4.5. Data Serialization</a></li>
-<li><a href="#_data_schema">4.6. Data Schema</a></li>
-<li><a href="#_observation">4.7. Observation</a></li>
-<li><a href="#_metadata">4.8. Metadata</a></li>
-<li><a href="#_cell_method">4.9. Cell method</a></li>
-<li><a href="#_cell_period">4.10. Cell period</a></li>
-<li><a href="#_empty_value">4.11. Empty value</a></li>
-<li><a href="#_first_mile">4.12. First mile</a></li>
-<li><a href="#_namespace">4.13. Namespace</a></li>
-<li><a href="#_node_device">4.14. Node device</a></li>
-<li><a href="#_observer_device">4.15. Observer device</a></li>
-<li><a href="#_parameter_definition">4.16. Parameter definition</a></li>
-<li><a href="#_standard_name">4.17. Standard name</a></li>
-<li><a href="#_abbreviated_terms">4.18. Abbreviated terms</a></li>
-</ul>
-</li>
+<li><a href="#_terms_and_definitions">4. Terms and definitions</a></li>
 <li><a href="#_conventions">5. Conventions</a>
 <ul class="sectlevel2">
 <li><a href="#_identifiers">5.1. Identifiers</a></li>
@@ -161,96 +140,40 @@ body {
 <li><a href="#_overview_informative">6. Overview (informative)</a>
 <ul class="sectlevel2">
 <li><a href="#_background">6.1. Background</a></li>
-<li><a href="#_solution_overview">6.2. Solution overview</a>
-<ul class="sectlevel3">
-<li><a href="#_message_flow">6.2.1. Message flow</a></li>
-</ul>
-</li>
+<li><a href="#_solution_overview">6.2. Solution overview</a></li>
 </ul>
 </li>
 <li><a href="#_message_encoding">7. Message Encoding</a>
 <ul class="sectlevel2">
-<li><a href="#_requirements_class_message_encoding">7.1. Requirements Class "Message Encoding"</a>
-<ul class="sectlevel3">
-<li><a href="#_overview">7.1.1. Overview</a></li>
-<li><a href="#_design_principles">7.1.2. Design principles</a></li>
-<li><a href="#_firstmilemessage">7.1.3. FirstMileMessage</a></li>
-<li><a href="#_location">7.1.4. Location</a></li>
-<li><a href="#_metadata_2">7.1.5. Metadata</a></li>
-<li><a href="#_metadata_node">7.1.6. Metadata.Node</a></li>
-<li><a href="#_metadata_observerdevice">7.1.7. Metadata.ObserverDevice</a></li>
-<li><a href="#_metadata_parameterdefinition">7.1.8. Metadata.ParameterDefinition</a></li>
-<li><a href="#_metadata_parameterdefinition_parameter">7.1.9. Metadata.ParameterDefinition.Parameter</a></li>
-<li><a href="#_metadata_parameterdefinition_parameter_deviceref">7.1.10. Metadata.ParameterDefinition.Parameter.DeviceRef</a></li>
-<li><a href="#_data">7.1.11. Data</a></li>
-<li><a href="#_observation_2">7.1.12. Observation</a></li>
-<li><a href="#_value">7.1.13. Value</a></li>
-</ul>
-</li>
+<li><a href="#_requirements_class_message_encoding">7.1. Requirements Class "Message Encoding"</a></li>
 </ul>
 </li>
 <li><a href="#_parameter_standard_names">8. Parameter Standard Names</a>
 <ul class="sectlevel2">
-<li><a href="#_requirements_class_parameter_standard_names">8.1. Requirements Class "Parameter Standard Names"</a>
-<ul class="sectlevel3">
-<li><a href="#_overview_2">8.1.1. Overview</a></li>
-<li><a href="#_metadata_namespace_declaration">8.1.2. Metadata namespace declaration</a></li>
-<li><a href="#_standard_name_assignment">8.1.3. Standard name assignment</a></li>
-<li><a href="#_standard_name_hierarchy">8.1.4. Standard name hierarchy</a></li>
-</ul>
-</li>
+<li><a href="#_requirements_class_parameter_standard_names">8.1. Requirements Class "Parameter Standard Names"</a></li>
 </ul>
 </li>
 <li><a href="#_transmission">9. Transmission</a>
 <ul class="sectlevel2">
-<li><a href="#_requirements_class_transmission">9.1. Requirements Class "Transmission"</a>
-<ul class="sectlevel3">
-<li><a href="#_overview_3">9.1.1. Overview</a></li>
-<li><a href="#_protocol_2">9.1.2. Protocol</a></li>
-<li><a href="#_topic_hierarchy">9.1.3. Topic Hierarchy</a></li>
-<li><a href="#_publishing">9.1.4. Publishing</a></li>
-<li><a href="#_management">9.1.5. Management</a></li>
-<li><a href="#_versioning">9.1.6. Versioning</a></li>
-<li><a href="#_conventions_2">9.1.7. Conventions</a></li>
-<li><a href="#_group_and_node_identification">9.1.8. Group and Node identification</a></li>
-</ul>
-</li>
+<li><a href="#_requirements_class_transmission">9.1. Requirements Class "Transmission"</a></li>
 </ul>
 </li>
 <li><a href="#_conformance_class_abstract_test_suite_normative">Annex A: Conformance Class Abstract Test Suite (Normative)</a>
 <ul class="sectlevel2">
-<li><a href="#_conformance_class_message_encoding">A.1. Conformance Class: Message Encoding</a>
-<ul class="sectlevel3">
-<li><a href="#_encoding">A.1.1. Encoding</a></li>
-</ul>
-</li>
-<li><a href="#_conformance_class_protocol">A.2. Conformance Class: Protocol</a>
-<ul class="sectlevel3">
-<li><a href="#_encoding_2">A.2.1. Encoding</a></li>
-</ul>
-</li>
+<li><a href="#_conformance_class_message_encoding">A.1. Conformance Class: Message Encoding</a></li>
+<li><a href="#_conformance_class_protocol">A.2. Conformance Class: Protocol</a></li>
 </ul>
 </li>
 <li><a href="#schemas">Annex B: Schemas (Normative)</a>
 <ul class="sectlevel2">
 <li><a href="#_message_encoding_2">B.1. Message Encoding</a></li>
-<li><a href="#_enumerations">B.2. Enumerations</a>
-<ul class="sectlevel3">
-<li><a href="#_cellmethod">B.2.1. CellMethod</a></li>
-<li><a href="#_referencesurface">B.2.2. ReferenceSurface</a></li>
-</ul>
-</li>
+<li><a href="#_enumerations">B.2. Enumerations</a></li>
 </ul>
 </li>
 <li><a href="#examples">Annex C: Examples (Informative)</a>
 <ul class="sectlevel2">
 <li><a href="#_transmission_topics">C.1. Transmission topics</a></li>
-<li><a href="#_data_and_metadata_messages">C.2. Data and metadata messages</a>
-<ul class="sectlevel3">
-<li><a href="#_hydrological_station">C.2.1. Hydrological station</a></li>
-<li><a href="#_meteorological_station">C.2.2. Meteorological station</a></li>
-</ul>
-</li>
+<li><a href="#_data_and_metadata_messages">C.2. Data and metadata messages</a></li>
 </ul>
 </li>
 <li><a href="#Bibliography">Annex D: Bibliography</a></li>
@@ -352,110 +275,63 @@ body {
 <div class="paragraph">
 <p>The following additional terms and definitions also apply.</p>
 </div>
-<div class="sect2">
-<h3 id="_node"><a class="anchor" href="#_node"></a>4.1. Node</h3>
+<h3 id="_node" class="discrete">Node</h3>
 <div class="paragraph">
 <p>Remote station or system that collects observation data and transmits it to a Hub. A Node comprises a Node Device and optionally one or more Observer Devices. Communication is strictly unidirectional; the Node transmits data to the Hub but does not receive data from it.</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_hub"><a class="anchor" href="#_hub"></a>4.2. Hub</h3>
+<h3 id="_hub" class="discrete">Hub</h3>
 <div class="paragraph">
 <p>Software system at the central server that receives Data and Metadata messages from one or more Nodes, decodes the Protobuf payloads, and prepares the observation data for further processing and distribution. Communication is strictly unidirectional; the Hub receives data from Nodes but does not transmit data to them.</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_protocol"><a class="anchor" href="#_protocol"></a>4.3. Protocol</h3>
+<h3 id="_protocol" class="discrete">Protocol</h3>
 <div class="paragraph">
 <p>The IP based set of rules that determine how data is transferred from the Node to the Hub.</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_data_format"><a class="anchor" href="#_data_format"></a>4.4. Data Format</h3>
-<div class="paragraph">
-<p>A data format is the organisation of information according to specifications. It defines how the data is structured and encoded.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_data_serialization"><a class="anchor" href="#_data_serialization"></a>4.5. Data Serialization</h3>
-<div class="paragraph">
-<p>The process of converting structured data into a Data Format that can be easily transmitted and reconstructed later.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_data_schema"><a class="anchor" href="#_data_schema"></a>4.6. Data Schema</h3>
-<div class="paragraph">
-<p>A formal description in the declarative language defining the structure and constraints for the Data Format.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_observation"><a class="anchor" href="#_observation"></a>4.7. Observation</h3>
+<h3 id="_observation" class="discrete">Observation</h3>
 <div class="paragraph">
 <p>A single set of one or more measured values captured at a specific point in time, referencing a ParameterDefinition. Observations are transmitted within Data messages.</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_metadata"><a class="anchor" href="#_metadata"></a>4.8. Metadata</h3>
+<h3 id="_metadata" class="discrete">Metadata</h3>
 <div class="paragraph">
 <p>A message type that provides configuration and contextual information about a Node, including descriptions of the Node Device, Observer Devices, parameter definitions, and namespace mappings. The Metadata message provides the necessary context for interpreting <code>Data</code> messages.</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_cell_method"><a class="anchor" href="#_cell_method"></a>4.9. Cell method</h3>
+<h3 id="_cell_method" class="discrete">Cell method</h3>
 <div class="paragraph">
 <p>Statistical method used to aggregate measurements over a cell period. Specified using the CellMethod enumeration. Examples include <code>POINT</code> (instantaneous value), <code>MEAN</code>, <code>MAXIMUM</code>, <code>MINIMUM</code>, and <code>STANDARD_DEVIATION</code>.</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_cell_period"><a class="anchor" href="#_cell_period"></a>4.10. Cell period</h3>
+<h3 id="_cell_period" class="discrete">Cell period</h3>
 <div class="paragraph">
 <p>Duration in seconds over which measurements are aggregated using the cell method. A value of zero indicates an instantaneous (point) measurement with no aggregation interval.</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_empty_value"><a class="anchor" href="#_empty_value"></a>4.11. Empty value</h3>
+<h3 id="_empty_value" class="discrete">Empty value</h3>
 <div class="paragraph">
 <p>Explicit representation of a missing or unavailable measurement. Missing values shall be encoded using the <code>emptyValue</code> element rather than omitted, represented as zero, or represented as false. This ensures a clear distinction between a measurement that could not be obtained and a measurement with a value of zero.</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_first_mile"><a class="anchor" href="#_first_mile"></a>4.12. First mile</h3>
+<h3 id="_first_mile" class="discrete">First mile</h3>
 <div class="paragraph">
 <p>The transmission path from a remote observation site to the central data collection infrastructure. In bandwidth-constrained environments such as satellite links, the first mile refers to the path from the satellite ground base station to the Hub.</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_namespace"><a class="anchor" href="#_namespace"></a>4.13. Namespace</h3>
+<h3 id="_namespace" class="discrete">Namespace</h3>
 <div class="paragraph">
 <p>Declaration that associates a short key with a URI identifying an external naming convention vocabulary. Namespaces are declared in the Metadata message <code>namespaces` element and referenced in the Parameter message </code>standardNames`` elements. Example vocabularies include the CF Metadata Conventions and the WMO First Mile parameter registry.</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_node_device"><a class="anchor" href="#_node_device"></a>4.14. Node device</h3>
+<h3 id="_node_device" class="discrete">Node device</h3>
 <div class="paragraph">
 <p>The primary device within a Node, typically a datalogger or observation station controller, responsible for acquiring data from Observer Devices and transmitting encoded payloads to the Hub. Described by the <code>Node</code> message in the message encoding.</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_observer_device"><a class="anchor" href="#_observer_device"></a>4.15. Observer device</h3>
+<h3 id="_observer_device" class="discrete">Observer device</h3>
 <div class="paragraph">
 <p>An individual sensor or measurement device connected to a Node Device. Observer Devices are described by <code>ObserverDevice</code> messages within the Metadata message. Each Observer Device shall be assigned an identifier that is unique within the context of its Node Device.</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_parameter_definition"><a class="anchor" href="#_parameter_definition"></a>4.16. Parameter definition</h3>
+<h3 id="_parameter_definition" class="discrete">Parameter definition</h3>
 <div class="paragraph">
 <p>A named grouping of one or more related Parameters that share a common identifier and description. Parameter Definitions are declared in Metadata messages and referenced by identifier in Observation messages.</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_standard_name"><a class="anchor" href="#_standard_name"></a>4.17. Standard name</h3>
+<h3 id="_standard_name" class="discrete">Standard name</h3>
 <div class="paragraph">
 <p>A controlled vocabulary entry from an external naming convention that unambiguously identifies a measured parameter. Standard names are associated with Parameters through namespace-keyed mappings in the Parameter message <code>standardNames</code> element.</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_abbreviated_terms"><a class="anchor" href="#_abbreviated_terms"></a>4.18. Abbreviated terms</h3>
+<h3 id="_abbreviated_terms" class="discrete">Abbreviated terms</h3>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 1. Symbols and abbreviated terms</caption>
 <colgroup>
@@ -535,7 +411,6 @@ body {
 </tr>
 </tbody>
 </table>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -621,7 +496,7 @@ body {
 <h2 id="_message_encoding"><a class="anchor" href="#_message_encoding"></a>7. Message Encoding</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The message encoding defines the structure and organization of information transmitted from the Node to the Hub using Protocol Buffers (Protobuf) as the Data Format.</p>
+<p>The message encoding defines the structure and organization of information transmitted from the Node to the Hub using Protocol Buffers (Protobuf).</p>
 </div>
 <div class="paragraph">
 <p>The message encoding supports two primary use cases:</p>
@@ -2893,7 +2768,7 @@ The choice of reference surface is determined by the user based on the measureme
                     },
                     {
                         "longName": "Rainfall Intensity",
-                        "unit": "mm/h",
+                        "unit": "mm_h-1",
                         "device": {
                             "observerId": 2
                         },
@@ -3026,7 +2901,7 @@ The choice of reference surface is determined by the user based on the measureme
                 "parameters": [
                     {
                         "longName": "Air Temperature",
-                        "unit": "°C",
+                        "unit": "degC",
                         "device": {
                             "observerId": 1
                         },
@@ -3037,7 +2912,7 @@ The choice of reference surface is determined by the user based on the measureme
                     },
                     {
                         "longName": "Relative Humidity",
-                        "unit": "%",
+                        "unit": "percent",
                         "device": {
                             "observerId": 1
                         },
@@ -3059,7 +2934,7 @@ The choice of reference surface is determined by the user based on the measureme
                     },
                     {
                         "longName": "Wind Speed (10min mean)",
-                        "unit": "m/s",
+                        "unit": "m_s-1",
                         "device": {
                             "observerId": 1
                         },
@@ -3071,7 +2946,7 @@ The choice of reference surface is determined by the user based on the measureme
                     },
                     {
                         "longName": "Wind Direction (10min mean)",
-                        "unit": "°",
+                        "unit": "degrees_true",
                         "device": {
                             "observerId": 1
                         },
@@ -3122,7 +2997,7 @@ The choice of reference surface is determined by the user based on the measureme
                     },
                     {
                         "longName": "Internal Logger Temperature",
-                        "unit": "°C",
+                        "unit": "degC",
                         "device": {
                             "node": {}
                         },
@@ -3249,7 +3124,7 @@ The choice of reference surface is determined by the user based on the measureme
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-06-16 17:59:04 UTC
+Last updated 2026-06-16 18:15:18 UTC
 </div>
 </div>
 </body>
