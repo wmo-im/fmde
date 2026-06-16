@@ -2,11 +2,11 @@
 
 TODO one sentence
 
-=== Requirements Class "Trasmission"
+=== Requirements Class "Transmission"
 
 ==== Overview
 
-This Requirements Class provides requirements for Trasmission.
+This Requirements Class provides requirements for Transmission.
 
 include::../requirements/requirements_class_transmission.adoc[]
 
@@ -17,7 +17,7 @@ include::../recommendations/transmission/REC_protocol.adoc[]
 
 ==== Topic Hierarchy
 
-The First Mile Topic Hierarchy is composed of six mandatory levels.  The representation is encoded as a simple text string of values at each topic level, separated by a slash (``/``).
+The First Mile Topic Hierarchy is composed of five mandatory levels.  The representation is encoded as a simple text string of values at each topic level, separated by a slash (``/``).
 
 _Examples_:
 
@@ -49,7 +49,7 @@ The table below provides an overview of the topic levels.
 
 |4
 |node-id
-|Identifier for the individual first-mile node (e.g. gateway, AWS)
+|Identifier for the individual first-mile node (e.g. gateway, automatic weather station, data logger)
 
 |5
 |notification-type
@@ -65,7 +65,7 @@ include::../requirements/transmission/REQ_publishing.adoc[]
 
 ==== Management
 
-The primary levels and sub-discipline specific levels are managed differently to maintain stability and allow for flexibility.
+Primary levels (Level 1 and level 2) are 
 
 include::../requirements/transmission/REQ_management.adoc[]
 
