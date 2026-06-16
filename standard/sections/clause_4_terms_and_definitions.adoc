@@ -100,6 +100,9 @@ A controlled vocabulary entry from an external naming convention that unambiguou
 |QoS
 |Quality of Service
 
+|TCP/IP
+|Transmission Control Protocol / Internet Protocol
+
 |URI
 |Uniform Resource Identifier
 
