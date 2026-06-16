@@ -1,5 +1,6 @@
 // First Mile schema
 
+
 syntax = "proto3";
 
 package int.wmo.wis.spec.fmdm.v1.conf.message_encoding;
