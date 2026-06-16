@@ -1,0 +1,11 @@
+== Transmission
+
+TODO one sentence
+
+=== Requirements Class "Trasmission"
+
+==== Overview
+
+This Requirements Class provides requirements for Trasmission.
+
+include::../requirements/requirements_class_transmission.adoc[]

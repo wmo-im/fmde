@@ -3,7 +3,7 @@
 [%metadata]
 label:: http://wis.wmo.int/spec/fmdm/1/req/data-model
 subject:: Requirements Class "Data Model"
-classification:: Target Type:Event Metadata
+classification:: Target Type:Message Encoding
 ====
 
 ==== Encoding

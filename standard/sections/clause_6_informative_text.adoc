@@ -17,25 +17,3 @@ image::../images/firstmile-archi.drawio.png[Node and Hub architecture]
 ==== Message flow
 
 In typical operation, the `metadata` message is sent when the Node is initialized and whenever the station configuration changes, and the `data` message is sent as observations become available. This separates relatively stable descriptive information from frequently changing measurement values and supports both individual and batched Observation delivery. Where a measurement is unavailable, the value is represented explicitly using `emptyValue` rather than being inferred from zero or omission.
-
-==== Conformance class summary
-
-[cols="2,5"]
-|===
-|Conformance class |Summary
-
-|Core Data Model
-|Covers the protobuf structure and semantics of the `data` message, `metadata` message, Observation content, devices, Parameter Definition content, and explicit missing values.
-
-|Standard Name Binding
-|Covers how Parameter Definition entries associate parameters with controlled standard-name vocabularies and namespaces.
-
-|MQTT Protocol Binding
-|Covers how protobuf payloads are conveyed over MQTT in the unidirectional exchange between Node and Hub.
-
-|Node
-|Covers the sender-side behavior for constructing and publishing `metadata` message and `data` message payloads.
-
-|Hub
-|Covers the receiver-side behavior for accepting, decoding, and interpreting payloads received from the Node.
-|===

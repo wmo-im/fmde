@@ -1,0 +1,8 @@
+[[rc_transmission]]
+[cols="1,4",width="90%"]
+|===
+2+|*Requirements Class*
+2+|http://wis.wmo.int/spec/fmdm/1/req/transmission
+|Target type |Transmission
+|Dependency |<<rc_data-model>>
+|===

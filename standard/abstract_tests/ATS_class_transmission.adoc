@@ -1,0 +1,11 @@
+[[ats_transmission]]
+====
+[%metadata]
+label:: http://wis.wmo.int/spec/fmdm/1/req/transmission
+subject:: Requirements Class "Transmission"
+classification:: Target Type:Message Encoding
+====
+
+==== Encoding
+
+//include::./transmission/ATS_test_encoding.adoc[]

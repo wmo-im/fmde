@@ -1,0 +1,21 @@
+[[ats_transmission-encoding]]
+====
+[%metadata]
+label:: /conf/transmission/encoding
+subject:: /req/transmission/encoding
+test-purpose:: Validate that a data model is encoding as Protobuf.
+
+[.component,class=test method]
+=====
+[.component,class=step]
+--
+TODO
+--
+
+[.component,class=step]
+--
+TODO
+--
+
+=====
+====

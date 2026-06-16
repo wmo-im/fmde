@@ -8,4 +8,4 @@ include::../abstract_tests/ATS_class_data-model.adoc[]
 
 === Conformance Class: Protocol
 
-include::../abstract_tests/ATS_class_protocol.adoc[]
+include::../abstract_tests/ATS_class_transmission.adoc[]
