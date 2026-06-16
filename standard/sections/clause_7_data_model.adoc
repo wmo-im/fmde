@@ -7,7 +7,7 @@ The data model supports two primary use cases:
 - Transmission of observation data: The Node transmits measurement values collected from sensors
 - Transmission of metadata: The Node transmits information about the monitoring site, devices, and parameter definitions
 
-These use cases are supported by two top-level message types: the `Data` message containing observations, and the `Metadata` message containing configuration and contextual information. Both messages are defined in a single protobuf schema and transmitted as independent payloads over MQTT. The `Metadata` message provides the necessary context for interpreting the `Data` message, including descriptions of devices and parameters.
+These use cases are supported by two top-level message types: the Data message containing observations, and the Metadata message containing configuration and contextual information. Both messages are defined in a single Protobuf schema and transmitted as independent payloads. The Metadata message provides the necessary context for interpreting the Data message, including descriptions of devices and parameters.
 
 === Requirements Class "Data Model"
 
@@ -17,10 +17,10 @@ This Requirements Class provides requirements for the Data Model.
 
 The data model organizes information hierarchically as follows:
 
-- **Messages**: Top-level containers (`Data` and `Metadata`) that are transmitted as independent payloads
+- **Messages**: Top-level containers (Data and Metadata) that are transmitted as independent payloads
 - **Devices**: Descriptions of physical equipment including the Node Device (node) and Observer Devices (sensors)
 - **Observations**: Measurement data points consisting of a parameter identifier, timestamp, and one or more values
-- **Parameter definitions**: Metadata describing what is being measured, including units, aggregation methods, and standard name mappings. Parameter definitions also describe how observations are structured in `Data` messages.
+- **Parameter definitions**: Metadata describing what is being measured, including units, aggregation methods, and standard name mappings. Parameter definitions also describe how observations are structured in Data messages.
 - **Values**: The actual measurement data, supporting multiple numeric types, strings, booleans, and explicit representation of missing data
 
 Each Observation references a ParameterDefinition by identifier. Each ParameterDefinition contains one or more Parameter specifications that describe the measured variable, its unit, temporal aggregation method, and which device performs the measurement.
@@ -35,7 +35,7 @@ The data model is designed according to the following principles:
 - **Extensibility**: Support for multiple value types and flexible parameter definitions
 - **Self-description**: Metadata provides complete context for interpreting observations
 - **Explicit missing values**: Clear distinction between unavailable data and zero/false measurements
-- **Batch transmission**: Multiple observations may be included in a single `Data` message
+- **Batch transmission**: Multiple observations may be included in a single Data message
 - **Standard name interoperability**: Mapping to external naming conventions through namespace definitions
 
 ==== FirstMileMessage
@@ -54,7 +54,7 @@ include::../recommendations/data-model/PER_location.adoc[]
 
 ==== Metadata
 
-A `Metadata` message provides configuration and contextual information about the Node, including descriptions of devices and the parameters they measure. This message shall be transmitted at least once after Node initialization and whenever the configuration changes.
+A Metadata message provides configuration and contextual information about the Node, including descriptions of devices and the parameters they measure. This message shall be transmitted at least once after Node initialization and whenever the configuration changes.
 
 include::../requirements/data-model/REQ_metadata.adoc[]
 
@@ -68,9 +68,9 @@ include::../recommendations/data-model/PER_node.adoc[]
 
 ==== Metadata.ObserverDevice
 
-An ObserverDevice message describes an individual sensor or measurement device connected to the Node Device. A Node that measures only its own internal parameters (such as supply voltage or internal temperature) may transmit a `Metadata` message with no ObserverDevice entries.
+An ObserverDevice message describes an individual sensor or measurement device connected to the Node Device. A Node that measures only its own internal parameters (such as supply voltage or internal temperature) may transmit a Metadata message with no ObserverDevice entries.
 
-Where a sensor is defined as an ObserverDevice but is not currently connected or is otherwise unavailable, the corresponding parameter values in the `Data` message SHALL be represented using ``emptyValue`` rather than being omitted. This ensures that the Hub can distinguish between a missing sensor reading and the absence of a parameter definition, and that the alignment between values and parameter definitions is maintained.
+Where a sensor is defined as an ObserverDevice but is not currently connected or is otherwise unavailable, the corresponding parameter values in the Data message is represented using ``emptyValue`` rather than being omitted. This ensures that the Hub can distinguish between a missing sensor reading and the absence of a parameter definition, and that the alignment between values and parameter definitions is maintained.
 
 include::../requirements/data-model/REQ_observer_device.adoc[]
 include::../recommendations/data-model/REC_observer_device.adoc[]
@@ -104,11 +104,11 @@ include::../requirements/data-model/REQ_device_ref.adoc[]
 
 ==== Data
 
-The `Data` message is the primary container for transmitting observation data from the Node to the Hub. This message may be transmitted as frequently as needed to deliver current or batched observations.
+The Data message is the primary container for transmitting observation data from the Node to the Hub. This message may be transmitted as frequently as needed to deliver current or batched observations.
 
-A `Data` message may contain multiple Observation messages, enabling efficient batch transmission of measurement data. Each observation is independent and contains its own timestamp and parameter reference.
+A Data message may contain multiple Observation messages, enabling efficient batch transmission of measurement data. Each observation is independent and contains its own timestamp and parameter reference.
 
-NOTE: The Node may transmit `Data` messages containing observations that reference parameter definitions not yet received by the Hub. In this case, the Hub shall buffer or queue such observations until the corresponding `Metadata` message is received.
+NOTE: The Node may transmit Data messages containing observations that reference parameter definitions not yet received by the Hub. In this case, the Hub shall buffer or queue such observations until the corresponding `Metadata` message is received.
 
 include::../requirements/data-model/REQ_data.adoc[]
 
@@ -118,7 +118,7 @@ The Observation message represents a single measurement data point collected at 
 
 include::../requirements/data-model/REQ_observation.adoc[]
 
-NOTE: The ``parameterDefinitionId`` element shall reference a ParameterDefinition ``id`` from the `Metadata` message. The number and type of values in the values field shall correspond to the number of parameters defined in the referenced ParameterDefinition.
+NOTE: The ``parameterDefinitionId`` element shall reference a ParameterDefinition ``id`` from the Metadata message. The number and type of values in the values field shall correspond to the number of parameters defined in the referenced ParameterDefinition.
 
 NOTE: The time field uses the ``google.protobuf.Timestamp`` format, representing time as seconds and nanoseconds since the Unix epoch (``1970-01-01T00:00:00Z``).
 
