@@ -4,5 +4,5 @@
 ^|*Requirement {counter:req-id}* |*/req/data-model/parameter_definition*
 ^|A |A ParameterDefinition message SHALL define an ``id`` element.
 ^|B |A ParameterDefinition message SHALL define a ``description`` element.
-^|C |A ParameterDefinition message SHALL define one or more ``parameters`` a ``description`` element.
+^|C |A ParameterDefinition message SHALL define one or more ``parameters`` elements.
 |===

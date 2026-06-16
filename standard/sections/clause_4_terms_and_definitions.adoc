@@ -8,10 +8,10 @@ The following additional terms and definitions also apply.
 
 
 === Node
-The "thing" that collects and transmits data. Typically at the remote site, such as a weather station. This would be a device such as a datalogger or a sensor.
+Remote station or system that collects observation data and transmits it to a Hub. A Node comprises a Node Device and optionally one or more Observer Devices. Communication is strictly unidirectional; the Node transmits data to the Hub but does not receive data from it.
 
 === Hub
-The software at the central server that receives data from the Node and prepares it for further processing. It must be able to receive the data using the agreed Data Format and Protocol.
+Software system at the central server that receives `Data` and `Metadata` messages from one or more Nodes, decodes the Protobuf payloads, and prepares the observation data for further processing and distribution. Communication is strictly unidirectional; the Hub receives data from Nodes but does not transmit data to them.
 
 === Protocol
 The IP based set of rules that determine how data is transferred from the Node to the Hub.
@@ -26,10 +26,46 @@ The process of converting structured data into a Data Format that can be easily 
 A formal description in the declarative language defining the structure and constraints for the Data Format.
 
 === Observation
-A single measurement data point collected by the Node, such as a temperature reading, humidity level, or wind speed.
+A single set of one or more measured values captured at a specific point in time, referencing a ParameterDefinition. Observations are transmitted within `Data` messages.
 
 === Metadata
-Additional information, such as the monitoring site ID, location, types of sensors, measured variables, measurement units, and other relevant details. It provides context for the data being transmitted.
+A message type that provides configuration and contextual information about a Node, including descriptions of the Node Device, Observer Devices, parameter definitions, and namespace mappings. The `Metadata` message provides the necessary context for interpreting `Data` messages.
+
+=== cell method
+
+Statistical method used to aggregate measurements over a cell period. Specified using the `CellMethod` enumeration. Examples include `POINT` (instantaneous value), `MEAN`, `MAXIMUM`, `MINIMUM`, and `STANDARD_DEVIATION`.
+
+=== cell period
+
+Duration in seconds over which measurements are aggregated using the cell method. A value of zero indicates an instantaneous (point) measurement with no aggregation interval.
+
+=== empty value
+
+Explicit representation of a missing or unavailable measurement. Missing values shall be encoded using the `emptyValue` field rather than omitted, represented as zero, or represented as false. This ensures a clear distinction between a measurement that could not be obtained and a measurement with a value of zero.
+
+=== first mile
+
+The transmission path from a remote observation site to the central data collection infrastructure. In bandwidth-constrained environments such as satellite links, the first mile refers to the path from the satellite ground base station to the Hub.
+
+=== namespace
+
+Declaration that associates a short key with a URI identifying an external naming convention vocabulary. Namespaces are declared in the `Metadata.namespaces` field and referenced in `Parameter.standardNames` entries. Example vocabularies include the CF Metadata Conventions and the WMO First Mile parameter registry.
+
+=== Node device
+
+The primary device within a Node, typically a datalogger or observation station controller, responsible for acquiring data from Observer Devices and transmitting encoded payloads to the Hub. Described by the `Node` message in the data model.
+
+=== Observer device
+
+An individual sensor or measurement device connected to a Node Device. Observer Devices are described by `ObserverDevice` messages within the `Metadata` message. Each Observer Device shall be assigned an identifier that is unique within the context of its Node Device.
+
+=== parameter definition
+
+A named grouping of one or more related Parameters that share a common identifier and description. Parameter Definitions are declared in `Metadata` messages and referenced by identifier in `Observation` messages.
+
+=== standard name
+
+A controlled vocabulary entry from an external naming convention that unambiguously identifies a measured parameter. Standard names are associated with Parameters through namespace-keyed mappings in the `Parameter.standardNames` field.
 
 === Abbreviated terms
 
@@ -39,6 +75,15 @@ Additional information, such as the monitoring site ID, location, types of senso
 
 |CF
 |Climate and Forecast (CF) Metadata Conventions
+
+|INFCOM
+|Commission for Observation, Infrastructure and Information Systems
+
+|Protobuf
+|Protocol Buffers
+
+|SC-IMT
+|Standing Committee on Information Management and Technology
 
 |HMEI
 |HydroMeteorological and Environmental Industry
