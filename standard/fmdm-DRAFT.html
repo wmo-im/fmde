@@ -283,9 +283,6 @@ body {
 <p><strong class="big">iii.    Security Considerations</strong></p>
 </div>
 <div class="paragraph">
-<p>TODO</p>
-</div>
-<div class="paragraph">
 <p>No security considerations have been made for this standard.</p>
 </div>
 </div>
@@ -418,7 +415,7 @@ body {
 <div class="sect2">
 <h3 id="_empty_value"><a class="anchor" href="#_empty_value"></a>4.11. Empty value</h3>
 <div class="paragraph">
-<p>Explicit representation of a missing or unavailable measurement. Missing values shall be encoded using the <code>emptyValue</code> field rather than omitted, represented as zero, or represented as false. This ensures a clear distinction between a measurement that could not be obtained and a measurement with a value of zero.</p>
+<p>Explicit representation of a missing or unavailable measurement. Missing values shall be encoded using the <code>emptyValue</code> element rather than omitted, represented as zero, or represented as false. This ensures a clear distinction between a measurement that could not be obtained and a measurement with a value of zero.</p>
 </div>
 </div>
 <div class="sect2">
@@ -430,7 +427,7 @@ body {
 <div class="sect2">
 <h3 id="_namespace"><a class="anchor" href="#_namespace"></a>4.13. Namespace</h3>
 <div class="paragraph">
-<p>Declaration that associates a short key with a URI identifying an external naming convention vocabulary. Namespaces are declared in the <code>Metadata.namespaces</code> field and referenced in <code>Parameter.standardNames</code> entries. Example vocabularies include the CF Metadata Conventions and the WMO First Mile parameter registry.</p>
+<p>Declaration that associates a short key with a URI identifying an external naming convention vocabulary. Namespaces are declared in the Metadata message <code>namespaces` element and referenced in the Parameter message </code>standardNames`` elements. Example vocabularies include the CF Metadata Conventions and the WMO First Mile parameter registry.</p>
 </div>
 </div>
 <div class="sect2">
@@ -442,19 +439,19 @@ body {
 <div class="sect2">
 <h3 id="_observer_device"><a class="anchor" href="#_observer_device"></a>4.15. Observer device</h3>
 <div class="paragraph">
-<p>An individual sensor or measurement device connected to a Node Device. Observer Devices are described by <code>ObserverDevice</code> messages within the <code>Metadata</code> message. Each Observer Device shall be assigned an identifier that is unique within the context of its Node Device.</p>
+<p>An individual sensor or measurement device connected to a Node Device. Observer Devices are described by <code>ObserverDevice</code> messages within the Metadata message. Each Observer Device shall be assigned an identifier that is unique within the context of its Node Device.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_parameter_definition"><a class="anchor" href="#_parameter_definition"></a>4.16. Parameter definition</h3>
 <div class="paragraph">
-<p>A named grouping of one or more related Parameters that share a common identifier and description. Parameter Definitions are declared in <code>Metadata</code> messages and referenced by identifier in <code>Observation</code> messages.</p>
+<p>A named grouping of one or more related Parameters that share a common identifier and description. Parameter Definitions are declared in Metadata messages and referenced by identifier in Observation messages.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_standard_name"><a class="anchor" href="#_standard_name"></a>4.17. Standard name</h3>
 <div class="paragraph">
-<p>A controlled vocabulary entry from an external naming convention that unambiguously identifies a measured parameter. Standard names are associated with Parameters through namespace-keyed mappings in the <code>Parameter.standardNames</code> field.</p>
+<p>A controlled vocabulary entry from an external naming convention that unambiguously identifies a measured parameter. Standard names are associated with Parameters through namespace-keyed mappings in the Parameter message <code>standardNames</code> element.</p>
 </div>
 </div>
 <div class="sect2">
@@ -473,8 +470,16 @@ body {
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">AWS</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Automated Weather Station</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">CF</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Climate and Forecast (CF) Metadata Conventions</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">FMTH</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">First Mile Topic Hierarchy</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">INFCOM</p></td>
@@ -595,7 +600,7 @@ body {
 <div class="sect2">
 <h3 id="_solution_overview"><a class="anchor" href="#_solution_overview"></a>6.2. Solution overview</h3>
 <div class="paragraph">
-<p>The first-mile segment covers the connection between field equipment and the systems that collect and process observations. In this specification, the field equipment is represented as the Node and the receiving system as the Hub. Communication is strictly unidirectional, with the Node transmitting protobuf payloads over MQTT to the Hub. The Node represents the remote station or logger through a Node Device and may describe attached sensors as Observer Device entries, as illustrated in <a href="#fig-node-hub">Figure 1</a>. The two top-level payloads are the <code>data</code> message, which carries Observation content, and the <code>metadata</code> message, which carries the descriptive context needed to interpret those observations. Detailed message structure is described in Clause 7, standard name binding in Clause 8, and MQTT protocol binding in Clause 9.</p>
+<p>The first-mile segment covers the connection between field equipment and the systems that collect and process observations. In this specification, the field equipment is represented as the Node and the receiving system as the Hub. Communication is strictly unidirectional, with the Node transmitting Protobuf payloads over MQTT to the Hub. The Node represents the remote station or logger through a Node Device and may describe attached sensors as Observer Device entries, as illustrated in <a href="#fig-node-hub">Figure 1</a>. The two top-level payloads are the Data message, which carries Observation content, and the Metadata message, which carries the descriptive context needed to interpret those observations.</p>
 </div>
 <div id="fig-node-hub" class="imageblock">
 <div class="content">
@@ -606,7 +611,7 @@ body {
 <div class="sect3">
 <h4 id="_message_flow"><a class="anchor" href="#_message_flow"></a>6.2.1. Message flow</h4>
 <div class="paragraph">
-<p>In typical operation, the <code>metadata</code> message is sent when the Node is initialized and whenever the station configuration changes, and the <code>data</code> message is sent as observations become available. This separates relatively stable descriptive information from frequently changing measurement values and supports both individual and batched Observation delivery. Where a measurement is unavailable, the value is represented explicitly using <code>emptyValue</code> rather than being inferred from zero or omission.</p>
+<p>In typical operation, the Metadata message is sent when the Node is initialized and whenever the station configuration changes, and the Data message is sent as observations become available. This separates relatively stable descriptive information from frequently changing measurement values and supports both individual and batched Observation delivery. Where a measurement is unavailable, the value is represented explicitly using <code>emptyValue</code> rather than being inferred from zero or omission.</p>
 </div>
 </div>
 </div>
@@ -616,7 +621,7 @@ body {
 <h2 id="_message_encoding"><a class="anchor" href="#_message_encoding"></a>7. Message Encoding</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The message encoding defines the structure and organization of information transmitted from the Node to the Hub using Protocol Buffers (Protobuf) as the Data Format. The message encoding is formally specified in the protobuf schema firstmile.proto.</p>
+<p>The message encoding defines the structure and organization of information transmitted from the Node to the Hub using Protocol Buffers (Protobuf) as the Data Format.</p>
 </div>
 <div class="paragraph">
 <p>The message encoding supports two primary use cases:</p>
@@ -624,10 +629,10 @@ body {
 <div class="ulist">
 <ul>
 <li>
-<p>Transmission of observation data: The Node transmits measurement values collected from sensors</p>
+<p>Transmission of observation data: the Node transmits measurement values collected from sensors</p>
 </li>
 <li>
-<p>Transmission of metadata: The Node transmits information about the monitoring site, devices, and parameter definitions</p>
+<p>Transmission of metadata: the Node transmits information about the monitoring site, devices, and parameter definitions</p>
 </li>
 </ul>
 </div>
@@ -1064,7 +1069,7 @@ Observer device identifiers shall remain stable across Node restarts and metadat
 <p>A ParameterDefinition groups one or more related measurement parameters that share common context. Each parameter definition has a unique identifier that is referenced by observations. Parameters are typically grouped when they are measured at the same timestamp, allowing multiple values to share a single timestamp in observations and thus reducing payload size.</p>
 </div>
 <div class="paragraph">
-<p>The parameters field contains one or more Parameter messages describing individual measurable variables. When multiple parameters are grouped in a single definition, each observation referencing this definition shall provide values in the same order as the parameters are defined.</p>
+<p>The <code>parameters</code> element contains one or more Parameter messages describing individual measurable variables. When multiple parameters are grouped in a single definition, each observation referencing this definition shall provide values in the same order as the parameters are defined.</p>
 </div>
 <table id="req_message-encoding-parameter_definition" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -1105,10 +1110,10 @@ Observer device identifiers shall remain stable across Node restarts and metadat
 <p>The Parameter message specifies a single measurable variable, including its name, unit of measurement, aggregation method, and associated device.</p>
 </div>
 <div class="paragraph">
-<p>The standardNames field enables mapping to external naming conventions such as Climate and Forecast (CF) standard names. This allows parameters to be referenced by different standard parameter types according to the target application of the device using the protocol. The Node is not bound to a specific standard but may include mappings to multiple standards as appropriate for the intended use case. The keys in this map shall correspond to namespace prefixes defined in Metadata namespaces.</p>
+<p>The <code>standardNames</code> element enables mapping to external naming conventions such as Climate and Forecast (CF) standard names. This allows parameters to be referenced by different standard parameter types according to the target application of the device using the protocol. The Node is not bound to a specific standard but may include mappings to multiple standards as appropriate for the intended use case. The keys in this map shall correspond to namespace prefixes defined in Metadata namespaces.</p>
 </div>
 <div class="paragraph">
-<p>The device field specifies which device (either the node or a specific observer) performs this measurement.</p>
+<p>The <code>device</code> element specifies which device (either the node or a specific observer) performs this measurement.</p>
 </div>
 <table id="req_message-encoding-parameter" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -1176,7 +1181,7 @@ Observer device identifiers shall remain stable across Node restarts and metadat
 <div class="sect3">
 <h4 id="_metadata_parameterdefinition_parameter_deviceref"><a class="anchor" href="#_metadata_parameterdefinition_parameter_deviceref"></a>7.1.10. Metadata.ParameterDefinition.Parameter.DeviceRef</h4>
 <div class="paragraph">
-<p>The DeviceRef message associates a parameter with the device that measures it. This message uses a oneof field to reference either the node device or a specific observer device.</p>
+<p>The DeviceRef message associates a parameter with the device that measures it. This message uses a oneof element to reference either the node device or a specific observer device.</p>
 </div>
 <table id="req_message-encoding-device-ref" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -1205,7 +1210,7 @@ Observer device identifiers shall remain stable across Node restarts and metadat
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>When the observerId field is set, it SHALL match the id of an ObserverDevice defined in the Metadata message.</p>
+<p>When the <code>observerId</code> element is set, it SHALL match the id of an ObserverDevice defined in the Metadata message.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1226,7 +1231,7 @@ Observer device identifiers shall remain stable across Node restarts and metadat
 <div class="title">Note</div>
 </td>
 <td class="content">
-The Node may transmit Data messages containing observations that reference parameter definitions not yet received by the Hub. In this case, the Hub shall buffer or queue such observations until the corresponding <code>Metadata</code> message is received.
+The Node may transmit Data messages containing observations that reference parameter definitions not yet received by the Hub. In this case, the Hub shall buffer or queue such observations until the corresponding Metadata message is received.
 </td>
 </tr>
 </table>
@@ -1278,7 +1283,7 @@ The Node may transmit Data messages containing observations that reference param
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>An Observation message SHALL define a <code>time</code> element using <code>google.protobuf.Timestamp</code>, in UTC.</p>
+<p>An Observation message SHALL define a <code>time</code> element of type <code>google.protobuf.Timestamp</code>, in UTC.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -1296,7 +1301,7 @@ The Node may transmit Data messages containing observations that reference param
 <div class="title">Note</div>
 </td>
 <td class="content">
-The <code>parameterDefinitionId</code> element shall reference a ParameterDefinition <code>id</code> from the Metadata message. The number and type of values in the values field shall correspond to the number of parameters defined in the referenced ParameterDefinition.
+The <code>parameterDefinitionId</code> element shall reference a ParameterDefinition <code>id</code> from the Metadata message. The number and type of values in the <code>values</code> element shall correspond to the number of parameters defined in the referenced ParameterDefinition.
 </td>
 </tr>
 </table>
@@ -1308,7 +1313,7 @@ The <code>parameterDefinitionId</code> element shall reference a ParameterDefini
 <div class="title">Note</div>
 </td>
 <td class="content">
-The time field uses the <code>google.protobuf.Timestamp</code> format, representing time as seconds and nanoseconds since the Unix epoch (<code>1970-01-01T00:00:00Z</code>).
+The <code>time</code> element uses the <code>google.protobuf.Timestamp</code> format, representing time as seconds and nanoseconds since the Unix epoch (<code>1970-01-01T00:00:00Z</code>).
 </td>
 </tr>
 </table>
@@ -1356,54 +1361,54 @@ An observation may contain multiple values when the referenced ParameterDefiniti
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Field</th>
+<th class="tableblock halign-left valign-top">Element</th>
 <th class="tableblock halign-left valign-top">Type</th>
 <th class="tableblock halign-left valign-top">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">floatValue</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>floatValue</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">float</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">32-bit floating point number</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">doubleValue</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>doubleValue</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">double</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">64-bit floating point number</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">intValue</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>intValue</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">int32</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">32-bit signed integer</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">unsignedIntValue</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>unsignedIntValue</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">uint32</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">32-bit unsigned integer</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">int64Value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>int64Value</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">int64</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">64-bit signed integer</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">unsignedInt64Value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>unsignedInt64Value</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">uint64</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">64-bit unsigned integer</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">stringValue</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stringValue</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Text string value</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">boolValue</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>boolValue</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">bool</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Boolean true/false value</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">emptyValue</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>emptyValue</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">google.protobuf.Empty</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Indicates missing or unavailable data</p></td>
 </tr>
@@ -1413,13 +1418,13 @@ An observation may contain multiple values when the referenced ParameterDefiniti
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>When a measurement value is unavailable due to sensor malfunction, communication error, or other causes, the value SHALL be represented using the emptyValue field of <code>type google.protobuf.Empty</code>.</p>
+<p>When a measurement value is unavailable due to sensor malfunction, communication error, or other causes, the value SHALL be represented using the <code>emptyValue</code> element of <code>type google.protobuf.Empty</code>.</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>The choice of value type should be appropriate for the parameter being measured. Numeric measurements typically use doubleValue or floatValue, while categorical observations may use stringValue. Boolean parameters (such as alarm states) use boolValue.</p>
+<p>The choice of value type should be appropriate for the parameter being measured. Numeric measurements typically use <code>doubleValue</code> or <code>floatValue</code>, while categorical observations may use <code>stringValue</code>. Boolean parameters (such as alarm states) use <code>boolValue</code>.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1428,13 +1433,27 @@ An observation may contain multiple values when the referenced ParameterDefiniti
 <div class="title">Note</div>
 </td>
 <td class="content">
-The stringValue field is intended for text data only and shall NOT be used to transmit:
-   - binary data, including base64-encoded binary blobs
-   - serialized objects or data structures
-   - structured data formats such as JSON, XML, or similar encodings
+The <code>stringValue</code> element is intended for text data only and shall NOT be used to transmit:
 </td>
 </tr>
 </table>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>binary data, including base64-encoded binary blobs</p>
+</li>
+<li>
+<p>serialized objects or data structures</p>
+</li>
+<li>
+<p>structured data formats such as JSON, XML, or similar encodings</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1456,13 +1475,29 @@ Binary data transmission and complex structured data are outside the scope of th
 </td>
 <td class="content">
 Missing or unavailable measurement values shall NOT be represented as:
-   - numeric zero (0)
-   - NaN (Not a Number)
-   - omission from the values array
-   - any other numeric sentinel value
 </td>
 </tr>
 </table>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>numeric zero (0)</p>
+</li>
+<li>
+<p>NaN (Not a Number)</p>
+</li>
+<li>
+<p>omission from the values array</p>
+</li>
+<li>
+<p>any other numeric sentinel value</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1471,7 +1506,7 @@ Missing or unavailable measurement values shall NOT be represented as:
 <div class="title">Note</div>
 </td>
 <td class="content">
-The emptyValue field shall be used to explicitly and unambiguously indicate missing data.
+The <code>emptyValue</code> element shall be used to explicitly and unambiguously indicate missing data.
 </td>
 </tr>
 </table>
@@ -1480,7 +1515,7 @@ The emptyValue field shall be used to explicitly and unambiguously indicate miss
 <p>This approach ensures clear distinction between actual measurements of zero and missing measurements, which is critical for correct data interpretation.</p>
 </div>
 <div class="paragraph">
-<p>When an Observation references a ParameterDefinition containing multiple parameters, the values in the values array shall be provided in the same order as the parameters are defined in the ParameterDefinition.parameters field. It is not permitted to omit a value from the middle of the array, as this would cause misalignment with the parameter definitions. If a value is unavailable, the emptyValue field shall be used at that position to maintain correct alignment.</p>
+<p>When an Observation references a ParameterDefinition containing multiple parameters, the values in the values array shall be provided in the same order as the parameters are defined in the ParameterDefinition message <code>parameters</code> element. It is not permitted to omit a value from the middle of the array, as this would cause misalignment with the parameter definitions. If a value is unavailable, the <code>emptyValue</code> element shall be used at that position to maintain correct alignment.</p>
 </div>
 </div>
 </div>
@@ -1490,7 +1525,7 @@ The emptyValue field shall be used to explicitly and unambiguously indicate miss
 <h2 id="_parameter_standard_names"><a class="anchor" href="#_parameter_standard_names"></a>8. Parameter Standard Names</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Standard name binding enables Parameter definitions within a Metadata message to be associated with controlled vocabulary entries from external naming conventions. This allows observation data to be unambiguously interpreted by Hubs and downstream systems without dependence on the Parameter longName element, which is a human-readable label and not guaranteed to be unique or machine-interpretable.</p>
+<p>Standard name binding enables Parameter definitions within a Metadata message to be associated with controlled vocabulary entries from external naming conventions. This allows observation data to be unambiguously interpreted by Hubs and downstream systems without dependence on the Parameter <code>longName</code> element, which is a human-readable label and not guaranteed to be unique or machine-interpretable.</p>
 </div>
 <div class="sect2">
 <h3 id="_requirements_class_parameter_standard_names"><a class="anchor" href="#_requirements_class_parameter_standard_names"></a>8.1. Requirements Class "Parameter Standard Names"</h3>
@@ -1591,6 +1626,12 @@ The emptyValue field shall be used to explicitly and unambiguously indicate miss
 <p>The CF namespace URI value SHALL be a URI that resolves to a machine-readable vocabulary server endpoint publishing the CF standard name table.</p>
 </div></div></td>
 </tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">G</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>The WMO First Mile registry namespace prefix SHALL be declared using the value <code>wmo</code>.</p>
+</div></div></td>
+</tr>
 </tbody>
 </table>
 <table id="rec_parameter-standard-names-declaration" class="tableblock frame-all grid-all" style="width: 90%;">
@@ -1637,7 +1678,7 @@ The emptyValue field shall be used to explicitly and unambiguously indicate miss
 <div class="sect3">
 <h4 id="_standard_name_assignment"><a class="anchor" href="#_standard_name_assignment"></a>8.1.3. Standard name assignment</h4>
 <div class="paragraph">
-<p>The Parameter message standardNames field maps namespace keys to the standard name for that parameter within the corresponding vocabulary. It is a map from namespace key to standard name value.</p>
+<p>The Parameter message <code>standardNames</code> element maps namespace keys to the standard name for that parameter within the corresponding vocabulary. It is a map from namespace key to standard name value.</p>
 </div>
 <table id="req_parameter-standard-names-assignment" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -1757,24 +1798,6 @@ Standard name binding is applied in the Parameter message (not the ParameterDefi
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The CF namespace prefix SHALL be declared using the value <code>cf</code>.</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The CF namespace URI value SHALL be a URI that resolves to a machine-readable vocabulary server endpoint publishing the CF standard name table.</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">D</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The WMO First Mile registry namespace prefix SHALL be declared using the value <code>wmo</code>.</p>
-</div></div></td>
-</tr>
-<tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">E</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>Locally managed vocabularies SHALL conform to the FAIR Guiding Principles for scientific data management (Findable, Accessible, Interoperable, Reusable). In particular:</p>
@@ -1827,7 +1850,7 @@ Standard name binding is applied in the Parameter message (not the ParameterDefi
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Where a parameter is not covered by CF but is included in the WMO First Mile parameter registry, the Node SHOULD use the registry entry in preference to any locally managed vocabulary.</p>
+<p>Where a parameter is not covered by CF, but a WMO First Mile standard name exists for a parameter, the Node SHOULD use it in preference to any lower-level vocabulary entry.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1902,7 +1925,7 @@ Where a standard name exists at Level 1 or Level 2, that standard name is to be 
 <h2 id="_transmission"><a class="anchor" href="#_transmission"></a>9. Transmission</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>TODO one sentence</p>
+<p>First Mile Messages are exchanged with a known and defined message transmission and publishing workflow.</p>
 </div>
 <div class="sect2">
 <h3 id="_requirements_class_transmission"><a class="anchor" href="#_requirements_class_transmission"></a>9.1. Requirements Class "Transmission"</h3>
@@ -1951,7 +1974,7 @@ Where a standard name exists at Level 1 or Level 2, that standard name is to be 
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>MQTT SHALL be used for all publish-subscribe workflows.</p>
+<p>MQTT SHALL be used for all Publish-Subscribe workflows.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -1963,7 +1986,7 @@ Where a standard name exists at Level 1 or Level 2, that standard name is to be 
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>To improve the overall level of the firstmile ecosystem, the secure version of the MQTT protocol SHOULD be implemented (in this case, a valid certificate is required).</p>
+<p>To improve the overall level of the First Mile ecosystem, the secure version of the MQTT protocol SHOULD be implemented (in this case, a valid certificate is required).</p>
 </div></div></td>
 </tr>
 <tr>
@@ -1995,7 +2018,7 @@ Where a standard name exists at Level 1 or Level 2, that standard name is to be 
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>To improve the overall level of the firstmile ecosystem, the secure version of the MQTT protocol SHOULD be implemented (in which case a valid certificate is required).</p>
+<p>To improve the overall level of the First Mile ecosystem, the secure version of the MQTT protocol SHOULD be implemented (in which case a valid certificate is required).</p>
 </div></div></td>
 </tr>
 <tr>
@@ -2145,7 +2168,7 @@ Where a standard name exists at Level 1 or Level 2, that standard name is to be 
 <div class="sect3">
 <h4 id="_management"><a class="anchor" href="#_management"></a>9.1.5. Management</h4>
 <div class="paragraph">
-<p>Primary levels (Level 1 and level 2) are</p>
+<p>Various levels of the FMTH are managed differently in order to maintain stable operations and allow for flexibility.</p>
 </div>
 <table id="req_transmission-management" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -2162,13 +2185,13 @@ Where a standard name exists at Level 1 or Level 2, that standard name is to be 
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The value of group-id (level 3) SHALL be determined and maintained by the operator of the first-mile broker.</p>
+<p>Levels 1, 2 and 5 SHALL be determined by WMO.</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The value of node-id (level 4) SHALL be determined and maintained by the operator of the first-mile broker.</p>
+<p>Levels 3 and 4 SHALL be determined and maintained by the operator of the first-mile broker.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -2206,37 +2229,43 @@ Where a standard name exists at Level 1 or Level 2, that standard name is to be 
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Removal of a topic at any level SHALL result in a major version update.</p>
+<p>Addition of a topic at any level SHALL NOT result in any version update.</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">D</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Renaming of a topic at any level SHALL result in a major version update.</p>
+<p>Removal of a topic at any level SHALL result in a major version update.</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">E</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>A change in the structure of the topic hierarchy SHALL result in a major version update.</p>
+<p>Renaming of a topic at any level SHALL result in a major version update.</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">F</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>A renaming or removal in the Message Encoding SHALL result in a major version update.</p>
+<p>A change in the structure of the topic hierarchy SHALL result in a major version update.</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">G</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>A new topic SHALL NOT result in any version update.</p>
+<p>A renaming or removal in the Message Encoding SHALL result in a major version update.</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">H</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>A new group-id or node-id SHALL NOT result in any version update.</p>
+<p>A new topic SHALL NOT result in any version update.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">I</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>Any changes to group-id or node-id topics SHALL NOT result in any version update.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -2598,7 +2627,7 @@ message FirstMileMessage {
 <div class="sect3">
 <h4 id="_cellmethod"><a class="anchor" href="#_cellmethod"></a>B.2.1. CellMethod</h4>
 <div class="paragraph">
-<p>The cellMethod field specifies how measurement data is aggregated or processed over the cell period. The CellMethod enumeration defines the following values:</p>
+<p>The <code>cellMethod</code> element specifies how measurement data is aggregated or processed over the cell period. The CellMethod enumeration defines the following values:</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -3220,7 +3249,7 @@ The choice of reference surface is determined by the user based on the measureme
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-06-16 17:52:41 UTC
+Last updated 2026-06-16 17:59:04 UTC
 </div>
 </div>
 </body>
