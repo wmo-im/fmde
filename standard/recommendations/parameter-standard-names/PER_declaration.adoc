@@ -1,0 +1,6 @@
+[[per_parameter-standard-names-declaration]]
+[width="90%",cols="2,6a"]
+|===
+^|*Permission {counter:per-id}* |*/per/parameter-standard-names/declaration*
+^|A |When no standard names are used, the ``namespaces`` map MAY be either empty or omitted.
+|===

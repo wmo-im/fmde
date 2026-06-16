@@ -1,7 +1,7 @@
-[[per_data-model-standard_name_binding_hierarchy]]
+[[per_parameter-standard-names-hierarchy]]
 [width="90%",cols="2,6a"]
 |===
-^|*Permission {counter:per-id}* |*/per/data-model/standard_name_binding_hierarchy*
+^|*Permission {counter:per-id}* |*/per/parameter-standard-names/hierarchy*
 ^|A |Where a parameter is not covered by either of Levels 1 or 2, a Node MAY use a locally managed vocabulary.
 ^|B |Local namespace entries MAY be included alongside Level 1 or Level 2 standard names.
 |===

@@ -1,0 +1,6 @@
+[[per_parameter-standard-names-assignment]]
+[width="90%",cols="2,6a"]
+|===
+^|*Permission {counter:per-id}* |*/per/parameter-standard-names/assignment*
+^|A |A parameter MAY carry zero or more standard name entries.
+|===

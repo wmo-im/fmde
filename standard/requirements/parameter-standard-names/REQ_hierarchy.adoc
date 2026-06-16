@@ -1,7 +1,7 @@
-[[req_data-model-standard_name_binding_hierarchy]]
+[[req_parameter-standard-names-hierarchy]]
 [width="90%",cols="2,6a"]
 |===
-^|*Requirement {counter:req-id}* |*/req/data-model/standard_name_binding_hierarchy*
+^|*Requirement {counter:req-id}* |*/req/parameter-standard-names/hierarchy*
 ^|A |Standard names SHALL be drawn in the following order, in the following order of precedence:
 
 * Level 1: CF Metadata Conventions

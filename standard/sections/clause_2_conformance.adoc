@@ -9,4 +9,5 @@ This standard identifies numerous Requirements Classes which define the function
 The mandatory Requirements Classes for this specification are:
 
 * "Data Model"
+* "Parameter Standard Names"
 * "Protocol"

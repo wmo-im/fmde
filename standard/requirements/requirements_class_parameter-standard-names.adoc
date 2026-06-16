@@ -1,0 +1,8 @@
+[[rc_parameter-standard-names]]
+[cols="1,4",width="90%"]
+|===
+2+|*Requirements Class*
+2+|http://wis.wmo.int/spec/fmdm/1/req/parameter-standard-names
+|Target type |Message encoding
+|Dependency |<<rc_data-model, Data Model>>
+|===

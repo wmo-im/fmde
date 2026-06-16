@@ -1,7 +1,7 @@
-[[req_data-model-standard_name_binding_declaration]]
+[[req_parameter-standard-names-declaration]]
 [width="90%",cols="2,6a"]
 |===
-^|*Requirement {counter:req-id}* |*/req/data-model/standard_name_binding_declaration*
+^|*Requirement {counter:req-id}* |*/req/parameter-standard-names/declaration*
 ^|A |The Metadata message ``namespaces`` element SHALL define zero or more namespace maps.
 ^|B |Each namespace map SHALL consist of a namespace prefix and URI.
 ^|C |A namespace map prefix SHALL be a non-empty string containing only alphanumeric characters and underscores.
