@@ -873,7 +873,7 @@ body {
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">D</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>A Metadata message SHALL define a <code>namespace</code> element to define a mapping of namespace prefixes to their corresponding URIs for standard name resolution.</p>
+<p>A Metadata message SHALL define a <code>namespaces</code> element to define a mapping of namespace prefixes to their corresponding URIs for standard name resolution.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1141,7 +1141,7 @@ Observer device identifiers shall remain stable across Node restarts and metadat
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>A Parameter message SHALL define a <code>standardNames</code> map which describes one or more namespace prefix and URI maps for the equivalent parameter name in an external vocabulary.</p>
+<p>A Parameter message SHALL define a <code>standardNames</code> map which describes zero or more namespace prefix and standard name mappings for the equivalent parameter name in an external vocabulary. // TODO: was "one or more"; changed to "zero or more" to align with /per/data-model/standard_name_binding_assignment Part A</p>
 </div></div></td>
 </tr>
 <tr>
@@ -1196,7 +1196,7 @@ Observer device identifiers shall remain stable across Node restarts and metadat
 </ul>
 </div>
 <div class="paragraph">
-<p>Standard name binding follows a three-level hierarchy of vocabularies, described in Standard name hierarchy. The use of standard names is optional but recommended where machine-to-machine interoperability is required. A Node may bind a single parameter to standard names from multiple vocabularies simultaneously.</p>
+<p>Standard name binding follows a three-level hierarchy of vocabularies, described in <a href="#standard-name-hierarchy">Standard name hierarchy</a>. The use of standard names is optional but recommended where machine-to-machine interoperability is required. A Node may bind a single parameter to standard names from multiple vocabularies simultaneously.</p>
 </div>
 <div class="sect4">
 <h5 id="_metadata_namespace_declaration"><a class="anchor" href="#_metadata_namespace_declaration"></a>7.1.10.1. Metadata namespace declaration</h5>
@@ -1218,7 +1218,7 @@ Observer device identifiers shall remain stable across Node restarts and metadat
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The Metadata message namespace element SHALL define zero or more namespace maps.</p>
+<p>The Metadata message <code>namespaces</code> element SHALL define zero or more namespace maps.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -1236,7 +1236,7 @@ Observer device identifiers shall remain stable across Node restarts and metadat
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">D</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>A namespace map URI shall be a resolvable, publicly accessible URI that can be deferenced.</p>
+<p>A namespace map URI SHALL be a resolvable, publicly accessible URI that can be dereferenced.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -1268,7 +1268,7 @@ Observer device identifiers shall remain stable across Node restarts and metadat
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>For CF conventions, the namespace URI value should be set to the NERC Vocabulary Server mirror of the CF standard name table (collection P07) should be used (<code><a href="https://vocab.nerc.ac.uk/collection/P07/current" class="bare">https://vocab.nerc.ac.uk/collection/P07/current</a></code>).</p>
+<p>For CF conventions, the namespace URI value SHOULD be set to the NERC Vocabulary Server mirror of the CF standard name table (collection P07): <code><a href="https://vocab.nerc.ac.uk/collection/P07/current" class="bare">https://vocab.nerc.ac.uk/collection/P07/current</a></code>.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1371,7 +1371,7 @@ Standard name binding is applied in the Parameter message (not the ParameterDefi
 </div>
 </div>
 <div class="sect4">
-<h5 id="_standard_name_hierarchy"><a class="anchor" href="#_standard_name_hierarchy"></a>7.1.10.3. Standard name hierarchy</h5>
+<h5 id="standard-name-hierarchy"><a class="anchor" href="#standard-name-hierarchy"></a>7.1.10.3. Standard name hierarchy</h5>
 <div class="paragraph">
 <p>Standard names are defined at three levels:</p>
 </div>
@@ -1429,43 +1429,43 @@ Standard name binding is applied in the Parameter message (not the ParameterDefi
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>The CF namespace prefix SHALL be declared using the value <code>cf</code>.</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">D</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>The CF namespace URI value SHALL be a URI that resolves to a machine-readable vocabulary server endpoint publishing the CF standard name table.</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">E</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">D</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>The WMO First Mile registry namespace prefix SHALL be declared using the value <code>wmo</code>.</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">F</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">E</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>Locally managed vocabularies SHALL conform to the FAIR Guiding Principles for scientific data management (Findable, Accessible, Interoperable, Reusable). In particular:</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">G</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">F</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>The vocabulary SHALL be findable via a persistent, unique identifier (the namespace URI).</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">H</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">G</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>The vocabulary SHALL be accessible at that URI to all parties participating in the data exchange.</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">I</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">H</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>The vocabulary SHALL use an open, standardised representation (e.g., SKOS/RDF).</p>
 </div></div></td>
@@ -1561,7 +1561,7 @@ A conformant Hub should be capable of resolving namespace URIs as configured for
 <div class="title">Important</div>
 </td>
 <td class="content">
-Where a standard name exists at Level 1 or Level 2, that standard name is be included in the Parameter message <code>standardNames</code> element. Any locally managed entries for the same parameter are supplementary to, not a replacement for, the applicable standard name.
+Where a standard name exists at Level 1 or Level 2, that standard name is to be included in the Parameter message <code>standardNames</code> element. Any locally managed entries for the same parameter are supplementary to, not a replacement for, the applicable standard name. // TODO consider making a requirement (but note this is untestable)
 </td>
 </tr>
 </table>
@@ -2384,7 +2384,7 @@ The choice of reference surface is determined by the user based on the measureme
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-06-16 02:04:18 UTC
+Last updated 2026-06-16 12:03:26 UTC
 </div>
 </div>
 </body>
