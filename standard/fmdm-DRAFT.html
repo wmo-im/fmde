@@ -164,7 +164,6 @@ body {
 <li><a href="#_solution_overview">6.2. Solution overview</a>
 <ul class="sectlevel3">
 <li><a href="#_message_flow">6.2.1. Message flow</a></li>
-<li><a href="#_conformance_class_summary">6.2.2. Conformance class summary</a></li>
 </ul>
 </li>
 </ul>
@@ -202,9 +201,9 @@ body {
 </li>
 </ul>
 </li>
-<li><a href="#_protocol_2">9. Protocol</a>
+<li><a href="#_transmission">9. Transmission</a>
 <ul class="sectlevel2">
-<li><a href="#_requirements_class_protocol">9.1. Requirements Class "Protocol"</a>
+<li><a href="#_requirements_class_trasmission">9.1. Requirements Class "Trasmission"</a>
 <ul class="sectlevel3">
 <li><a href="#_overview_3">9.1.1. Overview</a></li>
 </ul>
@@ -218,7 +217,11 @@ body {
 <li><a href="#_encoding">A.1.1. Encoding</a></li>
 </ul>
 </li>
-<li><a href="#_conformance_class_protocol">A.2. Conformance Class: Protocol</a></li>
+<li><a href="#_conformance_class_protocol">A.2. Conformance Class: Protocol</a>
+<ul class="sectlevel3">
+<li><a href="#_encoding_2">A.2.1. Encoding</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#schemas">Annex B: Schemas (Normative)</a>
@@ -590,43 +593,6 @@ body {
 <p>In typical operation, the <code>metadata</code> message is sent when the Node is initialized and whenever the station configuration changes, and the <code>data</code> message is sent as observations become available. This separates relatively stable descriptive information from frequently changing measurement values and supports both individual and batched Observation delivery. Where a measurement is unavailable, the value is represented explicitly using <code>emptyValue</code> rather than being inferred from zero or omission.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_conformance_class_summary"><a class="anchor" href="#_conformance_class_summary"></a>6.2.2. Conformance class summary</h4>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 28.5714%;">
-<col style="width: 71.4286%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Conformance class</th>
-<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Summary</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Core Data Model</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Covers the protobuf structure and semantics of the <code>data</code> message, <code>metadata</code> message, Observation content, devices, Parameter Definition content, and explicit missing values.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Standard Name Binding</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Covers how Parameter Definition entries associate parameters with controlled standard-name vocabularies and namespaces.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">MQTT Protocol Binding</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Covers how protobuf payloads are conveyed over MQTT in the unidirectional exchange between Node and Hub.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Node</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Covers the sender-side behavior for constructing and publishing <code>metadata</code> message and <code>data</code> message payloads.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Hub</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Covers the receiver-side behavior for accepting, decoding, and interpreting payloads received from the Node.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
 </div>
 </div>
 </div>
@@ -698,7 +664,7 @@ body {
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Message encoding</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Message Encoding</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
@@ -706,7 +672,7 @@ body {
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Pre-conditions</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The event message conforms to the Protobuf specification.</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The message conforms to the Protobuf specification.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1917,21 +1883,40 @@ Where a standard name exists at Level 1 or Level 2, that standard name is to be 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_protocol_2"><a class="anchor" href="#_protocol_2"></a>9. Protocol</h2>
+<h2 id="_transmission"><a class="anchor" href="#_transmission"></a>9. Transmission</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>TODO one sentence</p>
 </div>
 <div class="sect2">
-<h3 id="_requirements_class_protocol"><a class="anchor" href="#_requirements_class_protocol"></a>9.1. Requirements Class "Protocol"</h3>
+<h3 id="_requirements_class_trasmission"><a class="anchor" href="#_requirements_class_trasmission"></a>9.1. Requirements Class "Trasmission"</h3>
 <div class="sect3">
 <h4 id="_overview_3"><a class="anchor" href="#_overview_3"></a>9.1.1. Overview</h4>
 <div class="paragraph">
-<p>This Requirements Class provides requirements for the Protocol.</p>
+<p>This Requirements Class provides requirements for Trasmission.</p>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in sections/clause_8_protocol.adoc - include::../requirements/requirements_class_protocol.adoc[]</p>
-</div>
+<table id="rc_transmission" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirements Class</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://wis.wmo.int/spec/fmdm/1/req/transmission" class="bare">http://wis.wmo.int/spec/fmdm/1/req/transmission</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Transmission</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_data-model">[rc_data-model]</a></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -1955,7 +1940,7 @@ Where a standard name exists at Level 1 or Level 2, that standard name is to be 
 </dd>
 <dt class="hdlist1">classification</dt>
 <dd>
-<p>Target Type:Event Metadata</p>
+<p>Target Type:Message Encoding</p>
 </dd>
 </dl>
 </div>
@@ -2005,8 +1990,29 @@ Where a standard name exists at Level 1 or Level 2, that standard name is to be 
 </div>
 <div class="sect2">
 <h3 id="_conformance_class_protocol"><a class="anchor" href="#_conformance_class_protocol"></a>A.2. Conformance Class: Protocol</h3>
-<div class="paragraph">
-<p>Unresolved directive in sections/annex_a_ats.adoc - include::../abstract_tests/ATS_class_protocol.adoc[]</p>
+<div id="ats_transmission" class="exampleblock">
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">label</dt>
+<dd>
+<p><a href="http://wis.wmo.int/spec/fmdm/1/req/transmission" class="bare">http://wis.wmo.int/spec/fmdm/1/req/transmission</a></p>
+</dd>
+<dt class="hdlist1">subject</dt>
+<dd>
+<p>Requirements Class "Transmission"</p>
+</dd>
+<dt class="hdlist1">classification</dt>
+<dd>
+<p>Target Type:Message Encoding</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_encoding_2"><a class="anchor" href="#_encoding_2"></a>A.2.1. Encoding</h4>
+
 </div>
 </div>
 </div>
@@ -2419,7 +2425,7 @@ The choice of reference surface is determined by the user based on the measureme
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-06-16 12:56:15 UTC
+Last updated 2026-06-16 14:20:47 UTC
 </div>
 </div>
 </body>
