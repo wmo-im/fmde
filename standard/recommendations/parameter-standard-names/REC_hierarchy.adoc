@@ -4,5 +4,5 @@
 ^|*Recommendation {counter:rec-id}* |*/rec/parameter-standard-names/hierarchy*
 ^|A |The highest vocabulary SHOULD be used when it provides a suitable standard name for a given parameter.
 ^|B |Where a CF standard name exists for a parameter, the Node SHOULD use it in preference to any lower-level vocabulary entry.
-^|C |Where a parameter is not covered by CF but is included in the WMO First Mile parameter registry, the Node SHOULD use the registry entry in preference to any locally managed vocabulary.
+^|C |Where a parameter is not covered by CF, but a WMO First Mile standard name exists for a parameter, the Node SHOULD use it in preference to any lower-level vocabulary entry.
 |===

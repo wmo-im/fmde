@@ -14,6 +14,4 @@ wmo, observations, first mile, node, hub, protobuf, mqtt
 
 [big]*iii.    Security Considerations*
 
-TODO
-
 No security considerations have been made for this standard.

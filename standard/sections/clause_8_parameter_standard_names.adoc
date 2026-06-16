@@ -1,6 +1,6 @@
 == Parameter Standard Names
 
-Standard name binding enables Parameter definitions within a Metadata message to be associated with controlled vocabulary entries from external naming conventions. This allows observation data to be unambiguously interpreted by Hubs and downstream systems without dependence on the Parameter longName element, which is a human-readable label and not guaranteed to be unique or machine-interpretable.
+Standard name binding enables Parameter definitions within a Metadata message to be associated with controlled vocabulary entries from external naming conventions. This allows observation data to be unambiguously interpreted by Hubs and downstream systems without dependence on the Parameter ``longName`` element, which is a human-readable label and not guaranteed to be unique or machine-interpretable.
 
 === Requirements Class "Parameter Standard Names"
 
@@ -27,7 +27,7 @@ include::../recommendations/parameter-standard-names/PER_declaration.adoc[]
 
 ==== Standard name assignment
 
-The Parameter message standardNames field maps namespace keys to the standard name for that parameter within the corresponding vocabulary. It is a map from namespace key to standard name value.
+The Parameter message ``standardNames`` element maps namespace keys to the standard name for that parameter within the corresponding vocabulary. It is a map from namespace key to standard name value.
 
 include::../requirements/parameter-standard-names/REQ_assignment.adoc[]
 include::../recommendations/parameter-standard-names/PER_assignment.adoc[]

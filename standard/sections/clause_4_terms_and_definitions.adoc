@@ -41,7 +41,7 @@ Duration in seconds over which measurements are aggregated using the cell method
 
 === Empty value
 
-Explicit representation of a missing or unavailable measurement. Missing values shall be encoded using the `emptyValue` field rather than omitted, represented as zero, or represented as false. This ensures a clear distinction between a measurement that could not be obtained and a measurement with a value of zero.
+Explicit representation of a missing or unavailable measurement. Missing values shall be encoded using the `emptyValue` element rather than omitted, represented as zero, or represented as false. This ensures a clear distinction between a measurement that could not be obtained and a measurement with a value of zero.
 
 === First mile
 
@@ -49,7 +49,7 @@ The transmission path from a remote observation site to the central data collect
 
 === Namespace
 
-Declaration that associates a short key with a URI identifying an external naming convention vocabulary. Namespaces are declared in the `Metadata.namespaces` field and referenced in `Parameter.standardNames` entries. Example vocabularies include the CF Metadata Conventions and the WMO First Mile parameter registry.
+Declaration that associates a short key with a URI identifying an external naming convention vocabulary. Namespaces are declared in the Metadata message ``namespaces` element and referenced in the Parameter message ``standardNames`` elements. Example vocabularies include the CF Metadata Conventions and the WMO First Mile parameter registry.
 
 === Node device
 
@@ -57,15 +57,15 @@ The primary device within a Node, typically a datalogger or observation station 
 
 === Observer device
 
-An individual sensor or measurement device connected to a Node Device. Observer Devices are described by `ObserverDevice` messages within the `Metadata` message. Each Observer Device shall be assigned an identifier that is unique within the context of its Node Device.
+An individual sensor or measurement device connected to a Node Device. Observer Devices are described by `ObserverDevice` messages within the Metadata message. Each Observer Device shall be assigned an identifier that is unique within the context of its Node Device.
 
 === Parameter definition
 
-A named grouping of one or more related Parameters that share a common identifier and description. Parameter Definitions are declared in `Metadata` messages and referenced by identifier in `Observation` messages.
+A named grouping of one or more related Parameters that share a common identifier and description. Parameter Definitions are declared in Metadata messages and referenced by identifier in Observation messages.
 
 === Standard name
 
-A controlled vocabulary entry from an external naming convention that unambiguously identifies a measured parameter. Standard names are associated with Parameters through namespace-keyed mappings in the `Parameter.standardNames` field.
+A controlled vocabulary entry from an external naming convention that unambiguously identifies a measured parameter. Standard names are associated with Parameters through namespace-keyed mappings in the Parameter message ``standardNames`` element.
 
 === Abbreviated terms
 
@@ -73,8 +73,14 @@ A controlled vocabulary entry from an external naming convention that unambiguou
 |===
 |Abbreviation |Term
 
+|AWS
+|Automated Weather Station
+
 |CF
 |Climate and Forecast (CF) Metadata Conventions
+
+|FMTH
+|First Mile Topic Hierarchy
 
 |INFCOM
 |Commission for Observation, Infrastructure and Information Systems

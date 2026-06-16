@@ -8,46 +8,46 @@ A Value message SHALL be defined using one of the following data types:
 
 [cols="2,2,5"]
 !===
-!Field !Type !Description
+!Element !Type !Description
 
-!floatValue
+!``floatValue``
 !float
 !32-bit floating point number
 
-!doubleValue
+!``doubleValue``
 !double
 !64-bit floating point number
 
-!intValue
+!``intValue``
 !int32
 !32-bit signed integer
 
-!unsignedIntValue
+!``unsignedIntValue``
 !uint32
 !32-bit unsigned integer
 
-!int64Value
+!``int64Value``
 !int64
 !64-bit signed integer
 
-!unsignedInt64Value
+!``unsignedInt64Value``
 !uint64
 !64-bit unsigned integer
 
-!stringValue
+!``stringValue``
 !string
 !Text string value
 
-!boolValue
+!``boolValue``
 !bool
 !Boolean true/false value
 
-!emptyValue
+!``emptyValue``
 !google.protobuf.Empty
 !Indicates missing or unavailable data
 
 !===
 
-^|B | When a measurement value is unavailable due to sensor malfunction, communication error, or other causes, the value SHALL be represented using the emptyValue field of ``type google.protobuf.Empty``.
+^|B | When a measurement value is unavailable due to sensor malfunction, communication error, or other causes, the value SHALL be represented using the ``emptyValue`` element of ``type google.protobuf.Empty``.
 
 |===

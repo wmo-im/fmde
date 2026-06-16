@@ -1,6 +1,6 @@
 == Transmission
 
-TODO one sentence
+First Mile Messages are exchanged with a known and defined message transmission and publishing workflow.
 
 === Requirements Class "Transmission"
 
@@ -65,7 +65,7 @@ include::../requirements/transmission/REQ_publishing.adoc[]
 
 ==== Management
 
-Primary levels (Level 1 and level 2) are 
+Various levels of the FMTH are managed differently in order to maintain stable operations and allow for flexibility.
 
 include::../requirements/transmission/REQ_management.adoc[]
 

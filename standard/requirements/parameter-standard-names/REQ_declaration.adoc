@@ -8,4 +8,5 @@
 ^|D |A namespace map URI SHALL be a resolvable, publicly accessible URI that can be dereferenced.
 ^|E |The CF namespace prefix SHALL be declared using the value ``cf``.
 ^|F |The CF namespace URI value SHALL be a URI that resolves to a machine-readable vocabulary server endpoint publishing the CF standard name table.
+^|G |The WMO First Mile registry namespace prefix SHALL be declared using the value ``wmo``.
 |===

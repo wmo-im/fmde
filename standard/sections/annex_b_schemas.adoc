@@ -16,7 +16,7 @@ include::../../schemas/first-mile-message-encoding.proto[]
 
 ==== CellMethod
 
-The cellMethod field specifies how measurement data is aggregated or processed over the cell period. The CellMethod enumeration defines the following values:
+The ``cellMethod`` element specifies how measurement data is aggregated or processed over the cell period. The CellMethod enumeration defines the following values:
 
 |===
 | Name | Value | Description
