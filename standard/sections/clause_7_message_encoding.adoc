@@ -1,6 +1,6 @@
 == Message Encoding
 
-The message encoding defines the structure and organization of information transmitted from the Node to the Hub using Protocol Buffers (Protobuf) as the Data Format.
+The message encoding defines the structure and organization of information transmitted from the Node to the Hub using Protocol Buffers (Protobuf).
 
 The message encoding supports two primary use cases:
 
