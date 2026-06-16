@@ -32,7 +32,7 @@
                 "parameters": [
                     {
                         "longName": "Air Temperature",
-                        "unit": "°C",
+                        "unit": "degC",
                         "device": {
                             "observerId": 1
                         },
@@ -43,7 +43,7 @@
                     },
                     {
                         "longName": "Relative Humidity",
-                        "unit": "%",
+                        "unit": "percent",
                         "device": {
                             "observerId": 1
                         },
@@ -65,7 +65,7 @@
                     },
                     {
                         "longName": "Wind Speed (10min mean)",
-                        "unit": "m/s",
+                        "unit": "m_s-1",
                         "device": {
                             "observerId": 1
                         },
@@ -77,7 +77,7 @@
                     },
                     {
                         "longName": "Wind Direction (10min mean)",
-                        "unit": "°",
+                        "unit": "degrees_true",
                         "device": {
                             "observerId": 1
                         },
@@ -128,7 +128,7 @@
                     },
                     {
                         "longName": "Internal Logger Temperature",
-                        "unit": "°C",
+                        "unit": "degC",
                         "device": {
                             "node": {}
                         },
