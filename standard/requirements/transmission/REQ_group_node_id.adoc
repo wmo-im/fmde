@@ -1,0 +1,9 @@
+[[req_transmission-group_node_id]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/transmission/group_node_id*
+^|A |A group-id or node-id SHALL consist only of lowercase ASCII alphanumeric characters and hyphens (-).
+^|B |A group-id or node-id SHALL NOT begin or end with a hyphen.
+^|C |A group-id or node-id SHALL NOT be empty.
+^|D |A node-id SHALL be unique within the namespace of its associated group-id.
+|===

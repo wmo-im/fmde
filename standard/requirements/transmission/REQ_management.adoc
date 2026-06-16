@@ -1,0 +1,7 @@
+[[req_transmission-management]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/transmission/management*
+^|A |The value of group-id (level 3) SHALL be determined and maintained by the operator of the first-mile broker.
+^|B |The value of node-id (level 4) SHALL be determined and maintained by the operator of the first-mile broker.
+|===

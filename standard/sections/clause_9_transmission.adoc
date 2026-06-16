@@ -15,8 +15,78 @@ include::../requirements/requirements_class_transmission.adoc[]
 include::../requirements/transmission/REQ_protocol.adoc[]
 include::../recommendations/transmission/REC_protocol.adoc[]
 
-
 ==== Topic Hierarchy
 
+The First Mile Topic Hierarchy is composed of six mandatory levels.  The representation is encoded as a simple text string of values at each topic level, separated by a slash (``/``).
 
+_Examples_:
 
+``firstmile/a/my-group/station-001/data``
+
+``firstmile/a/my-group/station-001/metadata``
+
+``firstmile/a/relief-ops/camp-alpha/data``
+
+``firstmile/a/relief-ops/camp-alpha/metadata``
+
+The table below provides an overview of the topic levels.
+
+.FMTH topic levels
+|===
+|Level|Name|Description
+
+|1
+|channel
+|Fixed value of ``firstmile``
+
+|2
+|version
+|Alphabetical version of the topic hierarchy, currently: ``a``
+
+|3
+|group-id
+|Identifier for the group or organisational entity responsible for one or more first-mile nodes
+
+|4
+|node-id
+|Identifier for the individual first-mile node (e.g. gateway, AWS)
+
+|5
+|notification-type
+|The type of notification: either ``data`` or ``metadata``.
+
+|===
+
+==== Publishing
+
+Considering the solution used to exchange data, it is important to ensure that Metadata messages are always available at the Hub before any data is published.  This is to ensure that client systems can access the necessary Metadata messages to interpret Data messages accordingly.
+
+include::../requirements/transmission/REQ_publishing.adoc[]
+
+==== Management
+
+The primary levels and sub-discipline specific levels are managed differently to maintain stability and allow for flexibility.
+
+include::../requirements/transmission/REQ_management.adoc[]
+
+==== Versioning
+
+The FMTH version supports change management and transition for operators and consuming systems.
+
+include::../requirements/transmission/REQ_versioning.adoc[]
+
+==== Conventions
+
+All levels of the topic hierarchy are defined in a consistent manner to support a normalised and predictable structure.
+
+include::../requirements/transmission/REQ_conventions.adoc[]
+
+==== Group and Node identification
+
+The group-id (level 3) identifies an organisational entity (such as an agency, project, or operational cluster) that is responsible for one or more first-mile nodes.
+
+The node-id (level 4) identifies a specific first-mile node within the group.
+
+Together, group-id and node-id form the address of a first-mile data source within the FMTH.
+
+include::../requirements/transmission/REQ_group_node_id.adoc[]
