@@ -3,5 +3,5 @@
 |===
 ^|*Requirement {counter:req-id}* |*/req/data-model/encoding*
 ^|A |A data message SHALL be conformant and validate against the Protobuf schema definition defined in Annex B.
-^|A |A metadata message SHALL be conformant and validate against the Protobuf schema definition defined in Annex B.
+^|B |A metadata message SHALL be conformant and validate against the Protobuf schema definition defined in Annex B.
 |===
