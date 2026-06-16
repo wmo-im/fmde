@@ -168,9 +168,9 @@ body {
 </li>
 </ul>
 </li>
-<li><a href="#_data_model">7. Data Model</a>
+<li><a href="#_message_encoding">7. Message Encoding</a>
 <ul class="sectlevel2">
-<li><a href="#_requirements_class_data_model">7.1. Requirements Class "Data Model"</a>
+<li><a href="#_requirements_class_message_encoding">7.1. Requirements Class "Message Encoding"</a>
 <ul class="sectlevel3">
 <li><a href="#_overview">7.1.1. Overview</a></li>
 <li><a href="#_design_principles">7.1.2. Design principles</a></li>
@@ -212,7 +212,7 @@ body {
 </li>
 <li><a href="#_conformance_class_abstract_test_suite_normative">Annex A: Conformance Class Abstract Test Suite (Normative)</a>
 <ul class="sectlevel2">
-<li><a href="#_conformance_class_data_model">A.1. Conformance Class: Data Model</a>
+<li><a href="#_conformance_class_message_encoding">A.1. Conformance Class: Message Encoding</a>
 <ul class="sectlevel3">
 <li><a href="#_encoding">A.1.1. Encoding</a></li>
 </ul>
@@ -226,7 +226,7 @@ body {
 </li>
 <li><a href="#schemas">Annex B: Schemas (Normative)</a>
 <ul class="sectlevel2">
-<li><a href="#_data_model_2">B.1. Data Model</a></li>
+<li><a href="#_message_encoding_2">B.1. Message Encoding</a></li>
 <li><a href="#_enumerations">B.2. Enumerations</a>
 <ul class="sectlevel3">
 <li><a href="#_cellmethod">B.2.1. CellMethod</a></li>
@@ -285,7 +285,7 @@ body {
 <p>This document defines the encoding and transmission of observation data from remote monitoring stations (Nodes) to a central data collection system (Hub).</p>
 </div>
 <div class="paragraph">
-<p>This specification defines the conformance requirements for WMO First Mile Data Management (data model, encoding, transmission).  Annex A defines the abstract test suite.</p>
+<p>This specification defines the conformance requirements for WMO First Mile Data Management (message encoding, parameter standard names, transmission).  Annex A defines the abstract test suite.</p>
 </div>
 </div>
 </div>
@@ -307,13 +307,13 @@ body {
 <div class="ulist">
 <ul>
 <li>
-<p>"Data Model"</p>
+<p>"Message Encoding"</p>
 </li>
 <li>
 <p>"Parameter Standard Names"</p>
 </li>
 <li>
-<p>"Protocol"</p>
+<p>"Transmission"</p>
 </li>
 </ul>
 </div>
@@ -424,7 +424,7 @@ body {
 <div class="sect2">
 <h3 id="_node_device"><a class="anchor" href="#_node_device"></a>4.14. Node device</h3>
 <div class="paragraph">
-<p>The primary device within a Node, typically a datalogger or observation station controller, responsible for acquiring data from Observer Devices and transmitting encoded payloads to the Hub. Described by the <code>Node</code> message in the data model.</p>
+<p>The primary device within a Node, typically a datalogger or observation station controller, responsible for acquiring data from Observer Devices and transmitting encoded payloads to the Hub. Described by the <code>Node</code> message in the message encoding.</p>
 </div>
 </div>
 <div class="sect2">
@@ -597,13 +597,13 @@ body {
 </div>
 </div>
 <div class="sect1">
-<h2 id="_data_model"><a class="anchor" href="#_data_model"></a>7. Data Model</h2>
+<h2 id="_message_encoding"><a class="anchor" href="#_message_encoding"></a>7. Message Encoding</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The data model defines the structure and organization of information transmitted from the Node to the Hub using Protocol Buffers (Protobuf) as the Data Format. The data model is formally specified in the protobuf schema firstmile.proto.</p>
+<p>The message encoding defines the structure and organization of information transmitted from the Node to the Hub using Protocol Buffers (Protobuf) as the Data Format. The message encoding is formally specified in the protobuf schema firstmile.proto.</p>
 </div>
 <div class="paragraph">
-<p>The data model supports two primary use cases:</p>
+<p>The message encoding supports two primary use cases:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -619,14 +619,14 @@ body {
 <p>These use cases are supported by two top-level message types: the Data message containing observations, and the Metadata message containing configuration and contextual information. Both messages are defined in a single Protobuf schema and transmitted as independent payloads. The Metadata message provides the necessary context for interpreting the Data message, including descriptions of devices and parameters.</p>
 </div>
 <div class="sect2">
-<h3 id="_requirements_class_data_model"><a class="anchor" href="#_requirements_class_data_model"></a>7.1. Requirements Class "Data Model"</h3>
+<h3 id="_requirements_class_message_encoding"><a class="anchor" href="#_requirements_class_message_encoding"></a>7.1. Requirements Class "Message Encoding"</h3>
 <div class="sect3">
 <h4 id="_overview"><a class="anchor" href="#_overview"></a>7.1.1. Overview</h4>
 <div class="paragraph">
-<p>This Requirements Class provides requirements for the Data Model.</p>
+<p>This Requirements Class provides requirements for the Message Encoding.</p>
 </div>
 <div class="paragraph">
-<p>The data model organizes information hierarchically as follows:</p>
+<p>The message encoding organizes information hierarchically as follows:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -650,7 +650,7 @@ body {
 <div class="paragraph">
 <p>Each Observation references a ParameterDefinition by identifier. Each ParameterDefinition contains one or more Parameter specifications that describe the measured variable, its unit, temporal aggregation method, and which device performs the measurement.</p>
 </div>
-<table id="rc_data-model" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="rc_message-encoding" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 80%;">
@@ -660,11 +660,11 @@ body {
 <td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirements Class</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://wis.wmo.int/spec/fmdm/1/req/data-model" class="bare">http://wis.wmo.int/spec/fmdm/1/req/data-model</a></p></td>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://wis.wmo.int/spec/fmdm/1/req/message-encoding" class="bare">http://wis.wmo.int/spec/fmdm/1/req/message-encoding</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Message Encoding</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Encoding</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
@@ -680,7 +680,7 @@ body {
 <div class="sect3">
 <h4 id="_design_principles"><a class="anchor" href="#_design_principles"></a>7.1.2. Design principles</h4>
 <div class="paragraph">
-<p>The data model is designed according to the following principles:</p>
+<p>The message encoding is designed according to the following principles:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -710,7 +710,7 @@ body {
 <div class="paragraph">
 <p>A FirstMileMessage message denotes whether the content describes data or metadata.</p>
 </div>
-<table id="req_data-model-first_mile_message" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_message-encoding-first_mile_message" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -719,7 +719,7 @@ body {
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 1</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/data-model/first_mile_message</strong></p>
+<p><strong>/req/message-encoding/first_mile_message</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -742,7 +742,7 @@ body {
 <div class="paragraph">
 <p>The Location message specifies the geographic position of a device (either Node or Observer).</p>
 </div>
-<table id="req_data-model-location" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_message-encoding-location" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -751,7 +751,7 @@ body {
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 2</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/data-model/location</strong></p>
+<p><strong>/req/message-encoding/location</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -768,7 +768,7 @@ body {
 </tr>
 </tbody>
 </table>
-<table id="rec_data-model-location" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="rec_message-encoding-location" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -777,7 +777,7 @@ body {
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 1</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/rec/data-model/location</strong></p>
+<p><strong>/rec/message-encoding/location</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -794,7 +794,7 @@ body {
 </tr>
 </tbody>
 </table>
-<table id="per_data-model-location" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="per_message-encoding-location" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -803,7 +803,7 @@ body {
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 1</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/per/data-model/location</strong></p>
+<p><strong>/per/message-encoding/location</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -820,7 +820,7 @@ body {
 <div class="paragraph">
 <p>A Metadata message provides configuration and contextual information about the Node, including descriptions of devices and the parameters they measure. This message shall be transmitted at least once after Node initialization and whenever the configuration changes.</p>
 </div>
-<table id="req_data-model-metadata" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_message-encoding-metadata" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -829,7 +829,7 @@ body {
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 3</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/data-model/metadata</strong></p>
+<p><strong>/req/message-encoding/metadata</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -864,7 +864,7 @@ body {
 <div class="paragraph">
 <p>A Node message describes the Node device itself, typically a datalogger or observation station.</p>
 </div>
-<table id="req_data-model-node" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_message-encoding-node" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -873,7 +873,7 @@ body {
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 4</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/data-model/node</strong></p>
+<p><strong>/req/message-encoding/node</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -884,7 +884,7 @@ body {
 </tr>
 </tbody>
 </table>
-<table id="rec_data-model-node" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="rec_message-encoding-node" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -893,7 +893,7 @@ body {
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 2</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/rec/data-model/node</strong></p>
+<p><strong>/rec/message-encoding/node</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -910,7 +910,7 @@ body {
 </tr>
 </tbody>
 </table>
-<table id="per_data-model-node" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="per_message-encoding-node" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -919,7 +919,7 @@ body {
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 2</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/per/data-model/node</strong></p>
+<p><strong>/per/message-encoding/node</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -951,7 +951,7 @@ body {
 <div class="paragraph">
 <p>Where a sensor is defined as an ObserverDevice but is not currently connected or is otherwise unavailable, the corresponding parameter values in the Data message is represented using <code>emptyValue</code> rather than being omitted. This ensures that the Hub can distinguish between a missing sensor reading and the absence of a parameter definition, and that the alignment between values and parameter definitions is maintained.</p>
 </div>
-<table id="req_data-model-observer_device" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_message-encoding-observer_device" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -960,7 +960,7 @@ body {
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 5</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/data-model/observer_device</strong></p>
+<p><strong>/req/message-encoding/observer_device</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -977,7 +977,7 @@ body {
 </tr>
 </tbody>
 </table>
-<table id="rec_data-model-observer_device" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="rec_message-encoding-observer_device" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -986,7 +986,7 @@ body {
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 3</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/rec/data-model/observer_device</strong></p>
+<p><strong>/rec/message-encoding/observer_device</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -997,7 +997,7 @@ body {
 </tr>
 </tbody>
 </table>
-<table id="per_data-model-observer_device" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="per_message-encoding-observer_device" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -1006,7 +1006,7 @@ body {
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 3</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/per/data-model/observer_device</strong></p>
+<p><strong>/per/message-encoding/observer_device</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1050,7 +1050,7 @@ Observer device identifiers shall remain stable across Node restarts and metadat
 <div class="paragraph">
 <p>The parameters field contains one or more Parameter messages describing individual measurable variables. When multiple parameters are grouped in a single definition, each observation referencing this definition shall provide values in the same order as the parameters are defined.</p>
 </div>
-<table id="req_data-model-parameter_definition" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_message-encoding-parameter_definition" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -1059,7 +1059,7 @@ Observer device identifiers shall remain stable across Node restarts and metadat
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 6</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/data-model/parameter_definition</strong></p>
+<p><strong>/req/message-encoding/parameter_definition</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1094,7 +1094,7 @@ Observer device identifiers shall remain stable across Node restarts and metadat
 <div class="paragraph">
 <p>The device field specifies which device (either the node or a specific observer) performs this measurement.</p>
 </div>
-<table id="req_data-model-parameter" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_message-encoding-parameter" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -1103,7 +1103,7 @@ Observer device identifiers shall remain stable across Node restarts and metadat
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 7</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/data-model/parameter</strong></p>
+<p><strong>/req/message-encoding/parameter</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1121,7 +1121,7 @@ Observer device identifiers shall remain stable across Node restarts and metadat
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>A Parameter message SHALL define a <code>standardNames</code> map which describes zero or more namespace prefix and standard name mappings for the equivalent parameter name in an external vocabulary. // TODO: was "one or more"; changed to "zero or more" to align with /per/data-model/standard_name_binding_assignment Part A</p>
+<p>A Parameter message SHALL define a <code>standardNames</code> map which describes zero or more namespace prefix and standard name mappings for the equivalent parameter name in an external vocabulary. // TODO: was "one or more"; changed to "zero or more" to align with /per/message-encoding/standard_name_binding_assignment Part A</p>
 </div></div></td>
 </tr>
 <tr>
@@ -1162,7 +1162,7 @@ Observer device identifiers shall remain stable across Node restarts and metadat
 <div class="paragraph">
 <p>The DeviceRef message associates a parameter with the device that measures it. This message uses a oneof field to reference either the node device or a specific observer device.</p>
 </div>
-<table id="req_data-model-device-ref" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_message-encoding-device-ref" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -1171,7 +1171,7 @@ Observer device identifiers shall remain stable across Node restarts and metadat
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 8</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/data-model/device-ref</strong></p>
+<p><strong>/req/message-encoding/device-ref</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1215,7 +1215,7 @@ The Node may transmit Data messages containing observations that reference param
 </tr>
 </table>
 </div>
-<table id="req_data-model-data" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_message-encoding-data" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -1224,7 +1224,7 @@ The Node may transmit Data messages containing observations that reference param
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 9</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/data-model/data</strong></p>
+<p><strong>/req/message-encoding/data</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1241,7 +1241,7 @@ The Node may transmit Data messages containing observations that reference param
 <div class="paragraph">
 <p>The Observation message represents a single measurement data point collected at a specific time.</p>
 </div>
-<table id="req_data-model-observation" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_message-encoding-observation" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -1250,7 +1250,7 @@ The Node may transmit Data messages containing observations that reference param
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 10</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/data-model/observation</strong></p>
+<p><strong>/req/message-encoding/observation</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1315,7 +1315,7 @@ An observation may contain multiple values when the referenced ParameterDefiniti
 <div class="paragraph">
 <p>A Value message defines the measurement of data of different types.</p>
 </div>
-<table id="req_data-model-value" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_message-encoding-value" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -1324,7 +1324,7 @@ An observation may contain multiple values when the referenced ParameterDefiniti
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 11</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/data-model/value</strong></p>
+<p><strong>/req/message-encoding/value</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1484,7 +1484,7 @@ The emptyValue field shall be used to explicitly and unambiguously indicate miss
 <p>This Requirements Class provides requirements for Parameter Standard Names.</p>
 </div>
 <div class="paragraph">
-<p>The binding mechanism uses two related fields in the data model:</p>
+<p>The binding mechanism uses two related fields in the message encoding:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1517,7 +1517,7 @@ The emptyValue field shall be used to explicitly and unambiguously indicate miss
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_data-model">Data Model</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_message-encoding">Message Encoding</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -1913,7 +1913,7 @@ Where a standard name exists at Level 1 or Level 2, that standard name is to be 
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_data-model">[rc_data-model]</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_message-encoding">Message Encoding</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -1925,22 +1925,22 @@ Where a standard name exists at Level 1 or Level 2, that standard name is to be 
 <h2 id="_conformance_class_abstract_test_suite_normative"><a class="anchor" href="#_conformance_class_abstract_test_suite_normative"></a>Annex A: Conformance Class Abstract Test Suite (Normative)</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_conformance_class_data_model"><a class="anchor" href="#_conformance_class_data_model"></a>A.1. Conformance Class: Data Model</h3>
-<div id="ats_data-model" class="exampleblock">
+<h3 id="_conformance_class_message_encoding"><a class="anchor" href="#_conformance_class_message_encoding"></a>A.1. Conformance Class: Message Encoding</h3>
+<div id="ats_message-encoding" class="exampleblock">
 <div class="content">
 <div class="dlist">
 <dl>
 <dt class="hdlist1">label</dt>
 <dd>
-<p><a href="http://wis.wmo.int/spec/fmdm/1/req/data-model" class="bare">http://wis.wmo.int/spec/fmdm/1/req/data-model</a></p>
+<p><a href="http://wis.wmo.int/spec/fmdm/1/req/message-encoding" class="bare">http://wis.wmo.int/spec/fmdm/1/req/message-encoding</a></p>
 </dd>
 <dt class="hdlist1">subject</dt>
 <dd>
-<p>Requirements Class "Data Model"</p>
+<p>Requirements Class "Message Encoding"</p>
 </dd>
 <dt class="hdlist1">classification</dt>
 <dd>
-<p>Target Type:Message Encoding</p>
+<p>Target Type:Encoding</p>
 </dd>
 </dl>
 </div>
@@ -1948,21 +1948,21 @@ Where a standard name exists at Level 1 or Level 2, that standard name is to be 
 </div>
 <div class="sect3">
 <h4 id="_encoding"><a class="anchor" href="#_encoding"></a>A.1.1. Encoding</h4>
-<div id="ats_data-model-encoding" class="exampleblock">
+<div id="ats_message-encoding-encoding" class="exampleblock">
 <div class="content">
 <div class="dlist">
 <dl>
 <dt class="hdlist1">label</dt>
 <dd>
-<p>/conf/data-model/encoding</p>
+<p>/conf/message-encoding/encoding</p>
 </dd>
 <dt class="hdlist1">subject</dt>
 <dd>
-<p>/req/data-model/encoding</p>
+<p>/req/message-encoding/encoding</p>
 </dd>
 <dt class="hdlist1">test-purpose</dt>
 <dd>
-<p>Validate that a data model is encoding as Protobuf.</p>
+<p>Validate that a message encoding is encoding as Protobuf.</p>
 </dd>
 </dl>
 </div>
@@ -2033,12 +2033,12 @@ Schema documents will only be published on <code>schemas.wmo.int</code> once the
 </table>
 </div>
 <div class="sect2">
-<h3 id="_data_model_2"><a class="anchor" href="#_data_model_2"></a>B.1. Data Model</h3>
+<h3 id="_message_encoding_2"><a class="anchor" href="#_message_encoding_2"></a>B.1. Message Encoding</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-yaml" data-lang="yaml">syntax = "proto3";
 
-package int.wmo.wis.spec.fmdm.1.conf.data_model;
+package int.wmo.wis.spec.fmdm.1.conf.message_encoding;
 
 import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
@@ -2425,7 +2425,7 @@ The choice of reference surface is determined by the user based on the measureme
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-06-16 14:20:47 UTC
+Last updated 2026-06-16 14:32:53 UTC
 </div>
 </div>
 </body>
