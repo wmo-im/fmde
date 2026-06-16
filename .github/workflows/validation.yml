@@ -22,7 +22,7 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies 📦
       run: |
-        sudo apt-install protobuf-compiler
+        sudo apt-get install protobuf-compiler
     - name: Install requirements 📦
       run: |
         python3 -m pip install --upgrade pip
