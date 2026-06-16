@@ -1,0 +1,12 @@
+[[rec_transmission-protocol]]
+[width="90%",cols="2,6a"]
+|===
+^|*Recommendation {counter:rec-id}* |*/rec/transmission/protocol*
+^|A |To improve the overall level of the firstmile ecosystem, the secure version of the MQTT protocol SHOULD be implemented (in which case a valid certificate is required).
+^|B |The following ports SHOULD be used for TCP provisioning:
+
+* non-secure: 1883
+* secure: 8883
+* WebSockets: 443
+
+|===

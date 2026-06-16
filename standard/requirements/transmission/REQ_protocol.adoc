@@ -1,0 +1,8 @@
+[[req_transmission-protocol]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/transmission/protocol*
+^|A |MQTT SHALL be used for all publish-subscribe workflows.
+^|B |The version of MQTT used SHALL be https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html[v5.0.0].
+^|C |To improve the overall level of the firstmile ecosystem, the secure version of the MQTT protocol SHOULD be implemented (in this case, a valid certificate is required).
+|===
