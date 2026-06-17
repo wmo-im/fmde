@@ -3,5 +3,5 @@
 
 # fmdm
 
-WMO First Mile Data Collection
+WMO First Mile Data Management
 * View drafts: https://wmo-im.github.io/fmdm
