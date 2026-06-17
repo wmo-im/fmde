@@ -35,6 +35,7 @@ filename = sys.argv[1]
 data = Path(filename).read_text()
 
 try:
+    print(f'Validating {filename}')
     msg = pbv.FirstMileMessage()
     text_format.Parse(data, msg)
     print('Valid')
