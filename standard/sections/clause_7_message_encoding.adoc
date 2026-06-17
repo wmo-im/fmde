@@ -70,7 +70,7 @@ include::../recommendations/message-encoding/PER_node.adoc[]
 
 An ObserverDevice message describes an individual sensor or measurement device connected to the Node Device. A Node that measures only its own internal parameters (such as supply voltage or internal temperature) may transmit a Metadata message with no ObserverDevice entries.
 
-Where a sensor is defined as an ObserverDevice but is not currently connected or is otherwise unavailable, the corresponding parameter values in the Data message is represented using ``emptyValue`` rather than being omitted. This ensures that the Hub can distinguish between a missing sensor reading and the absence of a parameter definition, and that the alignment between values and parameter definitions is maintained.
+Where a sensor is defined as an ObserverDevice but is not currently connected or is otherwise unavailable, the corresponding parameter values in the Data message are represented using ``emptyValue`` rather than being omitted. This ensures that the Hub can distinguish between a missing sensor reading and the absence of a parameter definition, and that the alignment between values and parameter definitions is maintained.
 
 include::../requirements/message-encoding/REQ_observer_device.adoc[]
 include::../recommendations/message-encoding/REC_observer_device.adoc[]
@@ -126,7 +126,7 @@ NOTE: An observation may contain multiple values when the referenced ParameterDe
 
 ==== Value
 
-A Value message defines the measurement of data of different types.
+A Value message encodes a single measurement in one of several supported data types.
 
 include::../requirements/message-encoding/REQ_value.adoc[]
 

@@ -3,7 +3,7 @@
 [%metadata]
 label:: /conf/transmission/encoding
 subject:: /req/transmission/encoding
-test-purpose:: Validate that a message encoding is encoding as Protobuf.
+test-purpose:: Validate that a message encoding is encoded as Protobuf.
 
 [.component,class=test method]
 =====

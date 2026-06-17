@@ -1,6 +1,6 @@
 == Transmission
 
-First Mile Messages are exchanged with a known and defined message transmission and publishing workflow.
+First Mile messages are transmitted and published according to the workflow defined in this clause.
 
 === Requirements Class "Transmission"
 
