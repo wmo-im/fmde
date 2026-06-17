@@ -49,7 +49,7 @@ The transmission path from a remote observation site to the central data collect
 [discrete]
 === Namespace
 
-Declaration that associates a short key with a URI identifying an external naming convention vocabulary. Namespaces are declared in the Metadata message ``namespaces` element and referenced in the Parameter message ``standardNames`` elements. Example vocabularies include the CF Metadata Conventions and the WMO First Mile parameter registry.
+Declaration that associates a short key with a URI identifying an external naming convention vocabulary. Namespaces are declared in the Metadata message ``namespaces`` element and referenced in the Parameter message ``standardNames`` elements. Example vocabularies include the CF Metadata Conventions and the WMO First Mile parameter registry.
 
 [discrete]
 === Node device

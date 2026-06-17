@@ -2,7 +2,7 @@
 [width="90%",cols="2,6a"]
 |===
 ^|*Requirement {counter:req-id}* |*/req/parameter-standard-names/hierarchy*
-^|A |Standard names SHALL be drawn in the following order, in the following order of precedence:
+^|A |Standard names SHALL be drawn from the following levels, in order of precedence:
 
 * Level 1: CF Metadata Conventions
 * Level 2: WMO First Mile parameter registry

@@ -43,11 +43,11 @@ Standard names are defined at three levels:
 - Level 2: WMO First Mile parameter registry
 - Level 3: Locally managed vocabularies
 
-The Climate and Forecast (CF) Metadata Conventions define the primary vocabulary for standard names in this standard. CF standard names cover the majority of meteorological, hydrological, and oceanographic parameters relevant to first-mile observations. The authoritative list of CF standard names is maintained by the CF Conventions community at https://cfconventions.org/Data/cf-standard-names/current/build/cf-standard-name-table.html. CF standard names are lower-case strings with words separated by underscores (e.g., air_temperature, wind_speed, relative_humidity). The CF standard name table at cfconventions.org is the authoritative reference for name validity and definitions, regardless of which vocabulary server URI is used as the namespace identifier.
+The Climate and Forecast (CF) Metadata Conventions define the primary vocabulary for standard names in this standard. CF standard names cover the majority of meteorological, hydrological, and oceanographic parameters relevant to first-mile observations. The authoritative list of CF standard names is maintained by the CF Conventions community at https://cfconventions.org/Data/cf-standard-names/current/build/cf-standard-name-table.html. CF standard names are lowercase strings with words separated by underscores (e.g., air_temperature, wind_speed, relative_humidity). The CF standard name table at cfconventions.org is the authoritative reference for name validity and definitions, regardless of which vocabulary server URI is used as the namespace identifier.
 
 Parameters that are not covered by the CF standard name vocabulary but are common to first-mile observation deployments are governed by a centrally managed registry maintained by WMO and hosted at https://codes.wmo.int.
 
-A locally managed vocabulary is used where a parameter is not covered by either of Levels 1 or 2.
+A locally managed vocabulary is used where a parameter is not covered by either Level 1 or Level 2.
 
 include::../requirements/parameter-standard-names/REQ_hierarchy.adoc[]
 include::../recommendations/parameter-standard-names/REC_hierarchy.adoc[]

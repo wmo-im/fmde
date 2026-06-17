@@ -3,9 +3,9 @@
 |===
 ^|*Requirement {counter:req-id}* |*/req/transmission/publishing*
 ^|A |A Data or Metadata message SHALL NOT be published with a topic that is not defined in the FMTH.
-^|B |A Metadata message SHALL be published to at exactly the level of the notification type (``metadata``).
-^|C |A Data message SHALL be published to at exactly the level of the notification type (``data``).
+^|B |A Metadata message SHALL be published at exactly the level of the notification type (``metadata``).
+^|C |A Data message SHALL be published at exactly the level of the notification type (``data``).
 ^|D |Metadata messages SHALL be published before any data notifications for the same Node id are published. This ensures that consuming systems have access to the necessary metadata to interpret the data correctly.
 ^|E |Metadata messages SHALL be published with the retain flag set to **true**.
-^|F |Metadata messages SHALL published at least once every 24 hours and immediately after any change in the Node configuration that would affect the Metadata message content.
+^|F |Metadata messages SHALL be published at least once every 24 hours and immediately after any change in the Node configuration that would affect the Metadata message content.
 |===

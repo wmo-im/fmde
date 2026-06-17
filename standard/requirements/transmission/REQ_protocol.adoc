@@ -4,7 +4,6 @@
 ^|*Requirement {counter:req-id}* |*/req/transmission/protocol*
 ^|A |MQTT SHALL be used for all Publish-Subscribe workflows.
 ^|B |The version of MQTT used SHALL be https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html[v5.0.0].
-^|C |To improve the overall level of the First Mile ecosystem, the secure version of the MQTT protocol SHOULD be implemented (in this case, a valid certificate is required).
-^|D |Message Encodings SHALL be published using a QoS level of **2** to ensure that they are delivered and received exactly once.
-^|E |Client connections to a given MQTT broker SHALL set Receive Maximum to **1** when establishing the session.
+^|C |Message Encodings SHALL be published using a QoS level of **2** to ensure that they are delivered and received exactly once.
+^|D |Client connections to a given MQTT broker SHALL set Receive Maximum to **1** when establishing the session.
 |===
