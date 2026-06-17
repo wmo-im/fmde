@@ -438,7 +438,7 @@ body {
 <p>Protocol topic examples provided in this specification are encoded as <code>plain text strings</code>.</p>
 </div>
 <div class="paragraph">
-<p>Data and metadata message examples provided in this specification are encoded as JSON.</p>
+<p>Data and metadata message examples provided in this specification are encoded as Protobuf text format.</p>
 </div>
 <div class="paragraph">
 <p>Complete examples can be found at <a href="https://schemas.wmo.int/fmdm/1.0.0/examples" class="bare">https://schemas.wmo.int/fmdm/1.0.0/examples</a></p>
@@ -456,7 +456,7 @@ body {
 <p><a href="https://protobuf.dev">Protobuf</a> is used throughout this standard to define the structure of data and metadata messages.</p>
 </div>
 <div class="paragraph">
-<p>Data and metadata message instances are always defined as JSON.</p>
+<p>Data and metadata message instances are always represented in Protobuf text format.</p>
 </div>
 </div>
 </div>
@@ -2764,96 +2764,72 @@ The choice of reference surface is determined by the user based on the measureme
 <div class="listingblock">
 <div class="title">FirstMileMessage (metadata)</div>
 <div class="content">
-<pre class="highlight"><code class="language-json" data-lang="json">{
-    "metadata": {
-        "node": {
-            "name": "Hydro-Station-02",
-            "serialNumber": "HYDSTN002-2025"
-        },
-        "observers": [
-            {
-                "id": 1,
-                "name": "Geolux LX-80 Radar Level Sensor"
-            },
-            {
-                "id": 2,
-                "name": "OTT Pluvio² Rain Gauge"
-            }
-        ],
-        "parameterDefinitions": [
-            {
-                "id": 1,
-                "description": "Hydrological parameters",
-                "parameters": [
-                    {
-                        "longName": "Water Level",
-                        "unit": "m",
-                        "device": {
-                            "observerId": 1
-                        },
-                        "cellMethod": "MEAN",
-                        "cellPeriodSeconds": 10
-                    },
-                    {
-                        "longName": "Rainfall Intensity",
-                        "unit": "mm_h-1",
-                        "device": {
-                            "observerId": 2
-                        },
-                        "cellMethod": "MEAN",
-                        "cellPeriodSeconds": 600
-                    }
-                ]
-            }
-        ]
+<pre class="highlight"><code class="language-protobuf" data-lang="protobuf">metadata {
+  node {
+    name: "Hydro-Station-02"
+    serialNumber: "HYDSTN002-2025"
+  }
+  observers {
+    id: 1
+    name: "Geolux LX-80 Radar Level Sensor"
+  }
+  observers {
+    id: 2
+    name: "OTT Pluvio² Rain Gauge"
+  }
+  parameterDefinitions {
+    id: 1
+    description: "Hydrological parameters"
+    parameters {
+      longName: "Water Level"
+      unit: "m"
+      device {
+        observerId: 1
+      }
+      cellMethod: MEAN
+      cellPeriodSeconds: 10
     }
+    parameters {
+      longName: "Rainfall Intensity"
+      unit: "mm/h"
+      device {
+        observerId: 2
+      }
+      cellMethod: MEAN
+      cellPeriodSeconds: 600
+    }
+  }
 }</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">FirstMileMessage (data)</div>
 <div class="content">
-<pre class="highlight"><code class="language-json" data-lang="json">{
-    "data": {
-        "observations": [
-            {
-                "parameterDefinitionId": 1,
-                "time": "2025-08-21T08:30:00Z",
-                "values": [
-                    {
-                        "doubleValue": 3.42
-                    },
-                    {
-                        "doubleValue": 0.0
-                    }
-                ]
-            },
-            {
-                "parameterDefinitionId": 1,
-                "time": "2025-08-21T08:40:00Z",
-                "values": [
-                    {
-                        "doubleValue": 3.43
-                    },
-                    {
-                        "doubleValue": 0.0
-                    }
-                ]
-            },
-            {
-                "parameterDefinitionId": 1,
-                "time": "2025-08-21T08:50:00Z",
-                "values": [
-                    {
-                        "doubleValue": 3.52
-                    },
-                    {
-                        "doubleValue": 3.1
-                    }
-                ]
-            }
-        ]
+<pre class="highlight"><code class="language-protobuf" data-lang="protobuf">data {
+  observations {
+    parameterDefinitionId: 1
+    time {
+      seconds: 1755765000
     }
+    values { doubleValue: 3.42 }
+    values { doubleValue: 0.0 }
+  }
+  observations {
+    parameterDefinitionId: 1
+    time {
+      seconds: 1755765600
+    }
+    values { doubleValue: 3.43 }
+    values { doubleValue: 0.0 }
+  }
+  observations {
+    parameterDefinitionId: 1
+    time {
+      seconds: 1755766200
+    }
+    values { doubleValue: 3.52 }
+    values { doubleValue: 3.1 }
+  }
 }</code></pre>
 </div>
 </div>
@@ -2895,197 +2871,172 @@ The choice of reference surface is determined by the user based on the measureme
 <div class="listingblock">
 <div class="title">FirstMileMessage (metadata)</div>
 <div class="content">
-<pre class="highlight"><code class="language-json" data-lang="json">{
-    "metadata": {
-        "node": {
-            "name": "Campbell CR3000 Datalogger",
-            "serialNumber": "CR3K-2025-99384",
-            "location": {
-                "latitude": 44.90192,
-                "longitude": 15.60844,
-                "heightMetres": 1.5,
-                "referenceSurface": "GL"
-            },
-            "firmwareVersion": "OS25.04"
-        },
-        "observers": [
-            {
-                "id": 1,
-                "name": "Vaisala WXT536 Weather Transmitter",
-                "serialNumber": "WX536-3482934",
-                "location": {
-                    "latitude": 44.90192,
-                    "longitude": 15.60844,
-                    "heightMetres": 2.0,
-                    "referenceSurface": "GL"
-                },
-                "firmwareVersion": "3.12"
-            }
-        ],
-        "parameterDefinitions": [
-            {
-                "id": 1,
-                "description": "Weather parameters",
-                "parameters": [
-                    {
-                        "longName": "Air Temperature",
-                        "unit": "degC",
-                        "device": {
-                            "observerId": 1
-                        },
-                        "cellMethod": "POINT",
-                        "standardNames": {
-                            "cf": "air_temperature"
-                        }
-                    },
-                    {
-                        "longName": "Relative Humidity",
-                        "unit": "percent",
-                        "device": {
-                            "observerId": 1
-                        },
-                        "cellMethod": "POINT",
-                        "standardNames": {
-                            "cf": "relative_humidity"
-                        }
-                    },
-                    {
-                        "longName": "Barometric Pressure",
-                        "unit": "hPa",
-                        "device": {
-                            "observerId": 1
-                        },
-                        "cellMethod": "POINT",
-                        "standardNames": {
-                            "cf": "air_pressure"
-                        }
-                    },
-                    {
-                        "longName": "Wind Speed (10min mean)",
-                        "unit": "m_s-1",
-                        "device": {
-                            "observerId": 1
-                        },
-                        "cellMethod": "MEAN",
-                        "cellPeriodSeconds": 600,
-                        "standardNames": {
-                            "cf": "wind_speed"
-                        }
-                    },
-                    {
-                        "longName": "Wind Direction (10min mean)",
-                        "unit": "degrees_true",
-                        "device": {
-                            "observerId": 1
-                        },
-                        "cellMethod": "MEAN",
-                        "cellPeriodSeconds": 600,
-                        "standardNames": {
-                            "cf": "wind_from_direction"
-                        }
-                    },
-                    {
-                        "longName": "Precipitation",
-                        "unit": "mm",
-                        "device": {
-                            "observerId": 1
-                        },
-                        "cellMethod": "SUM",
-                        "cellPeriodSeconds": 600,
-                        "standardNames": {
-                            "cf": "precipitation_amount"
-                        }
-                    }
-                ],
-                "namespaces": {
-                    "cf": "https://vocab.nerc.ac.uk/standard_name/"
-                }
-            },
-            {
-                "id": 2,
-                "description": "Internal logger parameters",
-                "parameters": [
-                    {
-                        "longName": "Battery Voltage",
-                        "unit": "V",
-                        "device": {
-                            "node": {}
-                        },
-                        "cellMethod": "POINT",
-                        "cellPeriodSeconds": 0
-                    },
-                    {
-                        "longName": "Solar Panel Voltage",
-                        "unit": "V",
-                        "device": {
-                            "node": {}
-                        },
-                        "cellMethod": "POINT",
-                        "cellPeriodSeconds": 0
-                    },
-                    {
-                        "longName": "Internal Logger Temperature",
-                        "unit": "degC",
-                        "device": {
-                            "node": {}
-                        },
-                        "cellMethod": "POINT",
-                        "cellPeriodSeconds": 0
-                    }
-                ]
-            }
-        ]
+<pre class="highlight"><code class="language-protobuf" data-lang="protobuf">metadata {
+  node {
+    name: "Campbell CR3000 Datalogger"
+    serialNumber: "CR3K-2025-99384"
+    location {
+      latitude: 44.90192
+      longitude: 15.60844
+      heightMetres: 1.5
+      referenceSurface: GL
     }
+    firmwareVersion: "OS25.04"
+  }
+  observers {
+    id: 1
+    name: "Vaisala WXT536 Weather Transmitter"
+    serialNumber: "WX536-3482934"
+    location {
+      latitude: 44.90192
+      longitude: 15.60844
+      heightMetres: 2.0
+      referenceSurface: GL
+    }
+    firmwareVersion: "3.12"
+  }
+  parameterDefinitions {
+    id: 1
+    description: "Weather parameters"
+    parameters {
+      longName: "Air Temperature"
+      unit: "°C"
+      device {
+        observerId: 1
+      }
+      cellMethod: POINT
+      standardNames {
+        key: "cf"
+        value: "air_temperature"
+      }
+    }
+    parameters {
+      longName: "Relative Humidity"
+      unit: "%"
+      device {
+        observerId: 1
+      }
+      cellMethod: POINT
+      standardNames {
+        key: "cf"
+        value: "relative_humidity"
+      }
+    }
+    parameters {
+      longName: "Barometric Pressure"
+      unit: "hPa"
+      device {
+        observerId: 1
+      }
+      cellMethod: POINT
+      standardNames {
+        key: "cf"
+        value: "air_pressure"
+      }
+    }
+    parameters {
+      longName: "Wind Speed (10min mean)"
+      unit: "m/s"
+      device {
+        observerId: 1
+      }
+      cellMethod: MEAN
+      cellPeriodSeconds: 600
+      standardNames {
+        key: "cf"
+        value: "wind_speed"
+      }
+    }
+    parameters {
+      longName: "Wind Direction (10min mean)"
+      unit: "°"
+      device {
+        observerId: 1
+      }
+      cellMethod: MEAN
+      cellPeriodSeconds: 600
+      standardNames {
+        key: "cf"
+        value: "wind_from_direction"
+      }
+    }
+    parameters {
+      longName: "Precipitation"
+      unit: "mm"
+      device {
+        observerId: 1
+      }
+      cellMethod: SUM
+      cellPeriodSeconds: 600
+      standardNames {
+        key: "cf"
+        value: "precipitation_amount"
+      }
+    }
+  }
+  parameterDefinitions {
+    id: 2
+    description: "Internal logger parameters"
+    parameters {
+      longName: "Battery Voltage"
+      unit: "V"
+      device {
+        node {}
+      }
+      cellMethod: POINT
+      cellPeriodSeconds: 0
+    }
+    parameters {
+      longName: "Solar Panel Voltage"
+      unit: "V"
+      device {
+        node {}
+      }
+      cellMethod: POINT
+      cellPeriodSeconds: 0
+    }
+    parameters {
+      longName: "Internal Logger Temperature"
+      unit: "°C"
+      device {
+        node {}
+      }
+      cellMethod: POINT
+      cellPeriodSeconds: 0
+    }
+  }
+  namespaces {
+    key: "cf"
+    value: "https://vocab.nerc.ac.uk/standard_name/"
+  }
 }</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">FirstMileMessage (data)</div>
 <div class="content">
-<pre class="highlight"><code class="language-json" data-lang="json">{
-    "data": {
-        "observations": [
-            {
-                "parameterDefinitionId": 1,
-                "time": "2025-08-21T08:50:00Z",
-                "values": [
-                    {
-                        "doubleValue": 18.6
-                    },
-                    {
-                        "doubleValue": 72.3
-                    },
-                    {
-                        "emptyValue": {}
-                    },
-                    {
-                        "doubleValue": 3.4
-                    },
-                    {
-                        "doubleValue": 215.0
-                    },
-                    {
-                        "doubleValue": 0.4
-                    }
-                ]
-            },
-            {
-                "parameterDefinitionId": 2,
-                "time": "2025-08-21T08:50:00Z",
-                "values": [
-                    {
-                        "doubleValue": 12.4
-                    },
-                    {
-                        "doubleValue": 17.6
-                    },
-                    {
-                        "doubleValue": 29.3
-                    }
-                ]
-            }
-        ]
+<pre class="highlight"><code class="language-protobuf" data-lang="protobuf">data {
+  observations {
+    parameterDefinitionId: 1
+    time {
+      seconds: 1755766200
     }
+    values { doubleValue: 18.6 }
+    values { doubleValue: 72.3 }
+    values { emptyValue {} }
+    values { doubleValue: 3.4 }
+    values { doubleValue: 215.0 }
+    values { doubleValue: 0.4 }
+  }
+  observations {
+    parameterDefinitionId: 2
+    time {
+      seconds: 1755766200
+    }
+    values { doubleValue: 12.4 }
+    values { doubleValue: 17.6 }
+    values { doubleValue: 29.3 }
+  }
 }</code></pre>
 </div>
 </div>
@@ -3152,7 +3103,7 @@ The choice of reference surface is determined by the user based on the measureme
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-06-17 12:12:52 UTC
+Last updated 2026-06-17 13:09:02 UTC
 </div>
 </div>
 </body>
