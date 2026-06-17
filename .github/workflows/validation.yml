@@ -31,8 +31,8 @@ jobs:
         pip3 install protobuf
     - name: Generate Python code
       run: |
-        protoc -I . --python_out=. schemas/first-mile-message-encoding.proto 
-        mv first_mile_message_encoding_pb2.py scripts
+        protoc --python_out=. schemas/first-mile-message-encoding.proto 
+        mv schemas/first_mile_message_encoding_pb2.py scripts
     - name: Run validation
       run: |
         set +e
