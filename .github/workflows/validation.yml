@@ -4,9 +4,11 @@ on:
   push:
     paths:
       - '**.proto'
+      - '**.textproto'
   pull_request:
     paths:
       - '**.proto'
+      - '**.textproto'
 
 jobs:
   main:
@@ -29,6 +31,15 @@ jobs:
         pip3 install protobuf
     - name: Generate Python code
       run: |
-        mkdir generated
-        protoc -I . --python_out=generated schemas/first-mile-message-encoding.proto 
-        ls -l generated/schemas
+        protoc -I . --python_out=. schemas/first-mile-message-encoding.proto 
+        mv first_mile_message_encoding_pb2 scripts
+    - name: Run validation
+      run: |
+        set +e
+        num_errors=0
+
+        for e in examples/*/*.textproto; do
+          python3 scripts/validate.py $e || num_errors=$((num_errors + 1))
+        done
+
+        exit $num_errors
