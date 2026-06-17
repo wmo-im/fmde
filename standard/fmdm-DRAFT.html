@@ -96,10 +96,10 @@ body {
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong class="big">World Meteorological Organization</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Date: 2026-06-16</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Date: 2026-06-17</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Version: 0.0.1-DRAFT-2026-06-16</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Version: 0.0.1-DRAFT-2026-06-17</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Document location: TBD</p></td>
@@ -314,7 +314,7 @@ body {
 </div>
 <h3 id="_namespace" class="discrete">Namespace</h3>
 <div class="paragraph">
-<p>Declaration that associates a short key with a URI identifying an external naming convention vocabulary. Namespaces are declared in the Metadata message <code>namespaces` element and referenced in the Parameter message </code>standardNames`` elements. Example vocabularies include the CF Metadata Conventions and the WMO First Mile parameter registry.</p>
+<p>Declaration that associates a short key with a URI identifying an external naming convention vocabulary. Namespaces are declared in the Metadata message <code>namespaces</code> element and referenced in the Parameter message <code>standardNames</code> elements. Example vocabularies include the CF Metadata Conventions and the WMO First Mile parameter registry.</p>
 </div>
 <h3 id="_node_device" class="discrete">Node device</h3>
 <div class="paragraph">
@@ -467,7 +467,7 @@ body {
 <div class="sect2">
 <h3 id="_background"><a class="anchor" href="#_background"></a>6.1. Background</h3>
 <div class="paragraph">
-<p>In February 2024, a WMO workshop in Geneva brought together representatives from WMO and the Hydro-Meteorological and Environmental Industry (HMEI) to address the lack of standardization in first-mile data collection. While international data exchange is standardized through WMO, no equivalent standardization exists for the first-mile segment, the connection between field equipment and centralized data collection systems, leading to a proliferation of incompatible proprietary formats and significant integration effort for operators of observing networks. The workshop recommended focusing first on output interoperability, and the Standing Committee on Information Management and Technology (SC-IMT) subsequently established the Task Team on First-mile Data Collection Standardization (TT-1M) to produce this specification.</p>
+<p>In February 2024, a WMO workshop in Geneva brought together representatives from WMO and the HydroMeteorological and Environmental Industry (HMEI) to address the lack of standardization in first-mile data collection. While international data exchange is standardized through WMO, no equivalent standardization exists for the first-mile segment, the connection between field equipment and centralized data collection systems (<a href="#fig-node-data-flow">Figure 1</a>), leading to a proliferation of incompatible proprietary formats and significant integration effort for operators of observing networks. The workshop recommended focusing first on output interoperability, and the Standing Committee on Information Management and Technology (SC-IMT) subsequently established the Task Team on First-mile Data Collection Standardization (TT-1M) to produce this specification.</p>
 </div>
 <div id="fig-node-data-flow" class="imageblock">
 <div class="content">
@@ -849,7 +849,7 @@ body {
 <p>An ObserverDevice message describes an individual sensor or measurement device connected to the Node Device. A Node that measures only its own internal parameters (such as supply voltage or internal temperature) may transmit a Metadata message with no ObserverDevice entries.</p>
 </div>
 <div class="paragraph">
-<p>Where a sensor is defined as an ObserverDevice but is not currently connected or is otherwise unavailable, the corresponding parameter values in the Data message is represented using <code>emptyValue</code> rather than being omitted. This ensures that the Hub can distinguish between a missing sensor reading and the absence of a parameter definition, and that the alignment between values and parameter definitions is maintained.</p>
+<p>Where a sensor is defined as an ObserverDevice but is not currently connected or is otherwise unavailable, the corresponding parameter values in the Data message are represented using <code>emptyValue</code> rather than being omitted. This ensures that the Hub can distinguish between a missing sensor reading and the absence of a parameter definition, and that the alignment between values and parameter definitions is maintained.</p>
 </div>
 <table id="req_message-encoding-observer_device" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -918,13 +918,13 @@ body {
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>An ObserverDevice message MAY define a <code>serialNumber</code> element describing manufacturer&#8217;s serial number of the device.</p>
+<p>An ObserverDevice message MAY define a <code>serialNumber</code> element describing the manufacturer&#8217;s serial number of the device.</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>An ObserverDevice message MAY define a <code>firmwareVersion</code> element describing firmware version of the device.</p>
+<p>An ObserverDevice message MAY define a <code>firmwareVersion</code> element describing the firmware version of the device.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1213,7 +1213,7 @@ An observation may contain multiple values when the referenced ParameterDefiniti
 <div class="sect3">
 <h4 id="_value"><a class="anchor" href="#_value"></a>7.1.13. Value</h4>
 <div class="paragraph">
-<p>A Value message defines the measurement of data of different types.</p>
+<p>A Value message encodes a single measurement in one of several supported data types.</p>
 </div>
 <table id="req_message-encoding-value" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -1637,13 +1637,13 @@ Standard name binding is applied in the Parameter message (not the ParameterDefi
 </ul>
 </div>
 <div class="paragraph">
-<p>The Climate and Forecast (CF) Metadata Conventions define the primary vocabulary for standard names in this standard. CF standard names cover the majority of meteorological, hydrological, and oceanographic parameters relevant to first-mile observations. The authoritative list of CF standard names is maintained by the CF Conventions community at <a href="https://cfconventions.org/Data/cf-standard-names/current/build/cf-standard-name-table.html" class="bare">https://cfconventions.org/Data/cf-standard-names/current/build/cf-standard-name-table.html</a>. CF standard names are lower-case strings with words separated by underscores (e.g., air_temperature, wind_speed, relative_humidity). The CF standard name table at cfconventions.org is the authoritative reference for name validity and definitions, regardless of which vocabulary server URI is used as the namespace identifier.</p>
+<p>The Climate and Forecast (CF) Metadata Conventions define the primary vocabulary for standard names in this standard. CF standard names cover the majority of meteorological, hydrological, and oceanographic parameters relevant to first-mile observations. The authoritative list of CF standard names is maintained by the CF Conventions community at <a href="https://cfconventions.org/Data/cf-standard-names/current/build/cf-standard-name-table.html" class="bare">https://cfconventions.org/Data/cf-standard-names/current/build/cf-standard-name-table.html</a>. CF standard names are lowercase strings with words separated by underscores (e.g., air_temperature, wind_speed, relative_humidity). The CF standard name table at cfconventions.org is the authoritative reference for name validity and definitions, regardless of which vocabulary server URI is used as the namespace identifier.</p>
 </div>
 <div class="paragraph">
 <p>Parameters that are not covered by the CF standard name vocabulary but are common to first-mile observation deployments are governed by a centrally managed registry maintained by WMO and hosted at <a href="https://codes.wmo.int" class="bare">https://codes.wmo.int</a>.</p>
 </div>
 <div class="paragraph">
-<p>A locally managed vocabulary is used where a parameter is not covered by either of Levels 1 or 2.</p>
+<p>A locally managed vocabulary is used where a parameter is not covered by either Level 1 or Level 2.</p>
 </div>
 <table id="req_parameter-standard-names-hierarchy" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -1660,7 +1660,7 @@ Standard name binding is applied in the Parameter message (not the ParameterDefi
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Standard names SHALL be drawn in the following order, in the following order of precedence:</p>
+<p>Standard names SHALL be drawn from the following levels, in order of precedence:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1804,7 +1804,7 @@ Where a standard name exists at Level 1 or Level 2, that standard name is to be 
 <h2 id="_transmission"><a class="anchor" href="#_transmission"></a>9. Transmission</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>First Mile Messages are exchanged with a known and defined message transmission and publishing workflow.</p>
+<p>First Mile messages are transmitted and published according to the workflow defined in this clause.</p>
 </div>
 <div class="sect2">
 <h3 id="_requirements_class_transmission"><a class="anchor" href="#_requirements_class_transmission"></a>9.1. Requirements Class "Transmission"</h3>
@@ -1865,17 +1865,11 @@ Where a standard name exists at Level 1 or Level 2, that standard name is to be 
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>To improve the overall level of the First Mile ecosystem, the secure version of the MQTT protocol SHOULD be implemented (in this case, a valid certificate is required).</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">D</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>Message Encodings SHALL be published using a QoS level of <strong>2</strong> to ensure that they are delivered and received exactly once.</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">E</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">D</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>Client connections to a given MQTT broker SHALL set Receive Maximum to <strong>1</strong> when establishing the session.</p>
 </div></div></td>
@@ -2014,13 +2008,13 @@ Where a standard name exists at Level 1 or Level 2, that standard name is to be 
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>A Metadata message SHALL be published to at exactly the level of the notification type (<code>metadata</code>).</p>
+<p>A Metadata message SHALL be published at exactly the level of the notification type (<code>metadata</code>).</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>A Data message SHALL be published to at exactly the level of the notification type (<code>data</code>).</p>
+<p>A Data message SHALL be published at exactly the level of the notification type (<code>data</code>).</p>
 </div></div></td>
 </tr>
 <tr>
@@ -2038,7 +2032,7 @@ Where a standard name exists at Level 1 or Level 2, that standard name is to be 
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">F</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Metadata messages SHALL published at least once every 24 hours and immediately after any change in the Node configuration that would affect the Metadata message content.</p>
+<p>Metadata messages SHALL be published at least once every 24 hours and immediately after any change in the Node configuration that would affect the Metadata message content.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -2300,7 +2294,7 @@ Where a standard name exists at Level 1 or Level 2, that standard name is to be 
 </dd>
 <dt class="hdlist1">test-purpose</dt>
 <dd>
-<p>Validate that a message encoding is encoding as Protobuf.</p>
+<p>Validate that a message encoding is encoded as Protobuf.</p>
 </dd>
 </dl>
 </div>
@@ -2401,7 +2395,10 @@ Schema documents will only be published on <code>schemas.wmo.int</code> once the
 <h3 id="_message_encoding_2"><a class="anchor" href="#_message_encoding_2"></a>B.1. Message Encoding</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-yaml" data-lang="yaml">syntax = "proto3";
+<pre class="highlight"><code class="language-yaml" data-lang="yaml">// First Mile schema
+
+
+syntax = "proto3";
 
 package int.wmo.wis.spec.fmdm.v1.conf.message_encoding;
 
@@ -3155,7 +3152,7 @@ The choice of reference surface is determined by the user based on the measureme
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-06-16 19:54:27 UTC
+Last updated 2026-06-17 12:12:52 UTC
 </div>
 </div>
 </body>
