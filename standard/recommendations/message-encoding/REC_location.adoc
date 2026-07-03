@@ -2,6 +2,7 @@
 [width="90%",cols="2,6a"]
 |===
 ^|*Recommendation {counter:rec-id}* |*/rec/message-encoding/location*
-^|A |A Location message SHOULD provide a ``latitude`` element describing the latitude in decimal degrees using the WGS84 coordinate system and datum.  Six(6) decimal place precision SHOULD be used.
-^|B |A Location message SHOULD provide a ``longitude`` element describing the longitude in decimal degrees using the WGS84 coordinate system and datum.  Six(6) decimal place precision SHOULD be used.
+^|A |A Location message SHOULD provide a ``latitude`` element describing the latitude in decimal degrees using the WGS84 coordinate system and datum.
+^|B |A Location message SHOULD provide a ``longitude`` element describing the longitude in decimal degrees using the WGS84 coordinate system and datum.
+^|C |A Location message's ``latitude`` and ``longitude`` elements SHOULD have a level of precision of six decimal places.
 |===
