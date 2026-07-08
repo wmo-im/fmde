@@ -18,11 +18,11 @@ A Value message SHALL be defined using one of the following data types:
 !double
 !64-bit floating point number
 
-!``intValue``
+!``int32Value``
 !int32
 !32-bit signed integer
 
-!``unsignedIntValue``
+!``uint32Value``
 !uint32
 !32-bit unsigned integer
 
@@ -30,7 +30,7 @@ A Value message SHALL be defined using one of the following data types:
 !int64
 !64-bit signed integer
 
-!``unsignedInt64Value``
+!``uint64Value``
 !uint64
 !64-bit unsigned integer
 
