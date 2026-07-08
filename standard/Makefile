@@ -1,4 +1,4 @@
-FILE_BASENAME=fmdm
+FILE_BASENAME=fmde
 
 html:
 	asciidoctor --verbose --trace -a stylesheet=css/wmo-asciidoc.css -o ${FILE_BASENAME}.html index.adoc

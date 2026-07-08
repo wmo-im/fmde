@@ -8,11 +8,11 @@ on:
     - 'standard/**'
 
 env:
-  SPEC_FILE_BASENAME: fmdm-DRAFT
+  SPEC_FILE_BASENAME: fmde-DRAFT
 
 jobs:
-  build-fmdm:
-    name: Build WMO First Mile Data Management documentation
+  build-fmde:
+    name: Build WMO First Mile Data Exchange documentation
     runs-on: ubuntu-latest
     steps:
       - name: Install dependencies
@@ -25,11 +25,11 @@ jobs:
       - name: build specification
         run: |
           cd standard \
-          && asciidoctor --trace -a stylesheet=css/wmo-asciidoc.css -o /tmp/fmdm/standard/${SPEC_FILE_BASENAME}.html index.adoc \
-          && asciidoctor --trace --backend docbook --out-file - index.adoc | pandoc --from docbook --to docx --output /tmp/fmdm/standard/${SPEC_FILE_BASENAME}.docx \
-          && asciidoctor --trace -r asciidoctor-pdf --trace -b pdf -o /tmp/fmdm/standard/${SPEC_FILE_BASENAME}.pdf index.adoc \
-          && mkdir -p /tmp/fmdm/standard/images \
-          && cp images/*.png /tmp/fmdm/standard/images \
+          && asciidoctor --trace -a stylesheet=css/wmo-asciidoc.css -o /tmp/fmde/standard/${SPEC_FILE_BASENAME}.html index.adoc \
+          && asciidoctor --trace --backend docbook --out-file - index.adoc | pandoc --from docbook --to docx --output /tmp/fmde/standard/${SPEC_FILE_BASENAME}.docx \
+          && asciidoctor --trace -r asciidoctor-pdf --trace -b pdf -o /tmp/fmde/standard/${SPEC_FILE_BASENAME}.pdf index.adoc \
+          && mkdir -p /tmp/fmde/standard/images \
+          && cp images/*.png /tmp/fmde/standard/images \
           && cd ..
       - name: checkout gh-pages branch
         uses: actions/checkout@master
@@ -41,7 +41,7 @@ jobs:
           git config --global user.email "tomkralidis@gmail.com"
           git config --global user.name "Tom Kralidis"
           rm -rf standard
-          mv -f /tmp/fmdm/* .
+          mv -f /tmp/fmde/* .
           git add .
-          git commit -am "update FMDM build"
+          git commit -am "update FMDE build"
           git push

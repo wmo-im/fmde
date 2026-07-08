@@ -2,7 +2,7 @@
 [cols="1,4",width="90%"]
 |===
 2+|*Requirements Class*
-2+|http://wis.wmo.int/spec/fmdm/1/req/message-encoding
+2+|http://wis.wmo.int/spec/fmde/1/req/message-encoding
 |Target type |Encoding
 |Dependency |<<protobuf, Protobuf>>
 |Pre-conditions |The message conforms to the Protobuf specification.

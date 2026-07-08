@@ -1,4 +1,4 @@
-# WMO First Mile Data Management
+# WMO First Mile Data Exchange
 
 ## Overview
 
@@ -21,11 +21,11 @@ npm install asciidoctor asciidoctor-pdf asciidoc-link-check
 
 ```bash
 # create HTML (single page)
-asciidoctor --trace -o fmdm.html index.adoc
+asciidoctor --trace -o fmde.html index.adoc
 # create PDF
-asciidoctor --trace -r asciidoctor-pdf --trace -b pdf -o fmdm.pdf index.adoc
+asciidoctor --trace -r asciidoctor-pdf --trace -b pdf -o fmde.pdf index.adoc
 # create Word document
-asciidoctor --trace --backend docbook --out-file - index.adoc | pandoc --from docbook --to docx --output fmdm.docx
+asciidoctor --trace --backend docbook --out-file - index.adoc | pandoc --from docbook --to docx --output fmde.docx
 # check links
 find . -name "*.adoc" -exec asciidoc-link-check -p -c asciidoc-link-check-config.json {} \;
 ```

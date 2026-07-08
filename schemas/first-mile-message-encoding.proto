@@ -3,7 +3,7 @@
 
 syntax = "proto3";
 
-package int.wmo.wis.spec.fmdm.v1.conf.message_encoding;
+package int.wmo.wis.spec.fmde.v1.conf.message_encoding;
 
 import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";

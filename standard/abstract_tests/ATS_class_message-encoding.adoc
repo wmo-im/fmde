@@ -1,7 +1,7 @@
 [[ats_message-encoding]]
 ====
 [%metadata]
-label:: http://wis.wmo.int/spec/fmdm/1/req/message-encoding
+label:: http://wis.wmo.int/spec/fmde/1/req/message-encoding
 subject:: Requirements Class "Message Encoding"
 classification:: Target Type:Encoding
 ====
