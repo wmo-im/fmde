@@ -1,7 +1,7 @@
 [[ats_parameter-standard-names]]
 ====
 [%metadata]
-label:: http://wis.wmo.int/spec/fmdm/1/req/parameter-standard-names
+label:: http://wis.wmo.int/spec/fmde/1/req/parameter-standard-names
 subject:: Requirements Class "Parameter Standard Names"
 classification:: Target Type:Message Encoding
 ====

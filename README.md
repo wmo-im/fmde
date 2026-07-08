@@ -1,7 +1,7 @@
-[![Build Status](https://github.com/wmo-im/fmdm/workflows/build%20specification/badge.svg)](https://github.com/wmo-im/fmdm/actions)
-[![Build Status](https://github.com/wmo-im/fmdm/workflows/validate%20schema%20and%20examples/badge.svg)](https://github.com/wmo-im/fmdm/actions/workflows/validation.yml)
+[![Build Status](https://github.com/wmo-im/fmde/workflows/build%20specification/badge.svg)](https://github.com/wmo-im/fmde/actions)
+[![Build Status](https://github.com/wmo-im/fmde/workflows/validate%20schema%20and%20examples/badge.svg)](https://github.com/wmo-im/fmde/actions/workflows/validation.yml)
 
-# fmdm
+# fmde
 
-WMO First Mile Data Management
-* View drafts: https://wmo-im.github.io/fmdm
+WMO First Mile Data Exchange
+* View drafts: https://wmo-im.github.io/fmde

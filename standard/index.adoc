@@ -1,4 +1,4 @@
-:title: WMO First Mile Data Management
+:title: WMO First Mile Data Exchange
 :titletext: {title}
 :version: 0.0.1-DRAFT-{docdate}
 :copyright: Copyright © 2026 World Meteorological Organization (WMO)
