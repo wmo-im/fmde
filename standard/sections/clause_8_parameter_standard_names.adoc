@@ -40,7 +40,7 @@ NOTE: Standard name binding is applied in the Parameter message (not the Paramet
 Standard names are defined at three levels:
 
 - Level 1: CF Metadata Conventions
-- Level 2: WMO First Mile parameter registry
+- Level 2: https://codes.wmo.int/fmde/parameter[WMO First Mile parameter registry]
 - Level 3: Locally managed vocabularies
 
 The Climate and Forecast (CF) Metadata Conventions define the primary vocabulary for standard names in this standard. CF standard names cover the majority of meteorological, hydrological, and oceanographic parameters relevant to first-mile observations. The authoritative list of CF standard names is maintained by the CF Conventions community at https://cfconventions.org/Data/cf-standard-names/current/build/cf-standard-name-table.html. CF standard names are lowercase strings with words separated by underscores (e.g., air_temperature, wind_speed, relative_humidity). The CF standard name table at cfconventions.org is the authoritative reference for name validity and definitions, regardless of which vocabulary server URI is used as the namespace identifier.
