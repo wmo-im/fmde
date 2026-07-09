@@ -97,7 +97,7 @@ A controlled vocabulary entry from an external naming convention that unambiguou
 |Standing Committee on Information Management and Technology
 
 |HMEI
-|HydroMeteorological and Environmental Industry
+|HydroMeteorological and Environmental Industry (the association)
 
 |MQP
 |Message Queuing Protocol
