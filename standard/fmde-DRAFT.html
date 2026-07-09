@@ -669,7 +669,7 @@ This specification will be further expanded (2027) to also address the encoding 
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>A Location message SHALL define a <code>heightMetres</code> element in metres, above the <code>referenceSurface</code>.</p>
+<p>A Location message SHALL define a <code>heightMetres</code> element in metres, relative to the <code>referenceSurface</code>, where a positive value represents the height above the reference surface, and a negative value represents the height below reference surface.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -1033,7 +1033,17 @@ Observer device identifiers shall remain stable across Node restarts and metadat
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>A Parameter message SHALL define a <code>unit</code> element using the <a href="https://codes.wmo.int/common/unit">WMO Register: Code Table C-6: List of units for TDCFs</a>. // TODO verify</p>
+<p>A Parameter message SHALL define a <code>unit</code> element using one of the following codelists:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://codes.wmo.int/common/unit">WMO Register: Code Table C-6: List of units for TDCFs</a></p>
+</li>
+<li>
+<p><a href="https://codes.wmo.int/fmde/unit">WMO First Mile unit registry</a></p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 <tr>
@@ -1647,7 +1657,7 @@ Standard name binding is applied in the Parameter message (not the ParameterDefi
 <p>Level 1: CF Metadata Conventions</p>
 </li>
 <li>
-<p>Level 2: WMO First Mile parameter registry</p>
+<p>Level 2: <a href="https://codes.wmo.int/fmde/parameter">WMO First Mile parameter registry</a></p>
 </li>
 <li>
 <p>Level 3: Locally managed vocabularies</p>
@@ -1686,7 +1696,7 @@ Standard name binding is applied in the Parameter message (not the ParameterDefi
 <p>Level 1: CF Metadata Conventions</p>
 </li>
 <li>
-<p>Level 2: WMO First Mile parameter registry</p>
+<p>Level 2: <a href="https://codes.wmo.int/fmde/parameter">WMO First Mile parameter registry</a></p>
 </li>
 <li>
 <p>Level 3: Locally managed vocabularies</p>
@@ -3121,7 +3131,7 @@ The choice of reference surface is determined by the user based on the measureme
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-07-09 10:46:37 UTC
+Last updated 2026-07-09 12:02:11 UTC
 </div>
 </div>
 </body>
