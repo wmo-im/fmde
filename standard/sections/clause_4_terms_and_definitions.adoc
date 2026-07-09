@@ -16,7 +16,7 @@ Software system at the central server that receives Data and Metadata messages f
 
 [discrete]
 === Protocol
-The IP based set of rules that determine how data is transferred from the Node to the Hub.
+The IP-based set of rules that determine how data is transferred from the Node to the Hub.
 
 [discrete]
 === Observation
