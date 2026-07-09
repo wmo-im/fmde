@@ -5,7 +5,7 @@
 ^|A |Standard names SHALL be drawn from the following levels, in order of precedence:
 
 * Level 1: CF Metadata Conventions
-* Level 2: WMO First Mile parameter registry
+* Level 2: https://codes.wmo.int/fmde/parameter[WMO First Mile parameter registry]
 * Level 3: Locally managed vocabularies
 
 ^|B |Locally managed vocabularies SHALL conform to the FAIR Guiding Principles for scientific data management (Findable, Accessible, Interoperable, Reusable). In particular:
