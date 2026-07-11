@@ -1,0 +1,10 @@
+[[ats_transmission-management]]
+====
+[%metadata]
+label:: /conf/transmission/management
+subject:: /req/transmission/management
+test-purpose:: Validate that the First Mile Topic Hierarchy is properly managed.
+
+This requirement is not applicable to ATS testing.
+
+====

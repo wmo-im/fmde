@@ -6,6 +6,14 @@ subject:: Requirements Class "Parameter Standard Names"
 classification:: Target Type:Message Encoding
 ====
 
-==== Encoding
+==== Metadata namespace declaration
 
-//include::./parameter-standard-names/ATS_test_encoding.adoc[]
+include::./parameter-standard-names/ATS_test_declaration.adoc[]
+
+==== Standard name assignment
+
+include::./parameter-standard-names/ATS_test_assignment.adoc[]
+
+==== Standard name hierarchy
+
+include::./parameter-standard-names/ATS_test_hierarchy.adoc[]

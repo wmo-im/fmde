@@ -1,0 +1,31 @@
+[[ats_message-encoding-value]]
+====
+[%metadata]
+label:: /conf/message-encoding/value
+subject:: /req/message-encoding/value
+test-purpose:: Validate that an Observation message's value field is valid to the FMDE schema.
+
+[.component,class=test method]
+=====
+[.component,class=step]
+--
+Open a FirstMileMessage message / file.
+--
+
+[.component,class=step]
+--
+Ensure that the root field is ``data``.
+--
+
+[.component,class=step]
+--
+Ensure that the ``data`` field contains a valid ``observations`` field.
+--
+
+[.component,class=step]
+--
+For each ``observations`` field, ensure that one or more valid ``values`` fields exists
+--
+
+=====
+====
