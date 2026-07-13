@@ -1,0 +1,22 @@
+[[ats_transmission-group_node_id]]
+====
+[%metadata]
+label:: /conf/transmission/group_node_id
+subject:: /req/transmission/group_node_id
+test-purpose:: Validate that a group-id or node-id is valid.
+
+[.component,class=test method]
+=====
+[.component,class=step]
+--
+
+Foreach group-id or node-id:
+
+- check that the value is not empty
+- check that the value consists of only lowercase ASCII alphanumeric characters and hyphens (``-``)
+- check that the value does not begin or end with a hyphen (``-``)
+--
+
+=====
+
+====

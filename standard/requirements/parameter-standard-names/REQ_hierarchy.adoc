@@ -9,7 +9,8 @@
 * Level 3: Locally managed vocabularies
 
 ^|B |Locally managed vocabularies SHALL conform to the FAIR Guiding Principles for scientific data management (Findable, Accessible, Interoperable, Reusable). In particular:
-^|C |The vocabulary SHALL be findable via a persistent, unique identifier (the namespace URI).
-^|D |The vocabulary SHALL be accessible at that URI to all parties participating in the data exchange.
-^|E |The vocabulary SHALL use an open, standardised representation (e.g., SKOS/RDF).
+
+* the vocabulary SHALL be findable via a persistent, unique identifier (the namespace URI)
+* the vocabulary SHALL be accessible at that URI to all parties participating in the data exchange
+* the vocabulary SHALL use an open, standardized representation (e.g., SKOS/RDF)
 |===

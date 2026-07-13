@@ -1,0 +1,41 @@
+[[ats_message-encoding-metadata]]
+====
+[%metadata]
+label:: /conf/message-encoding/metadata
+subject:: /req/message-encoding/metadata
+test-purpose:: Validate that a Metadata message is valid to the FMDE schema.
+
+[.component,class=test method]
+=====
+[.component,class=step]
+--
+Open a FirstMileMessage message / file.
+--
+
+[.component,class=step]
+--
+Ensure that the root field is ``metadata``.
+--
+
+[.component,class=step]
+--
+Ensure that the ``metadata`` field contains a valid ``node`` field.
+--
+
+[.component,class=step]
+--
+Ensure that the ``metadata`` field contains at least one valid ``observers`` field.
+--
+
+[.component,class=step]
+--
+Ensure that the ``metadata`` field contains at least one valid ``parameterDefinitions`` field.
+--
+
+[.component,class=step]
+--
+Ensure that the ``metadata`` field contains a valid ``namespaces`` element with at least one namespace prefix / URI mapping.
+--
+
+=====
+====

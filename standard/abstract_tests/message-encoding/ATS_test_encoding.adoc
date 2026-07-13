@@ -9,12 +9,17 @@ test-purpose:: Validate that a message encoding is encoded as Protobuf.
 =====
 [.component,class=step]
 --
-TODO
+Open a FirstMileMessage message / file.
 --
 
 [.component,class=step]
 --
-TODO
+Verify that the file is encoded as Protobuf.
+--
+
+[.component,class=step]
+--
+Verify that the root field is one of ``data`` or ``metadata``.
 --
 
 =====

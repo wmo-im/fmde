@@ -9,3 +9,43 @@ classification:: Target Type:Encoding
 ==== Encoding
 
 include::./message-encoding/ATS_test_encoding.adoc[]
+
+==== Location
+
+include::./message-encoding/ATS_test_location.adoc[]
+
+==== Metadata
+
+include::./message-encoding/ATS_test_metadata.adoc[]
+
+==== Node
+
+include::./message-encoding/ATS_test_node.adoc[]
+
+==== Observer Device
+
+include::./message-encoding/ATS_test_observer_device.adoc[]
+
+==== Parameter Definition
+
+include::./message-encoding/ATS_test_parameter_definition.adoc[]
+
+==== Parameter
+
+include::./message-encoding/ATS_test_parameter.adoc[]
+
+==== DeviceRef
+
+include::./message-encoding/ATS_test_device_ref.adoc[]
+
+==== Data
+
+include::./message-encoding/ATS_test_data.adoc[]
+
+==== Observation
+
+include::./message-encoding/ATS_test_observation.adoc[]
+
+==== Value
+
+include::./message-encoding/ATS_test_value.adoc[]

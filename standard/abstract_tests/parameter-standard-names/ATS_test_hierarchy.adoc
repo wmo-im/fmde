@@ -1,0 +1,36 @@
+[[ats_parameter-standard-names-hierarchy]]
+====
+[%metadata]
+label:: /conf/parameter-standard-names/hierarchy
+subject:: /req/parameter-standard-names/hierarchy
+test-purpose:: Validate that standard names definitions are resolvable and available in open, standardized representations.
+
+[.component,class=test method]
+=====
+[.component,class=step]
+--
+Open a FirstMileMessage message / file.
+--
+
+[.component,class=step]
+--
+Ensure that the root field is ``metadata``.
+--
+
+[.component,class=step]
+--
+Ensure that the ``metadata`` field contains a valid ``namespaces`` map.
+--
+
+[.component,class=step]
+--
+Foreach ``namespace`` field, ensure that the vocabulary / URI is HTTP accessible without authentication or authorization:
+
+- invoke an HTTP request on the vocabulary URI
+- ensure a successful HTTP response
+--
+
+NOTE: Precedence checking and FAIR Guide Principles are not applicable to ATS testing.
+
+=====
+====

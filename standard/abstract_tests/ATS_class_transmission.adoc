@@ -6,6 +6,26 @@ subject:: Requirements Class "Transmission"
 classification:: Target Type:Transmission
 ====
 
-==== Encoding
+==== Protocol
 
-//include::./transmission/ATS_test_encoding.adoc[]
+include::./transmission/ATS_test_protocol.adoc[]
+
+==== Publishing
+
+include::./transmission/ATS_test_publishing.adoc[]
+
+==== Management
+
+include::./transmission/ATS_test_management.adoc[]
+
+==== Versioning
+
+include::./transmission/ATS_test_versioning.adoc[]
+
+==== Conventions
+
+include::./transmission/ATS_test_conventions.adoc[]
+
+==== Group and Node identification
+
+include::./transmission/ATS_test_group_node_id.adoc[]
