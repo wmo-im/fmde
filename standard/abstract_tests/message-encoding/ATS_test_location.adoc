@@ -3,7 +3,7 @@
 [%metadata]
 label:: /conf/message-encoding/location
 subject:: /req/message-encoding/location
-test-purpose:: Validate that a Location message can express the geographic position of a device (either Node or Observer).
+test-purpose:: Validate that a Location message is valid to the FMDE schema.
 
 [.component,class=test method]
 =====

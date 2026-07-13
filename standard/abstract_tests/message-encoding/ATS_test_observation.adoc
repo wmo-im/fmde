@@ -19,12 +19,12 @@ Ensure that the root field is ``data``.
 
 [.component,class=step]
 --
-Ensure that the ``metadata`` field contains a valid ``observation`` field.
+Ensure that the ``data`` field contains a valid ``observations`` field.
 --
 
 [.component,class=step]
 --
-For each ``observation`` field:
+For each ``observations`` field:
 
 - ensure that one or more ``values`` fields are present
 --

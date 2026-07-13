@@ -3,7 +3,7 @@
 [%metadata]
 label:: /conf/parameter-standard-names/hierarchy
 subject:: /req/parameter-standard-names/hierarchy
-test-purpose:: Validate that standard names definitions are resolvable and availble in open, standardized representations.
+test-purpose:: Validate that standard names definitions are resolvable and available in open, standardized representations.
 
 [.component,class=test method]
 =====
