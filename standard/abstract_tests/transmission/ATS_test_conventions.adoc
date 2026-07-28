@@ -1,0 +1,25 @@
+[[ats_transmission-conventions]]
+====
+[%metadata]
+label:: /conf/transmission/conventions
+subject:: /req/transmission/conventions
+test-purpose:: Validate that a given First Mile topic meets the conventions of FMTH.
+
+[.component,class=test method]
+=====
+[.component,class=step]
+--
+Check that all characters in the topic are lowercase.
+--
+
+--
+Check that all characters in the topic are based on ASCII T.50.
+--
+
+--
+Check that no characters in the topic contain dots (``.``).
+--
+
+=====
+
+====

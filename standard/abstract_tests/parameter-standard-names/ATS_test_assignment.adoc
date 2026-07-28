@@ -1,0 +1,33 @@
+[[ats_parameter-standard-names-assignment]]
+====
+[%metadata]
+label:: /conf/parameter-standard-names/assignment
+subject:: /req/parameter-standard-names/assignment
+test-purpose:: Validate that a Parameter message's ``standardNames`` map elements are properly bound to the associated ``namespaces`` map.
+
+[.component,class=test method]
+=====
+[.component,class=step]
+--
+Open a FirstMileMessage message / file.
+--
+
+[.component,class=step]
+--
+Ensure that the root field is ``metadata``.
+--
+
+[.component,class=step]
+--
+Ensure that the ``metadata`` field contains a valid ``namespaces`` map.
+--
+
+[.component,class=step]
+--
+Foreach ``parameterDefinitions`` field:
+
+- ensure the ``standardNames`` key is found in the list of keys in the root ``namespaces`` map.
+--
+
+=====
+====

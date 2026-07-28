@@ -1,0 +1,29 @@
+[[ats_message-encoding-location]]
+====
+[%metadata]
+label:: /conf/message-encoding/location
+subject:: /req/message-encoding/location
+test-purpose:: Validate that a Location message is valid to the FMDE schema.
+
+[.component,class=test method]
+=====
+[.component,class=step]
+--
+Open a FirstMileMessage message / file.
+--
+
+[.component,class=step]
+--
+Ensure that the root field is ``metadata``.
+--
+
+[.component,class=step]
+--
+For all ``node`` or ``observerDevice`` fields:
+
+- ensure that the ``heightMetres`` field is present 
+- ensure that the ``referenceSurface`` field is present with a value per Annex B.2.2
+--
+
+=====
+====

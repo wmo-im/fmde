@@ -1,0 +1,34 @@
+[[ats_parameter-standard-names-declaration]]
+====
+[%metadata]
+label:: /conf/parameter-standard-names/declaration
+subject:: /req/parameter-standard-names/declaration
+test-purpose:: Validate that Metadata namespace declarations are valid to the FMDE schema.
+
+[.component,class=test method]
+=====
+[.component,class=step]
+--
+Open a FirstMileMessage message / file.
+--
+
+[.component,class=step]
+--
+Ensure that the root field is ``metadata``.
+--
+
+[.component,class=step]
+--
+Ensure that the ``metadata`` field contains a valid ``namespaces`` map.
+--
+
+[.component,class=step]
+--
+Foreach namespace map:
+
+- ensure the prefix (key) is non-empty containing only alphanumeric characters and underscores
+- ensure the URI (value) is a resolvable URL by invoking an HTTP request.  Ensure the HTTP response is successful
+--
+
+=====
+====

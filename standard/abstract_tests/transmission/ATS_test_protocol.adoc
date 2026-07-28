@@ -1,0 +1,10 @@
+[[ats_transmission-protocol]]
+====
+[%metadata]
+label:: /conf/transmission/protocol
+subject:: /req/transmission/protocol
+test-purpose:: Validate that a FirstMileMessage are transmitted and published using MQTT.
+
+This requirement is not applicable to ATS testing.
+
+====

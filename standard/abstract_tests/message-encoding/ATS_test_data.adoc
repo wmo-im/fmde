@@ -1,0 +1,26 @@
+[[ats_message-encoding-data]]
+====
+[%metadata]
+label:: /conf/message-encoding/data
+subject:: /req/message-encoding/data
+test-purpose:: Validate that a Data message is valid to the FMDE schema.
+
+[.component,class=test method]
+=====
+[.component,class=step]
+--
+Open a FirstMileMessage message / file.
+--
+
+[.component,class=step]
+--
+Ensure that the root field is ``data``.
+--
+
+[.component,class=step]
+--
+Ensure that the ``data`` field contains at least one ``observations`` field.
+--
+
+=====
+====

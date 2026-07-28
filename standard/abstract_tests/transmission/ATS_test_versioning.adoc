@@ -1,0 +1,10 @@
+[[ats_transmission-versioning]]
+====
+[%metadata]
+label:: /conf/transmission/versioning
+subject:: /req/transmission/versioning
+test-purpose:: Validate that First Mile Topic Hierarchy is properly versioned.
+
+This requirement is not applicable to ATS testing.
+
+====

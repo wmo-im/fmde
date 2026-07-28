@@ -1,0 +1,49 @@
+[[ats_message-encoding-parameter]]
+====
+[%metadata]
+label:: /conf/message-encoding/parameter
+subject:: /req/message-encoding/parameter
+test-purpose:: Validate that a ParameterDefinition message's ``parameters`` field is valid to the FMDE schema.
+
+[.component,class=test method]
+=====
+[.component,class=step]
+--
+Open a FirstMileMessage message / file.
+--
+
+[.component,class=step]
+--
+Ensure that the root field is ``metadata``.
+--
+
+[.component,class=step]
+--
+Ensure that the ``metadata`` field contains a valid ``parameterDefinitions`` field.
+--
+
+[.component,class=step]
+--
+Ensure that the ``parameterDefinitions`` field contains at least one valid ``parameter`` field.
+--
+
+[.component,class=step]
+--
+Verify that each ``parameter`` field contains a ``unit`` field whose value is part of one of the following codelists:
+
+- WMO Register: Code Table C-6: List of units for TDCFs
+- WMO First Mile unit registry
+--
+
+[.component,class=step]
+--
+Ensure that ``cellMethod`` values equal to ``POINT`` has an associated ``cellPeriodSeconds`` value of ``0``.
+--
+
+[.component,class=step]
+--
+Ensure that ``cellMethod`` values not equal to ``POINT`` has an associated ``cellPeriodSeconds`` value greater than ``0``.
+--
+
+=====
+====

@@ -77,7 +77,7 @@ include::../requirements/transmission/REQ_versioning.adoc[]
 
 ==== Conventions
 
-All levels of the topic hierarchy are defined in a consistent manner to support a normalised and predictable structure.
+All levels of the topic hierarchy are defined in a consistent manner to support a normalized and predictable structure.
 
 include::../requirements/transmission/REQ_conventions.adoc[]
 

@@ -1,0 +1,35 @@
+[[ats_message-encoding-device_ref]]
+====
+[%metadata]
+label:: /conf/message-encoding/device_ref
+subject:: /req/message-encoding/device_ref
+test-purpose:: Validate that a Parameter message's `device` field is valid to the FMDE schema.
+
+[.component,class=test method]
+=====
+[.component,class=step]
+--
+Open a FirstMileMessage message / file.
+--
+
+[.component,class=step]
+--
+Ensure that the root field is ``metadata``.
+--
+
+[.component,class=step]
+--
+Ensure that the ``metadata`` field contains a valid ``parameterDefinitions`` field.
+--
+
+[.component,class=step]
+--
+For each ``parameterDefinitions`` ``parameters`` field, ensure that:
+
+- a ``device`` field exists
+- the ``device`` field containers either an ``observerId`` or ``node`` field
+- all ``observerId`` field values are present in a Metadata message's ``observers`` fields
+--
+
+=====
+====
