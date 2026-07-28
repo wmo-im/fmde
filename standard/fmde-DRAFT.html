@@ -96,10 +96,10 @@ body {
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong class="big">World Meteorological Organization</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Date: 2026-07-09</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Date: 2026-07-28</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Version: 0.0.1-DRAFT-2026-07-09</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Version: 0.0.1-DRAFT-2026-07-28</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Document location: TBD</p></td>
@@ -1073,7 +1073,7 @@ Observer device identifiers shall remain stable across Node restarts and metadat
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">G</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>When cellMethod is <code>POINT</code>, the value SHALL be 0, indicating an instantaneous measurement.  For all other cell methods, the value SHALL be greater than 0, indicating the duration of the aggregation period. For example: * A 30-second mean temperature would have a <code>cellMethod</code> value of <code>MEAN</code> and a <code>cellPeriodSeconds</code> value of 30.  An instantaneous wind direction would have a <code>cellMethod</code> value of <code>POINT</code> and a <code>cellPeriodSeconds</code> value of 0. A 5-minute maximum wind gust would have a <code>cellMethod</code> of <code>MAXIMUM</code> and a <code>cellPeriodSeconds</code> value of 300.</p>
+<p>When <code>cellMethod</code> is <code>POINT</code>, the <code>cellPeriodSeconds</code> value SHALL be 0, indicating an instantaneous measurement.  For all other cell methods, the <code>cellPeriodSeconds</code> value SHALL be greater than 0, indicating the duration of the aggregation period. For example: * A 30-second mean temperature would have a <code>cellMethod</code> value of <code>MEAN</code> and a <code>cellPeriodSeconds</code> value of 30.  An instantaneous wind direction would have a <code>cellMethod</code> value of <code>POINT</code> and a <code>cellPeriodSeconds</code> value of 0. A 5-minute maximum wind gust would have a <code>cellMethod</code> of <code>MAXIMUM</code> and a <code>cellPeriodSeconds</code> value of 300.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -1090,7 +1090,7 @@ Observer device identifiers shall remain stable across Node restarts and metadat
 <div class="paragraph">
 <p>The DeviceRef message associates a parameter with the device that measures it. This message uses a oneof element to reference either the node device or a specific observer device.</p>
 </div>
-<table id="req_message-encoding-device-ref" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_message-encoding-device_ref" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -1099,7 +1099,7 @@ Observer device identifiers shall remain stable across Node restarts and metadat
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 8</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/message-encoding/device-ref</strong></p>
+<p><strong>/req/message-encoding/device_ref</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1708,24 +1708,19 @@ Standard name binding is applied in the Parameter message (not the ParameterDefi
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>Locally managed vocabularies SHALL conform to the FAIR Guiding Principles for scientific data management (Findable, Accessible, Interoperable, Reusable). In particular:</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The vocabulary SHALL be findable via a persistent, unique identifier (the namespace URI).</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">D</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The vocabulary SHALL be accessible at that URI to all parties participating in the data exchange.</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">E</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The vocabulary SHALL use an open, standardised representation (e.g., SKOS/RDF).</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the vocabulary SHALL be findable via a persistent, unique identifier (the namespace URI)</p>
+</li>
+<li>
+<p>the vocabulary SHALL be accessible at that URI to all parties participating in the data exchange</p>
+</li>
+<li>
+<p>the vocabulary SHALL use an open, standardized representation (e.g., SKOS/RDF)</p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 </tbody>
@@ -2175,7 +2170,7 @@ Where a standard name exists at Level 1 or Level 2, that standard name is to be 
 <div class="sect3">
 <h4 id="_conventions_2"><a class="anchor" href="#_conventions_2"></a>9.1.7. Conventions</h4>
 <div class="paragraph">
-<p>All levels of the topic hierarchy are defined in a consistent manner to support a normalised and predictable structure.</p>
+<p>All levels of the topic hierarchy are defined in a consistent manner to support a normalized and predictable structure.</p>
 </div>
 <table id="req_transmission_conventions" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -2331,14 +2326,611 @@ Where a standard name exists at Level 1 or Level 2, that standard name is to be 
 <div class="openblock component">
 <div class="content">
 <div class="paragraph">
-<p>TODO</p>
+<p>Open a FirstMileMessage message / file.</p>
 </div>
 </div>
 </div>
 <div class="openblock component">
 <div class="content">
 <div class="paragraph">
-<p>TODO</p>
+<p>Verify that the file is encoded as Protobuf.</p>
+</div>
+</div>
+</div>
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Verify that the root field is one of <code>data</code> or <code>metadata</code>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_location_2"><a class="anchor" href="#_location_2"></a>A.1.2. Location</h4>
+<div id="ats_message-encoding-location" class="exampleblock">
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">label</dt>
+<dd>
+<p>/conf/message-encoding/location</p>
+</dd>
+<dt class="hdlist1">subject</dt>
+<dd>
+<p>/req/message-encoding/location</p>
+</dd>
+<dt class="hdlist1">test-purpose</dt>
+<dd>
+<p>Validate that a Location message is valid to the FMDE schema.</p>
+</dd>
+</dl>
+</div>
+<div class="exampleblock component">
+<div class="content">
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Open a FirstMileMessage message / file.</p>
+</div>
+</div>
+</div>
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Ensure that the root field is <code>metadata</code>.</p>
+</div>
+</div>
+</div>
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>For all <code>node</code> or <code>observerDevice</code> fields:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>ensure that the <code>heightMetres</code> field is present</p>
+</li>
+<li>
+<p>ensure that the <code>referenceSurface</code> field is present with a value per Annex B.2.2</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_metadata_3"><a class="anchor" href="#_metadata_3"></a>A.1.3. Metadata</h4>
+<div id="ats_message-encoding-metadata" class="exampleblock">
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">label</dt>
+<dd>
+<p>/conf/message-encoding/metadata</p>
+</dd>
+<dt class="hdlist1">subject</dt>
+<dd>
+<p>/req/message-encoding/metadata</p>
+</dd>
+<dt class="hdlist1">test-purpose</dt>
+<dd>
+<p>Validate that a Metadata message is valid to the FMDE schema.</p>
+</dd>
+</dl>
+</div>
+<div class="exampleblock component">
+<div class="content">
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Open a FirstMileMessage message / file.</p>
+</div>
+</div>
+</div>
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Ensure that the root field is <code>metadata</code>.</p>
+</div>
+</div>
+</div>
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Ensure that the <code>metadata</code> field contains a valid <code>node</code> field.</p>
+</div>
+</div>
+</div>
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Ensure that the <code>metadata</code> field contains at least one valid <code>observers</code> field.</p>
+</div>
+</div>
+</div>
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Ensure that the <code>metadata</code> field contains at least one valid <code>parameterDefinitions</code> field.</p>
+</div>
+</div>
+</div>
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Ensure that the <code>metadata</code> field contains a valid <code>namespaces</code> element with at least one namespace prefix / URI mapping.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_node_2"><a class="anchor" href="#_node_2"></a>A.1.4. Node</h4>
+<div id="ats_message-encoding-node" class="exampleblock">
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">label</dt>
+<dd>
+<p>/conf/message-encoding/node</p>
+</dd>
+<dt class="hdlist1">subject</dt>
+<dd>
+<p>/req/message-encoding/node</p>
+</dd>
+<dt class="hdlist1">test-purpose</dt>
+<dd>
+<p>Validate that a Metadata message is valid to the FMDE schema.</p>
+</dd>
+</dl>
+</div>
+<div class="exampleblock component">
+<div class="content">
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Open a FirstMileMessage message / file.</p>
+</div>
+</div>
+</div>
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Ensure that the root field is <code>metadata</code>.</p>
+</div>
+</div>
+</div>
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Ensure that the <code>metadata</code> field contains a valid <code>node</code> field.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_observer_device_2"><a class="anchor" href="#_observer_device_2"></a>A.1.5. Observer Device</h4>
+<div id="ats_message-encoding-observer_device" class="exampleblock">
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">label</dt>
+<dd>
+<p>/conf/message-encoding/observer_device</p>
+</dd>
+<dt class="hdlist1">subject</dt>
+<dd>
+<p>/req/message-encoding/observer_device</p>
+</dd>
+<dt class="hdlist1">test-purpose</dt>
+<dd>
+<p>Validate that a Metadata message&#8217;s <code>observers</code> field is valid to the FMDE schema.</p>
+</dd>
+</dl>
+</div>
+<div class="exampleblock component">
+<div class="content">
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Open a FirstMileMessage message / file.</p>
+</div>
+</div>
+</div>
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Ensure that the root field is <code>metadata</code>.</p>
+</div>
+</div>
+</div>
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Ensure that the <code>metadata</code> field contains a valid <code>observers</code> field.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameter_definition_2"><a class="anchor" href="#_parameter_definition_2"></a>A.1.6. Parameter Definition</h4>
+<div id="ats_message-encoding-parameter_definition" class="exampleblock">
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">label</dt>
+<dd>
+<p>/conf/message-encoding/parameter_definition</p>
+</dd>
+<dt class="hdlist1">subject</dt>
+<dd>
+<p>/req/message-encoding/parameter_definition</p>
+</dd>
+<dt class="hdlist1">test-purpose</dt>
+<dd>
+<p>Validate that a Metadata message&#8217;s <code>parameterDefinitions</code> field is valid to the FMDE schema.</p>
+</dd>
+</dl>
+</div>
+<div class="exampleblock component">
+<div class="content">
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Open a FirstMileMessage message / file.</p>
+</div>
+</div>
+</div>
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Ensure that the root field is <code>metadata</code>.</p>
+</div>
+</div>
+</div>
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Ensure that the <code>metadata</code> field contains a valid <code>parameterDefinitions</code> field.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameter"><a class="anchor" href="#_parameter"></a>A.1.7. Parameter</h4>
+<div id="ats_message-encoding-parameter" class="exampleblock">
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">label</dt>
+<dd>
+<p>/conf/message-encoding/parameter</p>
+</dd>
+<dt class="hdlist1">subject</dt>
+<dd>
+<p>/req/message-encoding/parameter</p>
+</dd>
+<dt class="hdlist1">test-purpose</dt>
+<dd>
+<p>Validate that a ParameterDefinition message&#8217;s <code>parameters</code> field is valid to the FMDE schema.</p>
+</dd>
+</dl>
+</div>
+<div class="exampleblock component">
+<div class="content">
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Open a FirstMileMessage message / file.</p>
+</div>
+</div>
+</div>
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Ensure that the root field is <code>metadata</code>.</p>
+</div>
+</div>
+</div>
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Ensure that the <code>metadata</code> field contains a valid <code>parameterDefinitions</code> field.</p>
+</div>
+</div>
+</div>
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Ensure that the <code>parameterDefinitions</code> field contains at least one valid <code>parameter</code> field.</p>
+</div>
+</div>
+</div>
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Verify that each <code>parameter</code> field contains a <code>unit</code> field whose value is part of one of the following codelists:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>WMO Register: Code Table C-6: List of units for TDCFs</p>
+</li>
+<li>
+<p>WMO First Mile unit registry</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Ensure that <code>cellMethod</code> values equal to <code>POINT</code> has an associated <code>cellPeriodSeconds</code> value of <code>0</code>.</p>
+</div>
+</div>
+</div>
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Ensure that <code>cellMethod</code> values not equal to <code>POINT</code> has an associated <code>cellPeriodSeconds</code> value greater than <code>0</code>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deviceref"><a class="anchor" href="#_deviceref"></a>A.1.8. DeviceRef</h4>
+<div id="ats_message-encoding-device_ref" class="exampleblock">
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">label</dt>
+<dd>
+<p>/conf/message-encoding/device_ref</p>
+</dd>
+<dt class="hdlist1">subject</dt>
+<dd>
+<p>/req/message-encoding/device_ref</p>
+</dd>
+<dt class="hdlist1">test-purpose</dt>
+<dd>
+<p>Validate that a Parameter message&#8217;s <code>device</code> field is valid to the FMDE schema.</p>
+</dd>
+</dl>
+</div>
+<div class="exampleblock component">
+<div class="content">
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Open a FirstMileMessage message / file.</p>
+</div>
+</div>
+</div>
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Ensure that the root field is <code>metadata</code>.</p>
+</div>
+</div>
+</div>
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Ensure that the <code>metadata</code> field contains a valid <code>parameterDefinitions</code> field.</p>
+</div>
+</div>
+</div>
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>For each <code>parameterDefinitions</code> <code>parameters</code> field, ensure that:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>a <code>device</code> field exists</p>
+</li>
+<li>
+<p>the <code>device</code> field containers either an <code>observerId</code> or <code>node</code> field</p>
+</li>
+<li>
+<p>all <code>observerId</code> field values are present in a Metadata message&#8217;s <code>observers</code> fields</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_data_2"><a class="anchor" href="#_data_2"></a>A.1.9. Data</h4>
+<div id="ats_message-encoding-data" class="exampleblock">
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">label</dt>
+<dd>
+<p>/conf/message-encoding/data</p>
+</dd>
+<dt class="hdlist1">subject</dt>
+<dd>
+<p>/req/message-encoding/data</p>
+</dd>
+<dt class="hdlist1">test-purpose</dt>
+<dd>
+<p>Validate that a Data message is valid to the FMDE schema.</p>
+</dd>
+</dl>
+</div>
+<div class="exampleblock component">
+<div class="content">
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Open a FirstMileMessage message / file.</p>
+</div>
+</div>
+</div>
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Ensure that the root field is <code>data</code>.</p>
+</div>
+</div>
+</div>
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Ensure that the <code>data</code> field contains at least one <code>observations</code> field.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_observation_3"><a class="anchor" href="#_observation_3"></a>A.1.10. Observation</h4>
+<div id="ats_message-encoding-observation" class="exampleblock">
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">label</dt>
+<dd>
+<p>/conf/message-encoding/observation</p>
+</dd>
+<dt class="hdlist1">subject</dt>
+<dd>
+<p>/req/message-encoding/observation</p>
+</dd>
+<dt class="hdlist1">test-purpose</dt>
+<dd>
+<p>Validate that an Observation message is valid to the FMDE schema.</p>
+</dd>
+</dl>
+</div>
+<div class="exampleblock component">
+<div class="content">
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Open a FirstMileMessage message / file.</p>
+</div>
+</div>
+</div>
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Ensure that the root field is <code>data</code>.</p>
+</div>
+</div>
+</div>
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Ensure that the <code>data</code> field contains a valid <code>observations</code> field.</p>
+</div>
+</div>
+</div>
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>For each <code>observations</code> field:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>ensure that one or more <code>values</code> fields are present</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_value_2"><a class="anchor" href="#_value_2"></a>A.1.11. Value</h4>
+<div id="ats_message-encoding-value" class="exampleblock">
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">label</dt>
+<dd>
+<p>/conf/message-encoding/value</p>
+</dd>
+<dt class="hdlist1">subject</dt>
+<dd>
+<p>/req/message-encoding/value</p>
+</dd>
+<dt class="hdlist1">test-purpose</dt>
+<dd>
+<p>Validate that an Observation message&#8217;s value field is valid to the FMDE schema.</p>
+</dd>
+</dl>
+</div>
+<div class="exampleblock component">
+<div class="content">
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Open a FirstMileMessage message / file.</p>
+</div>
+</div>
+</div>
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Ensure that the root field is <code>data</code>.</p>
+</div>
+</div>
+</div>
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Ensure that the <code>data</code> field contains a valid <code>observations</code> field.</p>
+</div>
+</div>
+</div>
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>For each <code>observations</code> field, ensure that one or more valid <code>values</code> fields exists</p>
 </div>
 </div>
 </div>
@@ -2371,8 +2963,208 @@ Where a standard name exists at Level 1 or Level 2, that standard name is to be 
 </div>
 </div>
 <div class="sect3">
-<h4 id="_encoding_2"><a class="anchor" href="#_encoding_2"></a>A.2.1. Encoding</h4>
-
+<h4 id="_metadata_namespace_declaration_2"><a class="anchor" href="#_metadata_namespace_declaration_2"></a>A.2.1. Metadata namespace declaration</h4>
+<div id="ats_parameter-standard-names-declaration" class="exampleblock">
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">label</dt>
+<dd>
+<p>/conf/parameter-standard-names/declaration</p>
+</dd>
+<dt class="hdlist1">subject</dt>
+<dd>
+<p>/req/parameter-standard-names/declaration</p>
+</dd>
+<dt class="hdlist1">test-purpose</dt>
+<dd>
+<p>Validate that Metadata namespace declarations are valid to the FMDE schema.</p>
+</dd>
+</dl>
+</div>
+<div class="exampleblock component">
+<div class="content">
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Open a FirstMileMessage message / file.</p>
+</div>
+</div>
+</div>
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Ensure that the root field is <code>metadata</code>.</p>
+</div>
+</div>
+</div>
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Ensure that the <code>metadata</code> field contains a valid <code>namespaces</code> map.</p>
+</div>
+</div>
+</div>
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Foreach namespace map:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>ensure the prefix (key) is non-empty containing only alphanumeric characters and underscores</p>
+</li>
+<li>
+<p>ensure the URI (value) is a resolvable URL by invoking an HTTP request.  Ensure the HTTP response is successful</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_standard_name_assignment_2"><a class="anchor" href="#_standard_name_assignment_2"></a>A.2.2. Standard name assignment</h4>
+<div id="ats_parameter-standard-names-assignment" class="exampleblock">
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">label</dt>
+<dd>
+<p>/conf/parameter-standard-names/assignment</p>
+</dd>
+<dt class="hdlist1">subject</dt>
+<dd>
+<p>/req/parameter-standard-names/assignment</p>
+</dd>
+<dt class="hdlist1">test-purpose</dt>
+<dd>
+<p>Validate that a Parameter message&#8217;s <code>standardNames</code> map elements are properly bound to the associated <code>namespaces</code> map.</p>
+</dd>
+</dl>
+</div>
+<div class="exampleblock component">
+<div class="content">
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Open a FirstMileMessage message / file.</p>
+</div>
+</div>
+</div>
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Ensure that the root field is <code>metadata</code>.</p>
+</div>
+</div>
+</div>
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Ensure that the <code>metadata</code> field contains a valid <code>namespaces</code> map.</p>
+</div>
+</div>
+</div>
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Foreach <code>parameterDefinitions</code> field:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>ensure the <code>standardNames</code> key is found in the list of keys in the root <code>namespaces</code> map.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_standard_name_hierarchy_2"><a class="anchor" href="#_standard_name_hierarchy_2"></a>A.2.3. Standard name hierarchy</h4>
+<div id="ats_parameter-standard-names-hierarchy" class="exampleblock">
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">label</dt>
+<dd>
+<p>/conf/parameter-standard-names/hierarchy</p>
+</dd>
+<dt class="hdlist1">subject</dt>
+<dd>
+<p>/req/parameter-standard-names/hierarchy</p>
+</dd>
+<dt class="hdlist1">test-purpose</dt>
+<dd>
+<p>Validate that standard names definitions are resolvable and available in open, standardized representations.</p>
+</dd>
+</dl>
+</div>
+<div class="exampleblock component">
+<div class="content">
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Open a FirstMileMessage message / file.</p>
+</div>
+</div>
+</div>
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Ensure that the root field is <code>metadata</code>.</p>
+</div>
+</div>
+</div>
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Ensure that the <code>metadata</code> field contains a valid <code>namespaces</code> map.</p>
+</div>
+</div>
+</div>
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Foreach <code>namespace</code> field, ensure that the vocabulary / URI is HTTP accessible without authentication or authorization:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>invoke an HTTP request on the vocabulary URI</p>
+</li>
+<li>
+<p>ensure a successful HTTP response</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+Precedence checking and FAIR Guide Principles are not applicable to ATS testing.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -2398,8 +3190,203 @@ Where a standard name exists at Level 1 or Level 2, that standard name is to be 
 </div>
 </div>
 <div class="sect3">
-<h4 id="_encoding_3"><a class="anchor" href="#_encoding_3"></a>A.3.1. Encoding</h4>
-
+<h4 id="_protocol_3"><a class="anchor" href="#_protocol_3"></a>A.3.1. Protocol</h4>
+<div id="ats_transmission-protocol" class="exampleblock">
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">label</dt>
+<dd>
+<p>/conf/transmission/protocol</p>
+</dd>
+<dt class="hdlist1">subject</dt>
+<dd>
+<p>/req/transmission/protocol</p>
+</dd>
+<dt class="hdlist1">test-purpose</dt>
+<dd>
+<p>Validate that a FirstMileMessage are transmitted and published using MQTT.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>This requirement is not applicable to ATS testing.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_publishing_2"><a class="anchor" href="#_publishing_2"></a>A.3.2. Publishing</h4>
+<div id="ats_transmission-publishing" class="exampleblock">
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">label</dt>
+<dd>
+<p>/conf/transmission/publishing</p>
+</dd>
+<dt class="hdlist1">subject</dt>
+<dd>
+<p>/req/transmission/publishing</p>
+</dd>
+<dt class="hdlist1">test-purpose</dt>
+<dd>
+<p>Validate that a FirstMileMessage is transmitted and published using MQTT.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>This requirement is not applicable to ATS testing.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_management_2"><a class="anchor" href="#_management_2"></a>A.3.3. Management</h4>
+<div id="ats_transmission-management" class="exampleblock">
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">label</dt>
+<dd>
+<p>/conf/transmission/management</p>
+</dd>
+<dt class="hdlist1">subject</dt>
+<dd>
+<p>/req/transmission/management</p>
+</dd>
+<dt class="hdlist1">test-purpose</dt>
+<dd>
+<p>Validate that the First Mile Topic Hierarchy is properly managed.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>This requirement is not applicable to ATS testing.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_versioning_2"><a class="anchor" href="#_versioning_2"></a>A.3.4. Versioning</h4>
+<div id="ats_transmission-versioning" class="exampleblock">
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">label</dt>
+<dd>
+<p>/conf/transmission/versioning</p>
+</dd>
+<dt class="hdlist1">subject</dt>
+<dd>
+<p>/req/transmission/versioning</p>
+</dd>
+<dt class="hdlist1">test-purpose</dt>
+<dd>
+<p>Validate that First Mile Topic Hierarchy is properly versioned.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>This requirement is not applicable to ATS testing.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_conventions_3"><a class="anchor" href="#_conventions_3"></a>A.3.5. Conventions</h4>
+<div id="ats_transmission-conventions" class="exampleblock">
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">label</dt>
+<dd>
+<p>/conf/transmission/conventions</p>
+</dd>
+<dt class="hdlist1">subject</dt>
+<dd>
+<p>/req/transmission/conventions</p>
+</dd>
+<dt class="hdlist1">test-purpose</dt>
+<dd>
+<p>Validate that a given First Mile topic meets the conventions of FMTH.</p>
+</dd>
+</dl>
+</div>
+<div class="exampleblock component">
+<div class="content">
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Check that all characters in the topic are lowercase.</p>
+</div>
+</div>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>Check that all characters in the topic are based on ASCII T.50.</p>
+</div>
+</div>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>Check that no characters in the topic contain dots (<code>.</code>).</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_group_and_node_identification_2"><a class="anchor" href="#_group_and_node_identification_2"></a>A.3.6. Group and Node identification</h4>
+<div id="ats_transmission-group_node_id" class="exampleblock">
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">label</dt>
+<dd>
+<p>/conf/transmission/group_node_id</p>
+</dd>
+<dt class="hdlist1">subject</dt>
+<dd>
+<p>/req/transmission/group_node_id</p>
+</dd>
+<dt class="hdlist1">test-purpose</dt>
+<dd>
+<p>Validate that a group-id or node-id is valid.</p>
+</dd>
+</dl>
+</div>
+<div class="exampleblock component">
+<div class="content">
+<div class="openblock component">
+<div class="content">
+<div class="paragraph">
+<p>Foreach group-id or node-id:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>check that the value is not empty</p>
+</li>
+<li>
+<p>check that the value consists of only lowercase ASCII alphanumeric characters and hyphens (<code>-</code>)</p>
+</li>
+<li>
+<p>check that the value does not begin or end with a hyphen (<code>-</code>)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -3131,7 +4118,7 @@ The choice of reference surface is determined by the user based on the measureme
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-07-09 22:54:37 UTC
+Last updated 2026-07-28 11:19:59 UTC
 </div>
 </div>
 </body>
