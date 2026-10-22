@@ -96,10 +96,10 @@ body {
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong class="big">World Meteorological Organization</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Date: 2026-07-28</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Date: 2026-10-22</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Version: 0.0.1-DRAFT-2026-07-28</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Version: 0.0.1-DRAFT-2026-10-22</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Document location: TBD</p></td>
@@ -1942,22 +1942,16 @@ Where a standard name exists at Level 1 or Level 2, that standard name is to be 
 <div class="sect3">
 <h4 id="_topic_hierarchy"><a class="anchor" href="#_topic_hierarchy"></a>9.1.3. Topic Hierarchy</h4>
 <div class="paragraph">
-<p>The First Mile Topic Hierarchy is composed of five mandatory levels.  The representation is encoded as a simple text string of values at each topic level, separated by a slash (<code>/</code>).</p>
+<p>The First Mile Topic Hierarchy is composed of four mandatory levels.  The representation is encoded as a simple text string of values at each topic level, separated by a slash (<code>/</code>).</p>
 </div>
 <div class="paragraph">
 <p><em>Examples</em>:</p>
 </div>
 <div class="paragraph">
-<p><code>firstmile/a/my-group/station-001/data</code></p>
+<p><code>firstmile/a/my-group/station-001</code></p>
 </div>
 <div class="paragraph">
-<p><code>firstmile/a/my-group/station-001/metadata</code></p>
-</div>
-<div class="paragraph">
-<p><code>firstmile/a/relief-ops/camp-alpha/data</code></p>
-</div>
-<div class="paragraph">
-<p><code>firstmile/a/relief-ops/camp-alpha/metadata</code></p>
+<p><code>firstmile/a/relief-ops/camp-alpha</code></p>
 </div>
 <div class="paragraph">
 <p>The table below provides an overview of the topic levels.</p>
@@ -1997,11 +1991,6 @@ Where a standard name exists at Level 1 or Level 2, that standard name is to be 
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">node-id</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Identifier for the individual first-mile node (e.g. gateway, automatic weather station, data logger)</p></td>
 </tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">5</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">notification-type</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The type of notification: either <code>data</code> or <code>metadata</code>.</p></td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -2031,29 +2020,17 @@ Where a standard name exists at Level 1 or Level 2, that standard name is to be 
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>A Metadata message SHALL be published at exactly the level of the notification type (<code>metadata</code>).</p>
+<p>Metadata messages SHALL be published before any data notifications for the same Node id are published. This ensures that consuming systems have access to the necessary metadata to interpret the data correctly.</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>A Data message SHALL be published at exactly the level of the notification type (<code>data</code>).</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">D</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Metadata messages SHALL be published before any data notifications for the same Node id are published. This ensures that consuming systems have access to the necessary metadata to interpret the data correctly.</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">E</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>Metadata messages SHALL be published with the retain flag set to <strong>true</strong>.</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">F</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">D</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>Metadata messages SHALL be published at least once every 24 hours and immediately after any change in the Node configuration that would affect the Metadata message content.</p>
 </div></div></td>
@@ -4118,7 +4095,7 @@ The choice of reference surface is determined by the user based on the measureme
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-07-28 11:19:59 UTC
+Last updated 2026-10-22 14:42:24 UTC
 </div>
 </div>
 </body>
